@@ -95,7 +95,7 @@
 {
     width: 100%;
     height: 100vh;
-    background: #f5f6f7;
+    background: #f0f2f5;
     position: relative;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -852,6 +852,7 @@
   font-weight: 500;
   display: inline-flex;
   color: #171717;
+  /* align-items: center; */
 }
 .main_div .main_content .main_vids .des.d_active
 {
@@ -859,7 +860,6 @@
 }
 .main_div .main_content .main_vids .des span
 {
-  margin-right: 10px;
   font-weight: 600;
 }
 .main_div .main_content .main_vids .des .v_desp
@@ -868,6 +868,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-left: 5px;
 }
 .main_div .main_content .main_vids .des .v_desp.active
 {
@@ -1046,20 +1047,30 @@
 }
 .main_div .main_profile_div .all_content .profile_videos_div
 {
-  width: 100%;
+  width: 70%;
   height: auto;
-  padding: 0 0 30px 0;
-  display: flex;
-  flex-direction: row-reverse;
-  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 20px 15px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
+}
+.main_div .main_profile_div .all_content .profile_videos_div.d_active
+{
+  background: #27272a;
 }
 .main_div .main_profile_div .all_content .profile_videos_div .videos
 {
-  width: 350px;
-  height: 200px;
-  margin: 5px auto;
+  /* min-width: 160px; */
+  height: 160px;
   position: relative;
-  background: #000;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
   
 }
 .main_div .main_profile_div .all_content .profile_videos_div .videos img,
@@ -1068,20 +1079,21 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.main_div .main_profile_div .all_content .profile_videos_div .videos img
-{
-  object-fit: contain;
+  border-radius: 8px;
 }
 .main_div .main_profile_div .all_content .profile_videos_div .deletevideo
 {
   position: absolute;
-  top: 8px;
-  right: 9px;
+  top: 5px;
+  right: 5px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
 }
 .main_div .main_profile_div .all_content .profile_videos_div .deletevideo i
 {
   color: #fff;
+  font-size: 15px;
 }
 .main_div .main_profile_div .all_content .profile_videos_div .deletevideo i:hover
 {
@@ -1092,7 +1104,7 @@
 .main_div .alert_box
 {
   background: #fff;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
@@ -1508,10 +1520,17 @@
 {
   font-size: 16px;
 }
+.main_div .main_profile_div .all_content .profile_videos_div
+{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
 .main_div .main_profile_div .all_content .profile_videos_div .videos
 {
-  width: 160px;
-  height: 100px;
+  max-width: 250px;
+  max-height: 200px;
 }
 /* profile edit section */
 .main_div .main_profile_div .all_content .profile_name_change

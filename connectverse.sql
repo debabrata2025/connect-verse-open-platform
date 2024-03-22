@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2024 at 04:15 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Mar 22, 2024 at 09:47 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,8 @@ CREATE TABLE `demodata` (
 --
 
 INSERT INTO `demodata` (`id`, `name`, `email`, `phone`, `password`, `cpassword`, `image`, `token`, `status`) VALUES
-(54, 'Debabrata santra', 'ds2357196@gmail.com', '07319256047', '$2y$10$Rp9Gx3qfJneGnFFkf6aFSOu9uHx62KBUEwyQ1Sc1klPR.PEvnOeDi', '$2y$10$cFT2SL3kEl8c06Zw8uMiPuXpF5X9helBaLq10/67onBB7s7TDh20q', 'pimg/Screenshot 2024-02-21 184215.png', '', '');
+(54, 'Debabrata santra', 'ds2357196@gmail.com', '07319256047', '$2y$10$Rp9Gx3qfJneGnFFkf6aFSOu9uHx62KBUEwyQ1Sc1klPR.PEvnOeDi', '$2y$10$cFT2SL3kEl8c06Zw8uMiPuXpF5X9helBaLq10/67onBB7s7TDh20q', 'pimg/Screenshot 2024-02-21 184215.png', '', ''),
+(55, 'radhe debu', 'd@gmail.com', '123654', '$2y$10$1KrRAt5HKUqHmt6PDVcnW.ioCxxFDUdYeyxEK8CEY4IOJVfMHgjQW', '$2y$10$IPt.OPe7pGWxCnFEk4eu5OzwHMuxmahXzB9P504Y5Q5xoz3Cl3Oy2', 'pimg/1000060164.png', '', '');
 
 -- --------------------------------------------------------
 
@@ -95,8 +96,14 @@ CREATE TABLE `main_content` (
 --
 
 INSERT INTO `main_content` (`id`, `username`, `profileimg`, `video`, `desp`, `email`) VALUES
-(48, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/Screenshot 2024-01-12 201643.png', '', 'ds2357196@gmail.com'),
-(49, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/Screenshot 2024-01-12 191819.png', '', 'ds2357196@gmail.com');
+(49, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/Screenshot 2024-01-12 191819.png', '', 'ds2357196@gmail.com'),
+(50, 'radhe debu', 'pimg/1000060164.png', 'mainmedia/PXL_20240313_143312693.MP.jpg', '', 'd@gmail.com'),
+(51, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_123527754.jpg', '', 'ds2357196@gmail.com'),
+(52, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_132229187.jpg', '', 'ds2357196@gmail.com'),
+(54, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240315_140218587.MP (1).jpg', '', 'ds2357196@gmail.com'),
+(55, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/1000060164.png', '', 'ds2357196@gmail.com'),
+(56, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_131634943.jpg', 'Radhe Radhe ❤️', 'ds2357196@gmail.com'),
+(57, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_132053466.jpg', 'Life is not about waiting for the storm to pass, but learning to dance in the rain.❤️❤️❤️', 'ds2357196@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -128,7 +135,7 @@ ALTER TABLE `main_content`
 -- AUTO_INCREMENT for table `demodata`
 --
 ALTER TABLE `demodata`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `mailtable`
@@ -140,7 +147,7 @@ ALTER TABLE `mailtable`
 -- AUTO_INCREMENT for table `main_content`
 --
 ALTER TABLE `main_content`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

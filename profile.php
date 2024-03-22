@@ -165,7 +165,7 @@ if (!isset($_SESSION['name'])) {
                         <?php
                         include 'connection.php';
                         $email = $_SESSION['pemail'];
-                        $videoselect = "select * from main_content where email='$email'";
+                        $videoselect = "select * from main_content where email='$email' ORDER BY id DESC";
                         $videoquery = mysqli_query($con, $videoselect);
                         while ($totalvideo = mysqli_fetch_array($videoquery)) {
                             ?>
@@ -195,7 +195,7 @@ if (!isset($_SESSION['name'])) {
                                     <p>Are you sure you want to delete your video?</p>
                                 </div>
                                 <div class="dlt_btn">
-                                    <a href="#" class='btn_class' id="cl">cancel</a>
+                                    <a href="#" class='btn_class cl'>cancel</a>
                                     <a href="deletecontent.php?id=<?php echo $totalvideo['id']; ?>"
                                         class="btn_class active">
                                         confirm
@@ -240,15 +240,15 @@ if (!isset($_SESSION['name'])) {
 
         //delete video
         let dltbtn = document.querySelectorAll('.fa-trash');
-        let alert_box = document.querySelector('.alert_box');
-        const cancelbtn = document.querySelectorAll('#cl');
+        let alert_box = document.querySelectorAll('.alert_box');
+        const cancelbtn = document.querySelectorAll('.cl');
 
         for (let i = 0; i < dltbtn.length; i++) {
             dltbtn[i].onclick = () => {
-                alert_box.style.display = 'block';
+                alert_box[i].style.display = 'block';
             }
-            cancelbtn[i].onclick = () => {
-                alert_box.style.display = 'none';
+            cancelbtn[i].onclick = (e) => {
+                alert_box[i].style.display = 'none';
             }
         }
 

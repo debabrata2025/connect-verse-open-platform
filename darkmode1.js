@@ -7,6 +7,7 @@ const penicon = document.querySelector('.fa-pen-to-square');
 const pdes = document.querySelector('.profile_des');
 const navtext = document.querySelectorAll('.dtext');
 const logout = document.querySelector('.fa-sign-out');
+const profile_videos_div = document.querySelector('.profile_videos_div');
 
 let getmode = localStorage.getItem("mode");
 
@@ -19,6 +20,7 @@ if(getmode && getmode === "dark"){
     logout.classList.add('d_active');
     pdes.classList.add('d_active');
     username.classList.add('d_active');
+    profile_videos_div.classList.add('d_active');
     navtext.forEach((item)=>{
         item.classList.add('d_active');
     })
@@ -41,6 +43,7 @@ dbtn.addEventListener('click', () => {
     penicon.classList.toggle('d_active');
     pdes.classList.toggle('d_active');
     username.classList.toggle('d_active');
+    profile_videos_div.classList.toggle('d_active');
     navtext.forEach((item)=>{
         item.classList.toggle('d_active');
     })
