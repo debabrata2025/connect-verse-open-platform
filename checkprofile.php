@@ -108,7 +108,7 @@ if (!isset($_SESSION['name'])) {
                         <?php
                         include 'connection.php';
                         $email = $_GET['useremail'];
-                        $videoselect = "select * from main_content where email='$email'";
+                        $videoselect = "select * from main_content where email='$email' ORDER BY id DESC";
                         $videoquery = mysqli_query($con, $videoselect);
                         while ($totalvideo = mysqli_fetch_array($videoquery)) {
                             ?>

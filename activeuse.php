@@ -24,7 +24,7 @@ session_start();
     </div>
 	<div class="main">
         <div class="head">
-            <h2>Active Users</h2>
+            <h2 class="ac_head">Active Users</h2>
         </div>
         <div class="btn_div">
         <?php
@@ -63,6 +63,20 @@ session_start();
             preloader.style.display = 'none';
             clearInterval(myinterval);
         }, 2000);
+
+
+        //darkmode
+        const main_div = document.querySelector('.main');
+        const head = document.querySelector('.ac_head');
+        const btn_div = document.querySelector('.btn_div');
+
+        let getmode =localStorage.getItem("mode");
+
+        if(getmode && getmode == "dark"){
+            main_div.classList.add('d_active');
+            head.classList.add('d_active');
+            btn_div.classList.add('d_active');
+        }
 </script>
 </body>
 </html>
