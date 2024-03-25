@@ -99,6 +99,7 @@ if (!isset($_SESSION['name'])) {
                     <ul>
                         <li><a href="#top" class="dtext">new-post</a></li>
                         <li class="comments"><a href="#" class="dtext">comments</a></li>
+                        <li class="comments"><a href="community.php" class="dtext">community</a></li>
                         <li><a href="activeuse.php" class="dtext">active-user</a></li>
                         <li class="faq"><a href="#" class="dtext" id="faq">faq</a></li>
                         <li>
