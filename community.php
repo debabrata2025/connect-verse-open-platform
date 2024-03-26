@@ -40,7 +40,7 @@ if (!isset ($_SESSION['name'])) {
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="profile.php">
                             <div class="profile" tooltip="profile" flow="down">
                                 <img src="<?php echo $_SESSION['pimg']; ?>" alt="profile_img">
                             </div>
@@ -91,7 +91,8 @@ if (!isset ($_SESSION['name'])) {
                 <?php
                 include 'connection.php';
                 if (isset ($_POST['q_submit'])) {
-                    $question_a = mysqli_real_escape_string($con, $_POST['question_ask']);
+                    $qa_a = nl2br($_POST['question_ask']);
+                    $question_a = mysqli_real_escape_string($con, $qa_a);
                     $user_nam = $_SESSION['name'];
                     $user_i = $_SESSION['pimg'];
                     $ques_t = $_POST['ques_t'];
@@ -101,6 +102,7 @@ if (!isset ($_SESSION['name'])) {
                         ?>
                         <script>
                             console.log("sent");
+                            window.location = "community.php";
                         </script>
                         <?php
                     } else {
@@ -131,7 +133,7 @@ if (!isset ($_SESSION['name'])) {
                     </div>
                 </div>
             </form>
-
+            <!-- display qna-->
             <div class="main_con">
 
                 <?php
@@ -176,7 +178,8 @@ if (!isset ($_SESSION['name'])) {
                                         $qid = $arraydata['qid'];
                                         $userimg = $_SESSION['pimg'];
                                         $p_time = $_POST['q_post'];
-                                        $ans = mysqli_real_escape_string($con, $_POST['a_area']);
+                                        $ans_a = nl2br($_POST['a_area']);
+                                        $ans = mysqli_real_escape_string($con, $ans_a);
                                         $username = $_SESSION['name'];
                                         $ans_in = "insert into answer(qid,ans,user_img,u_name, posttime) values('$qid','$ans','$userimg','$username','$p_time')";
                                         $ans_q = mysqli_query($con, $ans_in);
@@ -184,6 +187,7 @@ if (!isset ($_SESSION['name'])) {
                                             ?>
                                             <script>
                                                 console.log("ans sent");
+                                                window.location = "community.php";
                                             </script>
                                             <?php
                                         } else {

@@ -37,7 +37,8 @@ if (!isset($_SESSION['name'])) {
             if (isset($_POST['submit'])) {
                 $username = $_SESSION['name'];
                 $profile_img = $_SESSION['pimg'];
-                $vid_desp = mysqli_real_escape_string($con, $_POST['ccdes']);
+                $v_des_c = nl2br($_POST['ccdes']);
+                $vid_desp = mysqli_real_escape_string($con, $v_des_c);
                 $file = $_FILES['media'];
                 $p_email = $_SESSION['pemail'];
                 // print_r($file);
@@ -47,36 +48,23 @@ if (!isset($_SESSION['name'])) {
 
                 if ($fileerror == 0) {
                     $destpath = 'mainmedia/' . $filename;
-                    move_uploaded_file($filepath, $destpath);
-                    //same file present or not 
-                    $checkname = "select * from main_content where video='$destpath'";
-                    $checkquery = mysqli_query($con, $checkname);
-                    $videocount = mysqli_num_rows($checkquery);
-
-                    if ($videocount > 0) {
+                    move_uploaded_file($filepath, $destpath);   
+                    // username	profileimg	video	desp
+                    $fileinsert = "insert into main_content(username,profileimg,video,desp,email) 
+                    values('$username','$profile_img','$destpath','$vid_desp','$p_email')";
+                    $iquery = mysqli_query($con, $fileinsert);
+                    if ($iquery) {
                         ?>
                         <script>
-                            alert("post done");
+                            window.location = "home.php";
                         </script>
                         <?php
                     } else {
-                        // username	profileimg	video	desp
-                        $fileinsert = "insert into main_content(username,profileimg,video,desp,email) 
-                        values('$username','$profile_img','$destpath','$vid_desp','$p_email')";
-                        $iquery = mysqli_query($con, $fileinsert);
-                        if ($iquery) {
-                            ?>
-                            <script>
-                                alert("uploaded");
-                            </script>
-                            <?php
-                        } else {
-                            ?>
-                            <script>
-                                alert("not uploaded");
-                            </script>
-                            <?php
-                        }
+                        ?>
+                        <script>
+                            alert("not uploaded");
+                        </script>
+                        <?php
                     }
                 } else {
                     ?>
@@ -259,7 +247,8 @@ if (!isset($_SESSION['name'])) {
                 $cname = $_SESSION['name'];
                 $cimg = $_SESSION['pimg'];
                 $cemail = $_SESSION['pemail'];
-                $cmsg = mysqli_real_escape_string($con, $_POST['umsg']);
+                $c_cc_m = nl2br($_POST['umsg']);
+                $cmsg = mysqli_real_escape_string($con, $c_cc_m);
                 $cmsgdate = date("d-m-y");
 
                 $cmsginsert = "insert into mailtable(name,image,msg,email,msgdate) values('$cname','$cimg','$cmsg','$cemail','$cmsgdate')";
@@ -267,7 +256,7 @@ if (!isset($_SESSION['name'])) {
                 if ($cinsertquery) {
                     ?>
                     <script>
-                        alert("msg sent");
+                        window.location = "home.php";
                     </script>
                     <?php
                 } else {
@@ -296,7 +285,7 @@ if (!isset($_SESSION['name'])) {
                 <hr>
                 <?php
                 include 'connection.php';
-                $mailshow = "select * from mailtable";
+                $mailshow = "select * from mailtable order by id desc";
                 $mailshowquery = mysqli_query($con, $mailshow);
                 while ($maildata = mysqli_fetch_array($mailshowquery)) {
                     ?>

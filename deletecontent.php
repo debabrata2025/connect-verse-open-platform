@@ -10,14 +10,14 @@
   if($videodelquery){
     ?>
       <script>
-        alert("video deleted");
+        alert("deleted");
         location.replace("profile.php");
       </script>
     <?php
   }else{
     ?>
       <script>
-        alert("video not deleted");
+        alert("not deleted");
         location.replace("profile.php");
       </script>
     <?php
