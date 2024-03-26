@@ -367,7 +367,6 @@ body
 /* ask question  */
 .main_div .main_cc .ask_ques
 {   
-    top: 0;  
     width: 50%;
     margin: 0 auto 0;
     background: #fff;
@@ -378,7 +377,7 @@ body
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    top: 9%;
+    top: 70px;
 }
 .main_div .main_cc .ask_ques.d_active
 {
@@ -933,7 +932,7 @@ body
 
   .main_div .main_cc .ask_ques {
     width: 90%;
-    top: 9%;
+    top: 52px;
     padding: 15px 10px 15px;
 }
 
