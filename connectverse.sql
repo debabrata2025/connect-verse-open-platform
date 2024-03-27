@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2024 at 09:47 PM
+-- Generation Time: Mar 27, 2024 at 03:41 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `connectverse`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `answer`
+--
+
+CREATE TABLE `answer` (
+  `aid` int(255) NOT NULL,
+  `qid` varchar(255) NOT NULL,
+  `ans` mediumtext NOT NULL,
+  `user_img` varchar(255) NOT NULL,
+  `u_name` varchar(255) NOT NULL,
+  `posttime` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `answer`
+--
+
+INSERT INTO `answer` (`aid`, `qid`, `ans`, `user_img`, `u_name`, `posttime`) VALUES
+(68, '65', '5 steps to learn DSA from scratch<br />\r\nLearn at least one Programming Language<br />\r\nLearn about Complexities<br />\r\nLearn Data Structure and Algorithms<br />\r\n1) Array<br />\r\n2) String<br />\r\n3) Linked List<br />\r\n4) Searching Algorithm<br />\r\n5) Sorting Algorithm<br />\r\n6) Divide and Conquer Algorithm<br />\r\n7) Stack<br />\r\n8) Queue<br />\r\n9) Tree Data Structure<br />\r\n10) Graph Data Structure<br />\r\n11) Greedy Methodology<br />\r\n12) Recursion<br />\r\n13) Backtracking Algorithm<br />\r\n14) Dynamic Programming<br />\r\nPractice, practice and practice more<br />\r\nCompete and become a pro', 'pimg/1000060164.png', 'radhe debu', '1711546656256'),
+(69, '66', 'Self-improvement Tips to Try<br />\r\n1. Evaluate what isn\'t working and change it. We all have habits that don\'t serve us. ...<br />\r\n2. Set realistic goals. ...<br />\r\nMake a list of small changes you can make in your daily routine. ...<br />\r\n3. Invest in your health. ...<br />\r\nSurround yourself with people who want to see you do well. ...<br />\r\n4. Be patient with yourself.', 'pimg/Screenshot 2024-02-21 184215.png', 'Debabrata santra', '1711546707462');
 
 -- --------------------------------------------------------
 
@@ -69,12 +92,9 @@ CREATE TABLE `mailtable` (
 INSERT INTO `mailtable` (`id`, `name`, `image`, `msg`, `email`, `msgdate`) VALUES
 (73, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'good night', 'ds2357196@gmail.com', '09-03-24'),
 (74, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'swwet dream\r\n', 'ds2357196@gmail.com', '09-03-24'),
-(75, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'swwet dream\r\n', 'ds2357196@gmail.com', '09-03-24'),
-(76, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'swwet dream\r\n', 'ds2357196@gmail.com', '09-03-24'),
-(77, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'swwet dream\r\n', 'ds2357196@gmail.com', '09-03-24'),
-(78, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'swwet dream\r\n', 'ds2357196@gmail.com', '09-03-24'),
-(79, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'swwet dream\r\n', 'ds2357196@gmail.com', '09-03-24'),
-(80, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'swwet dream\r\n', 'ds2357196@gmail.com', '09-03-24');
+(81, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'hi', 'ds2357196@gmail.com', '26-03-24'),
+(83, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'hello', 'ds2357196@gmail.com', '26-03-24'),
+(86, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'hi<br />hello<br />debu', 'ds2357196@gmail.com', '27-03-24');
 
 -- --------------------------------------------------------
 
@@ -103,11 +123,42 @@ INSERT INTO `main_content` (`id`, `username`, `profileimg`, `video`, `desp`, `em
 (54, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240315_140218587.MP (1).jpg', '', 'ds2357196@gmail.com'),
 (55, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/1000060164.png', '', 'ds2357196@gmail.com'),
 (56, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_131634943.jpg', 'Radhe Radhe ❤️', 'ds2357196@gmail.com'),
-(57, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_132053466.jpg', 'Life is not about waiting for the storm to pass, but learning to dance in the rain.❤️❤️❤️', 'ds2357196@gmail.com');
+(57, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_132053466.jpg', 'Life is not about waiting for the storm to pass, but learning to dance in the rain.❤️❤️❤️', 'ds2357196@gmail.com'),
+(61, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/community forum.png', '', 'ds2357196@gmail.com'),
+(62, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/20240204_192800.jpg', 'Radhe Radhe ❤️ Hare Krishna ?', 'ds2357196@gmail.com'),
+(63, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/peakpx.jpg', '', 'ds2357196@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `question`
+--
+
+CREATE TABLE `question` (
+  `qid` int(255) NOT NULL,
+  `ques` longtext NOT NULL,
+  `u_nam` varchar(255) NOT NULL,
+  `u_im` varchar(255) NOT NULL,
+  `post_a_time` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `question`
+--
+
+INSERT INTO `question` (`qid`, `ques`, `u_nam`, `u_im`, `post_a_time`) VALUES
+(65, 'tell me road map of dsa?<br />\r\n', 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', '1711546508493'),
+(66, 'how to make yourself perfect?<br />\r\n', 'radhe debu', 'pimg/1000060164.png', '1711546662402');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `answer`
+--
+ALTER TABLE `answer`
+  ADD PRIMARY KEY (`aid`);
 
 --
 -- Indexes for table `demodata`
@@ -128,8 +179,20 @@ ALTER TABLE `main_content`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `question`
+--
+ALTER TABLE `question`
+  ADD PRIMARY KEY (`qid`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `answer`
+--
+ALTER TABLE `answer`
+  MODIFY `aid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `demodata`
@@ -141,13 +204,19 @@ ALTER TABLE `demodata`
 -- AUTO_INCREMENT for table `mailtable`
 --
 ALTER TABLE `mailtable`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `main_content`
 --
 ALTER TABLE `main_content`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
+--
+-- AUTO_INCREMENT for table `question`
+--
+ALTER TABLE `question`
+  MODIFY `qid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
