@@ -17,7 +17,6 @@ const ans_area = document.querySelectorAll('.ans_area');
 const textarea_a = document.querySelectorAll('.textarea_a');
 const s_btn = document.querySelectorAll('.s_btn');
 const main_ans = document.querySelectorAll('.main_section');
-const user_name = document.querySelectorAll('.user_name');
 const qt = document.querySelectorAll('.user_name');
 
 
@@ -52,7 +51,7 @@ if (getmode && getmode === "dark") {
     main_ans.forEach((item) => {
         item.classList.add('d_active');
     })
-    user_name.forEach((item) => {
+    username.forEach((item) => {
         item.classList.add('d_active');
     })
     navtext.forEach((item) => {
@@ -104,7 +103,7 @@ dbtn.addEventListener('click', () => {
     main_ans.forEach((item) => {
         item.classList.toggle('d_active');
     })
-    user_name.forEach((item) => {
+    username.forEach((item) => {
         item.classList.toggle('d_active');
     })
     iname.forEach((item) => {

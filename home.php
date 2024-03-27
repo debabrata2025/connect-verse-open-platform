@@ -329,17 +329,16 @@ if (!isset($_SESSION['name'])) {
                          share ideas, and discover like-minded peers.</p>
                 </details>
                 <details>
-                    <summary>what is global chat?</summary>
-                    <p>"ConnectVerse Global Chat" is a feature within the ConnectVerse platform that allows users to engage in real-time conversations with people from all over the world. It serves as a virtual meeting place where users can connect
-                         with others regardless of geographical boundaries. </p>
-                </details>
-                <details>
                     <summary>tweet section</summary>
                     <p>In this section anyone can chat globally. that will reflect in comment section</p>
                 </details>
                 <details>
                     <summary>dark mode</summary>
                     <p>In ConnectVerse, Dark Mode isn't just a feature; it's a unique experience. Once activated, Dark Mode stays persistent even after refreshing the page, ensuring a consistent and comfortable browsing experience.</p>
+                </details>
+                <details>
+                    <summary>community forum</summary>
+                    <p>In ConnectVerse, commounity forum is a feature where people can ask any question and respectivly other people can answer to it.</p>
                 </details>
             </div>
         </div>

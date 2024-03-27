@@ -714,7 +714,7 @@
   border-radius: 10px;
   top: 70px;
   right: 20px;
-  position: absolute;
+  position: fixed;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
   z-index: 111;
   background: #fff;

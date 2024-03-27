@@ -32,7 +32,8 @@ session_start();
             if(isset($_POST['submit'])){
                 $ids = $_GET['id'];
                 $email = $_SESSION['pemail'];
-                $newmsg = mysqli_real_escape_string($con, $_POST['nmsg']);
+                $n_l_b = nl2br($_POST['nmsg']);
+                $newmsg = mysqli_real_escape_string($con, $n_l_b);
                 $updatemsg = "update mailtable set id='$ids', msg='$newmsg' where id='$ids' and email='$email'";
                 $updatemsgquery = mysqli_query($con, $updatemsg);
                     if($updatemsgquery){
