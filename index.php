@@ -112,10 +112,10 @@ session_start();
                 </div>
                 <div class="grp_div">
                     <input type="text" name="email" placeholder="email" autocomplete="off" required
-                        class="email_user mi">
+                        class="email_user mi" inputmode="email">
                 </div>
                 <div class="grp_div">
-                    <input type="text" name="phone" placeholder="phone no." autocomplete="off" required class="mi">
+                    <input type="text" name="phone" placeholder="phone no." autocomplete="off" required class="mi" inputmode="numeric">
                 </div>
                 <div class="grp_div">
                     <input type="password" name="password" placeholder="password" autocomplete="off" required

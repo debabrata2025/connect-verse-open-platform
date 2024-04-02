@@ -1508,6 +1508,10 @@
   margin-left: 5px;
 }
 /* profile selection */
+.main_div .main_profile_div .all_content
+{
+  width: 100%;
+}
 .main_div .main_profile_div .all_content .profile_image_content
 {
   width: 130px;
@@ -1523,15 +1527,12 @@
 }
 .main_div .main_profile_div .all_content .profile_videos_div
 {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
 }
 .main_div .main_profile_div .all_content .profile_videos_div .videos
 {
-  max-width: 250px;
-  max-height: 200px;
+  height: 139px;
 }
 /* profile edit section */
 .main_div .main_profile_div .all_content .profile_name_change

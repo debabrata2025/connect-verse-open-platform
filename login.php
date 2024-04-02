@@ -84,7 +84,7 @@ if(isset($_POST['submit'])){
                 </div> 
                 <div class="grp_div">
                     <input type="text" name="email" placeholder="email" autocomplete="off" required 
-                   value="<?php if(isset($_COOKIE['emailcookie'])){ echo $_COOKIE['emailcookie']; } ?>" class="mi" autofocus>
+                   value="<?php if(isset($_COOKIE['emailcookie'])){ echo $_COOKIE['emailcookie']; } ?>" class="mi" autofocus inputmode="email">
                 </div>
                 <div class="grp_div">
                     <input type="password" name="password" placeholder="password" autocomplete="off" required 
