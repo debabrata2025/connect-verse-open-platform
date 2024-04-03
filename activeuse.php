@@ -44,7 +44,12 @@ session_start();
 ?>
         </div>
 
+        <div class="internet_status">
+            <div class="status"></div>
+        </div>
+
 	</div>
+    <script src="online.js"></script>
 <script>
         const preloader = document.querySelector('#loader');
         const change_name = document.querySelector('#titleid');

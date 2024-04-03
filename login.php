@@ -101,9 +101,13 @@ if(isset($_POST['submit'])){
                 <p class="lh">don't have an account?<a href="index.php">sign-up</a></p>
             </div>
         </form>
+        <div class="internet_status">
+            <div class="status"></div>
+        </div>
     </div>
    
     <script src="form1.js"></script>
+    <script src="online.js"></script>
    <script>
      //show pass
      const showeye = document.querySelector('.fa-eye');

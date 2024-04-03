@@ -76,7 +76,14 @@ session_start();
                 <input type="submit" value="change" name="submit">
             </div>
         </form>
+
+        <div class="internet_status">
+            <div class="status"></div>
+        </div>
+
+
     </div>
+    <script src="online.js"></script>
 <script src="p_change.js"></script>
 <script>
     let inputbtn = document.getElementById("pfile");

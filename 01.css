@@ -1167,6 +1167,36 @@
   background: red;
 }
 
+/* internet status */
+.main_div .internet_status {
+  position: fixed;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  transition: all 1s ease;
+  z-index: 99999999;
+}
+.main_div .internet_status.active
+{
+  bottom: 0;
+}
+
+.main_div .internet_status .status {
+  text-align: center;
+  color: #fff;
+  font-family: "Mukta", sans-serif;
+  font-size: 20px;
+  padding: 6px 0;
+}
+.main_div .internet_status .status.online
+{
+  background: #24a334;
+}
+.main_div .internet_status .status.offline
+{
+  background: #000;
+}
+
 
 /* media query */
 

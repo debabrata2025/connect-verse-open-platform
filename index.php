@@ -135,12 +135,17 @@ session_start();
                 <p class="lh">already have an account?<a href="login.php">sign-in</a></p>
             </div>
         </form>
+
+        <div class="internet_status">
+            <div class="status"></div>
+        </div>
     </div>
 
 
     <script src="form.js"></script>
-    <script>
+    <script src="online.js"></script>
 
+    <script>
         //disable context-menu
         // document.addEventListener('contextmenu', (e)=>{
         //     e.preventDefault();
@@ -149,6 +154,11 @@ session_start();
         // document.addEventListener('selectstart', (e)=>{
         //     e.preventDefault();
         // })
+
+        //online and offline status check
+        
+
+
 
         let imgfile = document.getElementById('pfile');
         let imgarea = document.getElementById('img_area');

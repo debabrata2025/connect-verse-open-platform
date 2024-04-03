@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Belanosima&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+body
+{
+    overflow: hidden;
 }
 
 /* preloader style */
@@ -92,6 +97,7 @@
     justify-content: center;
     align-items: center;
     background: rgba(207, 225, 253, 0.6);
+    position: relative;
 }
 
 .main_div.d_active {
@@ -116,6 +122,7 @@
     justify-content: center;
     gap: 10px;
 }
+
 .main_div .box .heading .c_logo {
     width: 40px;
     height: 40px;
@@ -318,6 +325,35 @@
 .main_div .box p a {
     margin-left: 3px;
     color: blue;
+}
+
+/* internet status */
+.main_div .internet_status {
+    position: fixed;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    transition: all 1s ease;
+}
+.main_div .internet_status.active
+{
+    bottom: 0;
+}
+
+.main_div .internet_status .status {
+    text-align: center;
+    color: #fff;
+    font-family: "Mukta", sans-serif;
+    font-size: 20px;
+    padding: 2px 0;
+}
+.main_div .internet_status .status.online
+{
+    background: #24a334;
+}
+.main_div .internet_status .status.offline
+{
+    background: #000;
 }
 
 

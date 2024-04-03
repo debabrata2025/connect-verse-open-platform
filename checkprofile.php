@@ -132,9 +132,15 @@ if (!isset($_SESSION['name'])) {
                 </div>
             </div>
         </form>
+
+        <div class="internet_status">
+            <div class="status"></div>
+        </div>
+
     </div>
 
     <script src="checkprofile.js"></script>
+    <script src="online.js"></script>
     <script>
         //profile div toggle
         const profilebtn = document.querySelector('.profile');

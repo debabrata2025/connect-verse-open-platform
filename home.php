@@ -345,12 +345,18 @@ if (!isset($_SESSION['name'])) {
 
         <!-- check user's div -->
 
+        <!-- online offline -->
+        <div class="internet_status">
+            <div class="status"></div>
+        </div>
+
 </div>
 
 
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="darkmode.js"></script>
     <script src="ph_dark.js"></script>
+    <script src="online.js"></script>
     <script>
 
         // //disable context-menu

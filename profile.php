@@ -209,6 +209,13 @@ if (!isset($_SESSION['name'])) {
                 </div>
             </div>
         </form>
+
+        <!-- online offline -->
+        <div class="internet_status">
+            <div class="status"></div>
+        </div>
+
+
     </div>
 
 
@@ -216,6 +223,7 @@ if (!isset($_SESSION['name'])) {
 
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="darkmode1.js"></script>
+    <script src="online.js"></script>
     <script>
         //profile div toggle
         const profilebtn = document.querySelector('.profile');

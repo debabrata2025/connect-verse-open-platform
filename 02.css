@@ -87,7 +87,10 @@ html {
     }
 }
 
-
+body
+{
+    overflow: hidden;
+}
 .main {
     width: 100%;
     min-height: 100vh;
@@ -169,6 +172,35 @@ html {
     text-align: center;
     text-shadow: 0 0 10px rgba(0, 0, 0);
 }
+/* internet status */
+.main .internet_status {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    transition: all 1s ease;
+}
+.main .internet_status.active
+{
+    bottom: 0;
+}
+
+.main .internet_status .status {
+    text-align: center;
+    color: #fff;
+    font-family: "Mukta", sans-serif;
+    font-size: 20px;
+    padding: 6px 0;
+}
+.main .internet_status .status.online
+{
+    background: #24a334;
+}
+.main .internet_status .status.offline
+{
+    background: #000;
+}
+
 
 @media (max-width: 580px) {
 

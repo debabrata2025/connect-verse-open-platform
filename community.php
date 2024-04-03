@@ -263,10 +263,14 @@ if (!isset ($_SESSION['name'])) {
             <span class="alert">sent</span>
         </div>
 
+        <div class="internet_status">
+            <div class="status"></div>
+        </div>
+
     </div>
 
 
-
+    <script src="online.js"></script>
     <script src="comdark.js"></script>
     <script src="postduration.js"></script>
     <!-- <script src="ph_dark.js"></script> -->
