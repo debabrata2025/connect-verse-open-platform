@@ -20,6 +20,7 @@ if (!isset($_SESSION['name'])) {
 </head>
 
 <body>
+   <div class="loading-bar"></div>
     <div class="main" id="loader">
         <h1>CONNECT</h1>
         <h2 id="titleid"></h2>
@@ -357,6 +358,8 @@ if (!isset($_SESSION['name'])) {
     <script src="darkmode.js"></script>
     <script src="ph_dark.js"></script>
     <script src="online.js"></script>
+    <script src="toploader.js"></script>
+    <script src="preloader.js"></script>
     <script>
 
         // //disable context-menu
@@ -497,25 +500,6 @@ if (!isset($_SESSION['name'])) {
         let year = new Date().getFullYear();
 
         console.log(date + "." + month + "." + year);
-
-        //preloader
-        const preloader = document.querySelector('#loader');
-        const change_name = document.querySelector('#titleid');
-        const arr = ['verse', 'you'];
-        let currentIndex = 0;
-
-        change_name.innerHTML = arr[currentIndex];
-
-        const myinterval = setInterval(() => {
-            currentIndex = (currentIndex + 1) % arr.length;
-            change_name.innerHTML = arr[currentIndex];
-            console.log('running');
-        }, 1500);
-
-        setTimeout(() => {
-            preloader.style.display = 'none';
-            clearInterval(myinterval);
-        }, 2000);
 
 
         //prevent default beheviour of enter btn

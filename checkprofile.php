@@ -27,6 +27,7 @@ if (!isset($_SESSION['name'])) {
 </head>
 
 <body>
+    <div class="loading-bar"></div>
     <div class="main_div">
         <form action="" method="POST" enctype="multipart/form-data">
             <!-- header -->
@@ -141,6 +142,7 @@ if (!isset($_SESSION['name'])) {
 
     <script src="checkprofile.js"></script>
     <script src="online.js"></script>
+    <script src="toploader.js"></script>
     <script>
         //profile div toggle
         const profilebtn = document.querySelector('.profile');

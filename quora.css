@@ -28,6 +28,24 @@ body
   ::-webkit-scrollbar-thumb {
     background: red;
   }
+  .loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px; /* Adjust height as needed */
+    background-color: #ff0000; /* Change color as needed */
+    width: 0;
+    animation: loading 2s linear infinite;
+    z-index: 99999999999999999;
+  }
+  @keyframes loading {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
   .main_div
   {
       width: 100%;
@@ -754,8 +772,8 @@ body
   bottom: -50px;
   left: 0;
   width: 100%;
-  transition: all 1s ease;
-  z-index: 9999;
+  transition: bottom 1s ease-in;
+  z-index: 99999999;
 }
 .main_div .internet_status.active
 {

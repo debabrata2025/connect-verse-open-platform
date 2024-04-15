@@ -21,6 +21,7 @@ if (!isset ($_SESSION['name'])) {
 </head>
 
 <body>
+    <div class="loading-bar"></div>
     <div class="main_div">
 
         <!-- header -->
@@ -273,6 +274,7 @@ if (!isset ($_SESSION['name'])) {
     <script src="online.js"></script>
     <script src="comdark.js"></script>
     <script src="postduration.js"></script>
+    <script src="toploader.js"></script>
     <!-- <script src="ph_dark.js"></script> -->
     <script>
         //main ask question height maintain

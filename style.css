@@ -12,7 +12,24 @@ body
 {
     overflow: hidden;
 }
-
+.loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px; /* Adjust height as needed */
+    background-color: #ff0000; /* Change color as needed */
+    width: 0;
+    animation: loading 2s linear infinite;
+    z-index: 99999999999999999;
+  }
+  @keyframes loading {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
 /* preloader style */
 .main {
     width: 100%;
@@ -333,7 +350,7 @@ body
     bottom: -50px;
     left: 0;
     width: 100%;
-    transition: all 1s ease;
+    transition: bottom 0.3s ease-in;
 }
 .main_div .internet_status.active
 {
@@ -345,7 +362,7 @@ body
     color: #fff;
     font-family: "Mukta", sans-serif;
     font-size: 20px;
-    padding: 2px 0;
+    padding: 4px 0;
 }
 .main_div .internet_status .status.online
 {
