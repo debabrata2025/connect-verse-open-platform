@@ -13,7 +13,7 @@ const myinterval = setInterval(() => {
 }, 1500);
 
 
-if (!sessionStorage.getItem('firstLoad')) {
+if (!sessionStorage.getItem('fLoad')) {
     // Show the preloader if it's the first load
     preloader.style.display = 'flex';
 
@@ -23,7 +23,7 @@ if (!sessionStorage.getItem('firstLoad')) {
         preloader.style.display = 'none';
         clearInterval(myinterval);
         // Set the flag indicating that the page has been loaded
-        sessionStorage.setItem('firstLoad', true);
+        sessionStorage.setItem('fLoad', true);
     }, 2000); // Adjust the timeout as needed
 }else{
     preloader.style.display = 'none';

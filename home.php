@@ -359,7 +359,7 @@ if (!isset($_SESSION['name'])) {
     <script src="ph_dark.js"></script>
     <script src="online.js"></script>
     <script src="toploader.js"></script>
-    <script src="preloader.js"></script>
+    <script src="homepreload.js"></script>
     <script>
 
         // //disable context-menu
