@@ -166,7 +166,10 @@ body
 .main .btn_div .btn:active {
     box-shadow: inset 0 0 0.5rem rgb(114, 142, 236);
 }
-
+.main .btn_div .btn:hover
+{
+    filter: brightness(0.7);
+}
 .main .btn_div .btn img {
     width: 100%;
     height: 100%;
@@ -175,6 +178,7 @@ body
     position: absolute;
     filter: brightness(0.8);
 }
+
 
 .main .btn_div .btn span {
     position: absolute;

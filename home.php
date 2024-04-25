@@ -20,7 +20,7 @@ if (!isset($_SESSION['name'])) {
 </head>
 
 <body>
-   <div class="loading-bar"></div>
+    <div class="loading-bar"></div>
     <div class="main" id="loader">
         <h1>CONNECT</h1>
         <h2 id="titleid"></h2>
@@ -49,7 +49,7 @@ if (!isset($_SESSION['name'])) {
 
                 if ($fileerror == 0) {
                     $destpath = 'mainmedia/' . $filename;
-                    move_uploaded_file($filepath, $destpath);   
+                    move_uploaded_file($filepath, $destpath);
                     // username	profileimg	video	desp
                     $fileinsert = "insert into main_content(username,profileimg,video,desp,email) 
                     values('$username','$profile_img','$destpath','$vid_desp','$p_email')";
@@ -282,74 +282,81 @@ if (!isset($_SESSION['name'])) {
 
             <!-- show comment -->
             <div class="main_show_div1">
-                <div class="heading_show1">users feddbacks</div>
+                <div class="heading_show1">FeedHub</div>
                 <hr>
-                <?php
-                include 'connection.php';
-                $mailshow = "select * from mailtable order by id desc";
-                $mailshowquery = mysqli_query($con, $mailshow);
-                while ($maildata = mysqli_fetch_array($mailshowquery)) {
-                    ?>
-                    <div class="show_content1">
-                        <div class="subcon1">
-                            <div class="profile_img1">
-                                <img src="<?php echo $maildata['image']; ?>" alt="demo img">
-                            </div>
-                            <div class="userdiv1">
-                                <?php echo $maildata['name']; ?>
-                            </div>
-                        </div>
-                        <div class="msg1">
-                            <?php echo $maildata['msg']; ?>
-                            <span class="msgdate">
-                                <?php echo $maildata['msgdate']; ?>
-                            </span>
-                            <div class="icon_div">
-                                <a href="update.php?id=<?php echo $maildata['id']; ?>"><i
-                                        class="fa-regular fa-pen-to-square mic"></i></a>
-                                <a href="delete.php?id=<?php echo $maildata['id']; ?>"><i
-                                        class="fa-solid fa-trash mic"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="scroll_div_comment">
                     <?php
-                }
-                ?>
-        </form>
-    </div>
+                    include 'connection.php';
+                    $mailshow = "select * from mailtable order by id desc";
+                    $mailshowquery = mysqli_query($con, $mailshow);
+                    while ($maildata = mysqli_fetch_array($mailshowquery)) {
+                        ?>
+                        <div class="show_content1">
+                            <div class="subcon1">
+                                <div class="profile_img1">
+                                    <img src="<?php echo $maildata['image']; ?>" alt="demo img">
+                                </div>
+                                <div class="userdiv1">
+                                    <?php echo $maildata['name']; ?>
+                                </div>
+                            </div>
+                            <div class="msg1">
+                                <?php echo $maildata['msg']; ?>
+                                <span class="msgdate">
+                                    <?php echo $maildata['msgdate']; ?>
+                                </span>
+                                <div class="icon_div">
+                                    <a href="update.php?id=<?php echo $maildata['id']; ?>"><i
+                                            class="fa-regular fa-pen-to-square mic"></i></a>
+                                    <a href="delete.php?id=<?php echo $maildata['id']; ?>"><i
+                                            class="fa-solid fa-trash mic"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+                </form>
+            </div>
 
     <!-- FAQ--section -->
     <div class="faq_box">
-            <div class="head">
-                <h2>faq</h2>
-            </div>
-            <div class="sections">
-                <details>
-                    <summary>Connect Verse</summary>
-                    <p>ConnectVerse is a vibrant open social platform designed to foster meaningful connections and conversations. With its inclusive and user-friendly interface, ConnectVerse invites individuals from diverse backgrounds to engage in discussions,
-                         share ideas, and discover like-minded peers.</p>
-                </details>
-                <details>
-                    <summary>tweet section</summary>
-                    <p>In this section anyone can chat globally. that will reflect in comment section</p>
-                </details>
-                <details>
-                    <summary>dark mode</summary>
-                    <p>In ConnectVerse, Dark Mode isn't just a feature; it's a unique experience. Once activated, Dark Mode stays persistent even after refreshing the page, ensuring a consistent and comfortable browsing experience.</p>
-                </details>
-                <details>
-                    <summary>community forum</summary>
-                    <p>In ConnectVerse, commounity forum is a feature where people can ask any question and respectivly other people can answer to it.</p>
-                </details>
-            </div>
+        <div class="head">
+            <h2>faq</h2>
         </div>
-
-        <!-- check user's div -->
-
-        <!-- online offline -->
-        <div class="internet_status">
-            <div class="status"></div>
+        <div class="sections">
+            <details>
+                <summary>Connect Verse</summary>
+                <p>ConnectVerse is a vibrant open social platform designed to foster meaningful connections and
+                    conversations. With its inclusive and user-friendly interface, ConnectVerse invites individuals from
+                    diverse backgrounds to engage in discussions,
+                    share ideas, and discover like-minded peers.</p>
+            </details>
+            <details>
+                <summary>tweet section</summary>
+                <p>In this section anyone can chat globally. that will reflect in comment section</p>
+            </details>
+            <details>
+                <summary>dark mode</summary>
+                <p>In ConnectVerse, Dark Mode isn't just a feature; it's a unique experience. Once activated, Dark Mode
+                    stays persistent even after refreshing the page, ensuring a consistent and comfortable browsing
+                    experience.</p>
+            </details>
+            <details>
+                <summary>community forum</summary>
+                <p>In ConnectVerse, commounity forum is a feature where people can ask any question and respectivly
+                    other people can answer to it.</p>
+            </details>
         </div>
+    </div>
+
+    <!-- check user's div -->
+
+    <!-- online offline -->
+    <div class="internet_status">
+        <div class="status"></div>
+    </div>
 
 </div>
 
@@ -503,7 +510,7 @@ if (!isset($_SESSION['name'])) {
 
 
         //prevent default beheviour of enter btn
-        document.getElementById('myForm').addEventListener('keydown', function(event) {
+        document.getElementById('myForm').addEventListener('keydown', function (event) {
             if (event.key === 'Enter') {
                 event.preventDefault();
             }
