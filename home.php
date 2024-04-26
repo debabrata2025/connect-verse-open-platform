@@ -19,7 +19,7 @@ if (!isset($_SESSION['name'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body>
+<body id="top">
     <div class="loading-bar"></div>
     <div class="main" id="loader">
         <h1>CONNECT</h1>
@@ -86,11 +86,11 @@ if (!isset($_SESSION['name'])) {
                 </div>
                 <div class="menu">
                     <ul>
-                        <li><a href="#top" class="dtext">new-post</a></li>
-                        <li class="comments"><a href="#" class="dtext">comments</a></li>
-                        <li class="comments"><a href="community.php" class="dtext">community</a></li>
-                        <li><a href="activeuse.php" class="dtext">active-user</a></li>
-                        <li class="faq"><a href="#" class="dtext" id="faq">faq</a></li>
+                        <li class="m_view_none"><a href="#top" class="dtext">new-post</a></li>
+                        <li class="comments m_view_none"><a href="#" class="dtext">comments</a></li>
+                        <li class="comments m_view_none"><a href="community.php" class="dtext">community</a></li>
+                        <li class="m_view_none"><a href="activeuse.php" class="dtext">active-user</a></li>
+                        <li class="faq m_view_none"><a href="#" class="dtext">faq</a></li>
                         <li>
                             <a href="#" class="dtext">
                                 <i class="fa-solid fa-circle-half-stroke darkm"></i>
@@ -98,7 +98,7 @@ if (!isset($_SESSION['name'])) {
                         </li>
                         <li>
                             <a href="#">
-                                <div class="profile" tooltip="profile" flow="down">
+                                <div class="profile">
                                     <img src="<?php echo $_SESSION['pimg']; ?>" alt="profile_img">
                                 </div>
                             </a>
@@ -106,6 +106,20 @@ if (!isset($_SESSION['name'])) {
                     </ul>
                 </div>
             </div>
+            <!-- scroll options -->
+            <div class="scroll_option">
+                <ul>
+                    <div class="op active"><a href="#top" class="dt active">new post</a></div>
+                    <div class="op comments"><a href="#" class="dt">comments</a></div>
+                    <div class="op"><a href="community.php" class="dt">community</a></div>
+                    <div class="op"><a href="activeuse.php" class="dt">active-user</a></div>
+                    <div class="op"><a href="#" class="dt" id="faq">faq</a></div>
+                    <!-- Add some extra dummy items to create extra space for scrolling -->
+                    <div class="op dummy"></div>
+                    <div class="op dummy"></div>
+                </ul>
+            </div>
+
             <!-- side bar -->
             <div class="sidebar">
                 <div class="logo">
@@ -189,7 +203,7 @@ if (!isset($_SESSION['name'])) {
             </div>
 
             <!-- main content -->
-            <div class="main_content" id="top">
+            <div class="main_content">
                 <div class="copy_r"></div>
                 <?php
                 include 'connection.php';
@@ -317,8 +331,8 @@ if (!isset($_SESSION['name'])) {
                     }
                     ?>
                 </div>
-                </form>
-            </div>
+        </form>
+    </div>
 
     <!-- FAQ--section -->
     <div class="faq_box">
@@ -358,7 +372,7 @@ if (!isset($_SESSION['name'])) {
         <div class="status"></div>
     </div>
 
-</div>
+    </div>
 
 
     <script src="https://smtpjs.com/v3/smtp.js"></script>
@@ -494,10 +508,14 @@ if (!isset($_SESSION['name'])) {
         }
 
         //-----------------comments-----------------//
-        let commentbtn = document.querySelector('.comments');
+        let commentbtn = document.querySelectorAll('.comments');
         let commentbox = document.querySelector('.main_show_div1');
 
-        commentbtn.onclick = () => {
+        commentbtn[0].onclick = () => {
+            commentbox.classList.toggle('showactive');
+            alert('clicked');
+        }
+        commentbtn[2].onclick = () => {
             commentbox.classList.toggle('showactive');
         }
         //for stroing date ipn comment
@@ -547,6 +565,9 @@ if (!isset($_SESSION['name'])) {
         faq_btn.addEventListener('click', () => {
             faq_box.classList.toggle('active');
         })
+
+
+
 
 
 

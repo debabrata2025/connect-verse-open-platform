@@ -4,31 +4,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Kablammo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 /* top loader */
 .loading-bar {
   position: fixed;
   top: 0;
   left: 0;
-  height: 3px; /* Adjust height as needed */
-  background-color: #ff0000; /* Change color as needed */
+  height: 3px;
+  /* Adjust height as needed */
+  background-color: #ff0000;
+  /* Change color as needed */
   width: 0;
   animation: loading 2s linear infinite;
   z-index: 99999999999999999;
 }
+
 @keyframes loading {
   0% {
     width: 0%;
   }
+
   100% {
     width: 100%;
   }
 }
+
 /* preloader */
 .main {
   width: 100%;
@@ -40,6 +47,7 @@
   position: fixed;
   z-index: 99999999999999999999;
 }
+
 .main h1 {
   font-size: 40px;
   font-family: Google Sans, Helvetica Neue, sans-serif;
@@ -316,6 +324,89 @@
   color: rgb(238, 29, 63);
 }
 
+/* scroll options div */
+.main_div .scroll_option {
+  width: 100%;
+  z-index: 99999;
+  position: fixed;
+  top: 51px;
+  padding: 5px;
+  /* background: #000; */
+  background: #fff;
+  overflow-y: hidden;
+  display: none;
+  transition: all 0.3s ease;
+}
+.main_div .scroll_option.d_active
+{
+   background: #0f0f0f;
+}
+
+.main_div .scroll_option.active {
+  display: none;
+}
+
+.main_div .scroll_option::-webkit-scrollbar {
+  height: 0;
+}
+
+.main_div .scroll_option ul {
+  display: flex;
+}
+
+.main_div .scroll_option ul .op {
+  list-style: none;
+  margin-left: 10px;
+  padding: 8px;
+  background: #bbbcc2;
+  /* background: rgba(206, 215, 224, 0.5); */
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center;
+}
+
+.main_div .scroll_option ul .op.active {
+  background: #131519;
+}
+.main_div .scroll_option ul .op.d_active {
+  background: rgba(255, 255, 255, 0.1);
+}
+.main_div .scroll_option ul .op.d_da {
+  background: #fff;
+}
+
+.main_div .scroll_option ul .op:last-child {
+  margin-right: 10px;
+  /* Reduce margin-right for the last item */
+}
+
+/* Hide dummy items */
+.main_div .scroll_option ul .dummy {
+  visibility: hidden;
+}
+
+.main_div .scroll_option ul .op a {
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #000;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.main_div .scroll_option ul .op a.active {
+  color: #fff;
+}
+.main_div .scroll_option ul .op a.d_active {
+  color: #f1f1f1;
+}
+.main_div .scroll_option ul .op a.d_da {
+  color: #000;
+}
 /* slide bar code */
 .main_div .sidebar {
   width: 230px;
@@ -656,6 +747,7 @@
 .main_div .main_show_div1.showactive {
   display: block;
 }
+
 .main_div .main_show_div1 .heading_show1 {
   text-align: center;
   font-size: 20px;
@@ -668,14 +760,14 @@
 .main_div .main_show_div1 .heading_show1.d_active {
   color: #e4e6eb;
 }
-.main_div .main_show_div1 .scroll_div_comment
-{
+
+.main_div .main_show_div1 .scroll_div_comment {
   height: 49vh;
   width: 100%;
   overflow-x: hidden;
 }
-.main_div .main_show_div1 .scroll_div_comment::-webkit-scrollbar
-{
+
+.main_div .main_show_div1 .scroll_div_comment::-webkit-scrollbar {
   width: 0;
 }
 
@@ -1113,10 +1205,11 @@
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
   /* transition: all 0.3s; */
 }
-.main_div .main_profile_div .all_content .profile_videos_div .videos:hover
-{
+
+.main_div .main_profile_div .all_content .profile_videos_div .videos:hover {
   cursor: pointer;
 }
+
 .main_div .main_profile_div .all_content .profile_videos_div .videos img,
 .main_div .main_profile_div .all_content .profile_videos_div .videos video {
   width: 100%;
@@ -1124,6 +1217,7 @@
   object-fit: cover;
   border-radius: 8px;
 }
+
 .main_div .main_profile_div .all_content .profile_videos_div .videos img:hover,
 .main_div .main_profile_div .all_content .profile_videos_div .videos video:hover {
   filter: brightness(0.6);
@@ -1284,7 +1378,7 @@
 
   .main_div .nav_div {
     width: 100%;
-    background: #fff;
+    background: rgba(255,255,255,0.8);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1292,13 +1386,15 @@
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
     z-index: 1111;
     position: fixed;
+    padding-bottom: 10px;
+    backdrop-filter: blur(10px);
   }
 
   .main_div .nav_div .c_logo {
     margin-left: 13px;
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
   }
 
   .main_div .nav_div .c_logo a {
@@ -1311,7 +1407,8 @@
   }
 
   .main_div .nav_div.d_ph {
-    background: #000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
   }
 
   .main_div .nav_div .menu {
@@ -1319,11 +1416,12 @@
   }
 
   .main_div .nav_div .menu ul li {
-    margin-left: 10px;
+    margin-left: 7px;
   }
+  
 
-  .main_div .nav_div .menu ul .faq {
-    display: block;
+  .main_div .nav_div .menu ul .m_view_none {
+    display: none;
   }
 
   .main_div .nav_div .menu ul li a {
@@ -1338,10 +1436,18 @@
   .main_div .nav_div .menu ul li a .darkm {
     font-size: 17px;
   }
+  .main_div .nav_div .menu ul li a .darkm.d_active
+  {
+    font-size: 17px;
+  }
 
   .main_div .nav_div .menu ul li a .profile {
-    width: 30px;
-    height: 30px;
+    width: 29px;
+    height: 29px;
+  }
+
+  .main_div .nav_div .menu ul li a .profile img {
+    object-fit: fill;
   }
 
   /* profile box */
@@ -1360,6 +1466,12 @@
   /* logout btn */
   .main_div .box .lout .logout {
     padding: 15px;
+  }
+
+  /* top options */
+  .main_div .scroll_option
+  {
+    display: block;
   }
 
 
@@ -1476,10 +1588,12 @@
   .main_div .main_show_div1 {
     max-width: 90%;
     height: 40vh;
+    top: 105px;
     left: 50%;
     transform: translateX(-50%);
     right: 0;
   }
+
   .main_div .main_show_div1 .scroll_div_comment {
     height: 29vh;
   }
@@ -1504,6 +1618,7 @@
   /* faq_box */
   .main_div .faq_box {
     display: none;
+    top: 105px;
   }
 
   .main_div .faq_box.active {
@@ -1532,7 +1647,7 @@
   .main_div .main_content {
     max-width: 100%;
     left: 0;
-    top: 50px;
+    top: 87px;
     transform: translateX(0%);
     scroll-behavior: smooth;
   }
