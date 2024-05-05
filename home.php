@@ -84,6 +84,18 @@ if (!isset($_SESSION['name'])) {
                         <img src="logo2_prev_ui.png" alt="logo" loading="lazy">
                     </a>
                 </div>
+
+                <!-- search  -->
+                <div class="search_box">
+                    <div class="grp_search">
+                        <input type="text" name="search" placeholder="Search" id="searchinput" autocomplete="off">
+                        <div class="serach_btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- lists options -->
                 <div class="menu">
                     <ul>
                         <li class="m_view_none"><a href="#top" class="dtext">new-post</a></li>
@@ -105,7 +117,41 @@ if (!isset($_SESSION['name'])) {
                         </li>
                     </ul>
                 </div>
+            </div> <!-- nav div ends -->
+
+
+            <!-- search results div -->
+            <div class="search_res_box">
+                <?php
+                include 'connection.php';
+                $all_u = "select * from demodata";
+                $userq = mysqli_query($con, $all_u);
+                while ($alluserdata = mysqli_fetch_array($userq)) {
+                    ?>
+                    <a href="checkprofile.php?useremail=<?php echo $alluserdata['email']?>">
+                    <div class="users_res">
+                        <div class="user_img">
+                            <img src="<?php echo $alluserdata['image']; ?>" alt="search_user">
+                        </div>
+                        <div class="username">
+                            <p class="searchname"><?php echo $alluserdata['name']; ?></p>
+                        </div>
+                    </div>
+                    </a>
+                    <?php
+                }
+                ?>
+
+                <div class="no_user">
+                    <p>No user found!</p>
+                </div>
+
+
             </div>
+
+
+
+
             <!-- scroll options -->
             <div class="scroll_option">
                 <ul>
@@ -381,6 +427,7 @@ if (!isset($_SESSION['name'])) {
     <script src="online.js"></script>
     <script src="toploader.js"></script>
     <script src="homepreload.js"></script>
+    <script src="search.js"></script>
     <script>
 
         // //disable context-menu
@@ -513,7 +560,6 @@ if (!isset($_SESSION['name'])) {
 
         commentbtn[0].onclick = () => {
             commentbox.classList.toggle('showactive');
-            alert('clicked');
         }
         commentbtn[2].onclick = () => {
             commentbox.classList.toggle('showactive');
