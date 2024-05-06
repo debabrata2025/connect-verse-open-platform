@@ -31,6 +31,19 @@ let lastScrollTop = 0;
 container = document.querySelector('.main_div');
 scrollOption = document.querySelector('.scroll_option');
 
+//search options
+const search_box = document.querySelector('.search_box');
+searchinput = document.querySelector('.search');
+const serach_btn = document.querySelector('.serach_btn');
+const serachicon = document.querySelector('.fa-magnifying-glass');
+//search result div
+search_res_box = document.querySelector('.search_res_box');
+users_res = document.querySelectorAll('.users_res');
+searchnames = document.querySelectorAll('.searchname');
+noUser = document.querySelector('.n_u'); 
+no_user = document.querySelector('.no_user');
+
+// top options up and down scroll
 container.addEventListener('scroll', () => {
     let currentScroll = container.scrollTop;
 
@@ -77,6 +90,19 @@ if (getmode && getmode === "dark") {
     optionsTop.classList.add('d_active');
     options[0].classList.add('d_da');
     dt[0].classList.add('d_da');
+    search_box.classList.add('d_active');
+    searchinput.classList.add('d_active');
+    serach_btn.classList.add('d_active');
+    serachicon.classList.add('d_active');
+    search_res_box.classList.add('d_active');
+    noUser.classList.add('d_active');
+    no_user.classList.add('d_active');
+    users_res.forEach((item) => {
+        item.classList.add('d_active');
+    })
+    searchnames.forEach((item) => {
+        item.classList.add('d_active');
+    })
     options.forEach((item) => {
         item.classList.add('d_active')
     })
@@ -151,6 +177,19 @@ dbtn.addEventListener('click', () => {
     optionsTop.classList.toggle('d_active');
     options[0].classList.toggle('d_da');
     dt[0].classList.toggle('d_da');
+    search_box.classList.toggle('d_active');
+    searchinput.classList.toggle('d_active');
+    serach_btn.classList.toggle('d_active');
+    serachicon.classList.toggle('d_active');
+    search_res_box.classList.toggle('d_active');
+    noUser.classList.toggle('d_active');
+    no_user.classList.toggle('d_active');
+    users_res.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
+    searchnames.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
     options.forEach((item) => {
         item.classList.toggle('d_active')
     })

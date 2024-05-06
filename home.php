@@ -88,7 +88,7 @@ if (!isset($_SESSION['name'])) {
                 <!-- search  -->
                 <div class="search_box">
                     <div class="grp_search">
-                        <input type="text" name="search" placeholder="Search" id="searchinput" autocomplete="off">
+                        <input type="text" name="search" placeholder="Search" id="searchinput" autocomplete="off" class="search">
                         <div class="serach_btn">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
@@ -143,10 +143,8 @@ if (!isset($_SESSION['name'])) {
                 ?>
 
                 <div class="no_user">
-                    <p>No user found!</p>
+                    <p class="n_u">No user found!</p>
                 </div>
-
-
             </div>
 
 
