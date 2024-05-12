@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2024 at 03:41 PM
+-- Generation Time: May 12, 2024 at 05:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,8 @@ CREATE TABLE `answer` (
 
 INSERT INTO `answer` (`aid`, `qid`, `ans`, `user_img`, `u_name`, `posttime`) VALUES
 (68, '65', '5 steps to learn DSA from scratch<br />\r\nLearn at least one Programming Language<br />\r\nLearn about Complexities<br />\r\nLearn Data Structure and Algorithms<br />\r\n1) Array<br />\r\n2) String<br />\r\n3) Linked List<br />\r\n4) Searching Algorithm<br />\r\n5) Sorting Algorithm<br />\r\n6) Divide and Conquer Algorithm<br />\r\n7) Stack<br />\r\n8) Queue<br />\r\n9) Tree Data Structure<br />\r\n10) Graph Data Structure<br />\r\n11) Greedy Methodology<br />\r\n12) Recursion<br />\r\n13) Backtracking Algorithm<br />\r\n14) Dynamic Programming<br />\r\nPractice, practice and practice more<br />\r\nCompete and become a pro', 'pimg/1000060164.png', 'radhe debu', '1711546656256'),
-(69, '66', 'Self-improvement Tips to Try<br />\r\n1. Evaluate what isn\'t working and change it. We all have habits that don\'t serve us. ...<br />\r\n2. Set realistic goals. ...<br />\r\nMake a list of small changes you can make in your daily routine. ...<br />\r\n3. Invest in your health. ...<br />\r\nSurround yourself with people who want to see you do well. ...<br />\r\n4. Be patient with yourself.', 'pimg/Screenshot 2024-02-21 184215.png', 'Debabrata santra', '1711546707462');
+(69, '66', 'Self-improvement Tips to Try<br />\r\n1. Evaluate what isn\'t working and change it. We all have habits that don\'t serve us. ...<br />\r\n2. Set realistic goals. ...<br />\r\nMake a list of small changes you can make in your daily routine. ...<br />\r\n3. Invest in your health. ...<br />\r\nSurround yourself with people who want to see you do well. ...<br />\r\n4. Be patient with yourself.', 'pimg/Screenshot 2024-02-21 184215.png', 'Debabrata santra', '1711546707462'),
+(70, '67', 'ping me📌', 'pimg/Screenshot 2024-02-21 184215.png', 'Debabrata santra', '1712087300069');
 
 -- --------------------------------------------------------
 
@@ -69,6 +70,29 @@ CREATE TABLE `demodata` (
 INSERT INTO `demodata` (`id`, `name`, `email`, `phone`, `password`, `cpassword`, `image`, `token`, `status`) VALUES
 (54, 'Debabrata santra', 'ds2357196@gmail.com', '07319256047', '$2y$10$Rp9Gx3qfJneGnFFkf6aFSOu9uHx62KBUEwyQ1Sc1klPR.PEvnOeDi', '$2y$10$cFT2SL3kEl8c06Zw8uMiPuXpF5X9helBaLq10/67onBB7s7TDh20q', 'pimg/Screenshot 2024-02-21 184215.png', '', ''),
 (55, 'radhe debu', 'd@gmail.com', '123654', '$2y$10$1KrRAt5HKUqHmt6PDVcnW.ioCxxFDUdYeyxEK8CEY4IOJVfMHgjQW', '$2y$10$IPt.OPe7pGWxCnFEk4eu5OzwHMuxmahXzB9P504Y5Q5xoz3Cl3Oy2', 'pimg/1000060164.png', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `likes`
+--
+
+CREATE TABLE `likes` (
+  `id` int(255) NOT NULL,
+  `post_id` int(255) NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `active_status` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `likes`
+--
+
+INSERT INTO `likes` (`id`, `post_id`, `user_id`, `active_status`) VALUES
+(1, 63, 54, 1),
+(2, 62, 54, 1),
+(3, 61, 54, 0),
+(4, 57, 54, 0);
 
 -- --------------------------------------------------------
 
@@ -148,7 +172,9 @@ CREATE TABLE `question` (
 
 INSERT INTO `question` (`qid`, `ques`, `u_nam`, `u_im`, `post_a_time`) VALUES
 (65, 'tell me road map of dsa?<br />\r\n', 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', '1711546508493'),
-(66, 'how to make yourself perfect?<br />\r\n', 'radhe debu', 'pimg/1000060164.png', '1711546662402');
+(66, 'how to make yourself perfect?<br />\r\n', 'radhe debu', 'pimg/1000060164.png', '1711546662402'),
+(67, 'Hi, community!!!', 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', '1712087286238'),
+(68, 'hi', 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', '1712133007943');
 
 --
 -- Indexes for dumped tables
@@ -164,6 +190,12 @@ ALTER TABLE `answer`
 -- Indexes for table `demodata`
 --
 ALTER TABLE `demodata`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `likes`
+--
+ALTER TABLE `likes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -192,13 +224,19 @@ ALTER TABLE `question`
 -- AUTO_INCREMENT for table `answer`
 --
 ALTER TABLE `answer`
-  MODIFY `aid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `aid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `demodata`
 --
 ALTER TABLE `demodata`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT for table `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `mailtable`
@@ -216,7 +254,7 @@ ALTER TABLE `main_content`
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `qid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `qid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
