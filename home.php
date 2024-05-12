@@ -88,7 +88,8 @@ if (!isset($_SESSION['name'])) {
                 <!-- search  -->
                 <div class="search_box">
                     <div class="grp_search">
-                        <input type="text" name="search" placeholder="Search" id="searchinput" autocomplete="off" class="search">
+                        <input type="text" name="search" placeholder="Search" id="searchinput" autocomplete="off"
+                            class="search">
                         <div class="serach_btn">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
@@ -128,15 +129,15 @@ if (!isset($_SESSION['name'])) {
                 $userq = mysqli_query($con, $all_u);
                 while ($alluserdata = mysqli_fetch_array($userq)) {
                     ?>
-                    <a href="checkprofile.php?useremail=<?php echo $alluserdata['email']?>">
-                    <div class="users_res">
-                        <div class="user_img">
-                            <img src="<?php echo $alluserdata['image']; ?>" alt="search_user">
+                    <a href="checkprofile.php?useremail=<?php echo $alluserdata['email'] ?>">
+                        <div class="users_res">
+                            <div class="user_img">
+                                <img src="<?php echo $alluserdata['image']; ?>" alt="search_user">
+                            </div>
+                            <div class="username">
+                                <p class="searchname"><?php echo $alluserdata['name']; ?></p>
+                            </div>
                         </div>
-                        <div class="username">
-                            <p class="searchname"><?php echo $alluserdata['name']; ?></p>
-                        </div>
-                    </div>
                     </a>
                     <?php
                 }
@@ -254,6 +255,26 @@ if (!isset($_SESSION['name'])) {
                 $showdata = "select * from main_content";
                 $showquery = mysqli_query($con, $showdata);
                 while ($arraydata = mysqli_fetch_array($showquery)) {
+                    $postId = $arraydata['id'];
+                    $userId = $_SESSION['user_id']; // Assuming you have the user ID in the session
+
+                    $checkLikeQuery = "SELECT * FROM likes WHERE post_id = $postId AND user_id = $userId";
+                    $checkLikeResult = mysqli_query($con, $checkLikeQuery);
+
+                    // Determine the initial like state
+                    $initialLikeState = 0; // Default to 0 (post not liked)
+
+                    // Check if there is a like record for the user and post
+                    if ($checkLikeResult && mysqli_num_rows($checkLikeResult) > 0) {
+                        // Fetch the like record
+                        $likeData = mysqli_fetch_assoc($checkLikeResult);
+    
+                        // Check if the like is active
+                        if ($likeData['active_status'] == 1) {
+                            $initialLikeState = 1; // Set to 1 if the post is liked
+                        }
+                    }
+
                     ?>
                     <div class="main_vids">
                         <div class="video_d">
@@ -278,6 +299,29 @@ if (!isset($_SESSION['name'])) {
                                 echo '</video>';
                             }
                             ?>
+                        </div>
+                        <div class="l_c_s">
+                            <!-- Add a data-post-id attribute to your like button to store the post ID -->
+                            <div class="like" data-post-id="<?php echo $arraydata['id']; ?>" data-initial-like-state="<?php echo $initialLikeState; ?>">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                            <div class="comment">
+                                <i class="fa-regular fa-comment"></i>
+                            </div>
+                            <div class="share">
+                                <i class="fa-regular fa-share-from-square"></i>
+                            </div>
+                        </div>
+                        <div class="like_count">
+                            <?php
+                              $postid = $arraydata['id'];
+                              $countLikesQuery = "SELECT COUNT(*) AS likeCount FROM likes WHERE post_id = $postid  AND active_status = 1";
+                              $result = mysqli_query($con, $countLikesQuery);
+                              $row = mysqli_fetch_assoc($result);
+                              $likeCount = $row['likeCount'];
+                            ?>
+                            <span class="like-count"><?php echo ($likeCount < 1)? 'no' : $likeCount; ?></span> likes
                         </div>
                         <div class="des">
                             <span>
@@ -426,6 +470,7 @@ if (!isset($_SESSION['name'])) {
     <script src="toploader.js"></script>
     <script src="homepreload.js"></script>
     <script src="search.js"></script>
+    <script src="like.js"></script>
     <script>
 
         // //disable context-menu
@@ -610,12 +655,6 @@ if (!isset($_SESSION['name'])) {
             faq_box.classList.toggle('active');
         })
 
-
-
-
-
-
     </script>
 </body>
-
 </html>

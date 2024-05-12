@@ -32,6 +32,7 @@ session_start();
                     $db_pass = $email_pass['password'];
                     $_SESSION['name'] = $email_pass['name'];
                     $_SESSION['pimg'] = $email_pass['image'];
+                    $_SESSION['user_id'] = $email_pass['id'];
                     $_SESSION['pemail'] = $email;
                     $pass_decode = password_verify($password, $db_pass);
                     if ($pass_decode) {

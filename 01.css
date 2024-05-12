@@ -1137,7 +1137,7 @@
 
 .main_div .main_content .main_vids .content_video {
   width: 100%;
-  margin: 10px 0;
+  margin: 10px 0 0 0;
   background: #000;
 }
 
@@ -1148,6 +1148,60 @@
   object-fit: contain;
 }
 
+/* like comment share */
+.main_div .main_content .main_vids .l_c_s
+{
+  display: flex;
+  padding: 8px 0;
+  /* background: red; */
+}
+.main_div .main_content .main_vids .l_c_s .like i,
+.main_div .main_content .main_vids .l_c_s .comment i,
+.main_div .main_content .main_vids .l_c_s .share i
+{
+  font-size: 25px;
+  margin: 0 10px;
+  cursor: pointer;
+  color: #000;
+  transition: all 0.3s ease;
+}
+.main_div .main_content .main_vids .l_c_s .like i.d_active,
+.main_div .main_content .main_vids .l_c_s .comment i.d_active,
+.main_div .main_content .main_vids .l_c_s .share i.d_active
+{
+  color: rgba(245, 245, 245, 1);
+}
+.main_div .main_content .main_vids .l_c_s .like i:hover,
+.main_div .main_content .main_vids .l_c_s .comment i:hover,
+.main_div .main_content .main_vids .l_c_s .share i:hover
+{
+  color: #afadc0;
+}
+.main_div .main_content .main_vids .l_c_s .like i.active
+{
+  color: red;
+  animation: shape 0.2s ease;
+}
+@keyframes shape{
+  100%{
+    transform: scale(1.18);
+  }
+}
+
+/* like count  */
+.main_div .main_content .main_vids .like_count
+{
+  margin-left: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+.main_div .main_content .main_vids .like_count.d_active
+{
+  color: #fff;
+}
+/* content description */
 .main_div .main_content .main_vids .des {
   margin-left: 10px;
   font-size: 15px;
@@ -1905,6 +1959,17 @@
   .main_div .main_content .main_vids .video_d .username {
     font-size: 12px;
   }
+  .main_div .main_content .main_vids .l_c_s .like i,
+  .main_div .main_content .main_vids .l_c_s .comment i,
+  .main_div .main_content .main_vids .l_c_s .share i
+  {
+    font-size: 22px;
+    margin: 0px 8px;
+  }
+
+  .main_div .main_content .main_vids .like_count {
+    font-size: 10px;
+  } 
 
   .main_div .main_content .main_vids .des {
     font-size: 10px;

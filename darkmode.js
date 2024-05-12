@@ -43,6 +43,19 @@ searchnames = document.querySelectorAll('.searchname');
 noUser = document.querySelector('.n_u'); 
 no_user = document.querySelector('.no_user');
 
+//like btn 
+likeicon = document.querySelectorAll('.fa-heart'); 
+const comment_btn = document.querySelectorAll('.fa-comment'); 
+const sharebtn = document.querySelectorAll('.fa-share-from-square'); 
+
+//like count text
+const like_count_text = document.querySelectorAll('.like_count');
+
+
+
+
+
+
 // top options up and down scroll
 container.addEventListener('scroll', () => {
     let currentScroll = container.scrollTop;
@@ -97,6 +110,18 @@ if (getmode && getmode === "dark") {
     search_res_box.classList.add('d_active');
     noUser.classList.add('d_active');
     no_user.classList.add('d_active');
+    like_count_text.forEach((item) => {
+        item.classList.add('d_active');
+    })
+    likeicon.forEach((item) => {
+        item.classList.add('d_active');
+    })
+    comment_btn.forEach((item) => {
+        item.classList.add('d_active');
+    })
+    sharebtn.forEach((item) => {
+        item.classList.add('d_active');
+    })
     users_res.forEach((item) => {
         item.classList.add('d_active');
     })
@@ -184,6 +209,18 @@ dbtn.addEventListener('click', () => {
     search_res_box.classList.toggle('d_active');
     noUser.classList.toggle('d_active');
     no_user.classList.toggle('d_active');
+    like_count_text.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
+    likeicon.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
+    comment_btn.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
+    sharebtn.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
     users_res.forEach((item) => {
         item.classList.toggle('d_active');
     })
