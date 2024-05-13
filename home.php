@@ -291,10 +291,10 @@ if (!isset($_SESSION['name'])) {
                             <?php
                             $fileExtension = pathinfo($arraydata['video'], PATHINFO_EXTENSION);
                             if (in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif'])) {
-                                echo '<img src="' . $arraydata['video'] . '" alt="Image" loading="lazy">';
+                                echo '<img src="' . $arraydata['video'] . '" alt="Image" loading="lazy" class="media">';
                             } elseif (in_array($fileExtension, ['mp4', 'mov', 'avi'])) {
                                 echo '<video controls>';
-                                echo '<source src="' . $arraydata['video'] . '" type="video/mp4">';
+                                echo '<source src="' . $arraydata['video'] . '" type="video/mp4" class="media">';
                                 echo 'Your browser does not support the video tag.';
                                 echo '</video>';
                             }
@@ -471,6 +471,7 @@ if (!isset($_SESSION['name'])) {
     <script src="homepreload.js"></script>
     <script src="search.js"></script>
     <script src="like.js"></script>
+    <script src="share.js"></script>
     <script>
 
         // //disable context-menu
