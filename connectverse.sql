@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2024 at 05:58 AM
+-- Generation Time: May 13, 2024 at 07:58 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -89,10 +89,12 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`id`, `post_id`, `user_id`, `active_status`) VALUES
-(1, 63, 54, 1),
-(2, 62, 54, 1),
-(3, 61, 54, 0),
-(4, 57, 54, 0);
+(19, 63, 54, 0),
+(20, 62, 54, 1),
+(21, 49, 55, 1),
+(22, 63, 55, 1),
+(23, 49, 54, 0),
+(24, 61, 54, 0);
 
 -- --------------------------------------------------------
 
@@ -236,7 +238,7 @@ ALTER TABLE `demodata`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `mailtable`

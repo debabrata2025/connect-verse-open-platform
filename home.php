@@ -257,18 +257,18 @@ if (!isset($_SESSION['name'])) {
                 while ($arraydata = mysqli_fetch_array($showquery)) {
                     $postId = $arraydata['id'];
                     $userId = $_SESSION['user_id']; // Assuming you have the user ID in the session
-
+                
                     $checkLikeQuery = "SELECT * FROM likes WHERE post_id = $postId AND user_id = $userId";
                     $checkLikeResult = mysqli_query($con, $checkLikeQuery);
 
                     // Determine the initial like state
                     $initialLikeState = 0; // Default to 0 (post not liked)
-
+                
                     // Check if there is a like record for the user and post
                     if ($checkLikeResult && mysqli_num_rows($checkLikeResult) > 0) {
                         // Fetch the like record
                         $likeData = mysqli_fetch_assoc($checkLikeResult);
-    
+
                         // Check if the like is active
                         if ($likeData['active_status'] == 1) {
                             $initialLikeState = 1; // Set to 1 if the post is liked
@@ -302,7 +302,8 @@ if (!isset($_SESSION['name'])) {
                         </div>
                         <div class="l_c_s">
                             <!-- Add a data-post-id attribute to your like button to store the post ID -->
-                            <div class="like" data-post-id="<?php echo $arraydata['id']; ?>" data-initial-like-state="<?php echo $initialLikeState; ?>">
+                            <div class="like" data-post-id="<?php echo $arraydata['id']; ?>"
+                                data-initial-like-state="<?php echo $initialLikeState; ?>">
                                 <i class="fa-regular fa-heart"></i>
                             </div>
 
@@ -315,13 +316,13 @@ if (!isset($_SESSION['name'])) {
                         </div>
                         <div class="like_count">
                             <?php
-                              $postid = $arraydata['id'];
-                              $countLikesQuery = "SELECT COUNT(*) AS likeCount FROM likes WHERE post_id = $postid  AND active_status = 1";
-                              $result = mysqli_query($con, $countLikesQuery);
-                              $row = mysqli_fetch_assoc($result);
-                              $likeCount = $row['likeCount'];
+                            $postid = $arraydata['id'];
+                            $countLikesQuery = "SELECT COUNT(*) AS likeCount FROM likes WHERE post_id = $postid  AND active_status = 1";
+                            $result = mysqli_query($con, $countLikesQuery);
+                            $row = mysqli_fetch_assoc($result);
+                            $likeCount = $row['likeCount'];
                             ?>
-                            <span class="like-count"><?php echo ($likeCount < 1)? 'no' : $likeCount; ?></span> likes
+                            <span class="like-count"><?php echo ($likeCount < 1) ? 'no' : $likeCount; ?></span> likes
                         </div>
                         <div class="des">
                             <span>
@@ -334,6 +335,53 @@ if (!isset($_SESSION['name'])) {
                         <div class="show_more">
                             <a href="#" class="sbtn">see more</a>
                         </div>
+                        <!-- line commments -->
+                        <div class="line_div">
+                            <div class="line"></div>
+                        </div>
+                        <div class="view_commets_btn">
+                            View all comments
+                        </div>
+                        <!-- display  post comments -->
+                        <div class="show_cmnt">
+                            <?php
+                              include 'connection.php';
+                              $pid = $arraydata['id'];
+                              $all_user_comment = "select * from comments where post_id=$pid ORDER BY id DESC";
+                              $comment_q = mysqli_query($con, $all_user_comment);
+                              while($c_data = mysqli_fetch_array($comment_q)){
+                                ?>
+                                <div class="comment_users">
+                                    <div class="c_user_img">
+                                        <img src="<?php echo $c_data['user_img']; ?>" alt="">
+                                    </div>
+                                    <div class="c_comment">
+                                        <div class="user_name"><?php echo $c_data['user_name']; ?></div>
+                                        <div class="main_comment"><?php echo $c_data['comment']; ?></div>
+                                    </div>
+                                </div>
+                                <?php
+                              }
+                            ?>
+                        </div>
+                        <!-- make a comment by user -->
+                        <div class="c_comment_box">
+                            <div class="profile_user_img">
+                                <img src="<?php echo $_SESSION['pimg']; ?>" alt="user_img">
+                            </div>
+                            <div class="input_box_main">
+                                <div class="input_box">
+                                    <textarea name="com" class="comment_area_main"
+                                        placeholder="Comment as <?php echo $namedta['name']; ?>"></textarea>
+                                </div>
+                                <div class="send_btn_comment" data-post-id="<?php echo $arraydata['id']; ?>"
+                                    data-user-name="<?php echo $namedta['name']; ?>"
+                                    data-user-img="<?php echo $_SESSION['pimg']; ?>">
+                                    <input type="button" value="send" class="s_b">
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <hr class="vidline">
                     <?php
@@ -472,6 +520,7 @@ if (!isset($_SESSION['name'])) {
     <script src="search.js"></script>
     <script src="like.js"></script>
     <script src="share.js"></script>
+    <script src="comments.js"></script>
     <script>
 
         // //disable context-menu
@@ -658,4 +707,5 @@ if (!isset($_SESSION['name'])) {
 
     </script>
 </body>
+
 </html>

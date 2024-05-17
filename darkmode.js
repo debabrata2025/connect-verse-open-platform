@@ -52,6 +52,14 @@ const sharebtn = document.querySelectorAll('.fa-share-from-square');
 const like_count_text = document.querySelectorAll('.like_count');
 
 
+//comment section
+view_commets_btn = document.querySelectorAll('.view_commets_btn');
+const c_comment = document.querySelectorAll('.c_comment');
+let user_name = document.querySelectorAll('.user_name');
+let main_comment = document.querySelectorAll('.main_comment');
+const input_box_main = document.querySelectorAll('.input_box_main');
+comment_area_main = document.querySelectorAll('.comment_area_main');
+const s_b = document.querySelectorAll('.s_b');
 
 
 
@@ -110,6 +118,27 @@ if (getmode && getmode === "dark") {
     search_res_box.classList.add('d_active');
     noUser.classList.add('d_active');
     no_user.classList.add('d_active');
+    s_b.forEach((item) => {
+        item.classList.add('d_active');
+    })
+    comment_area_main.forEach((item) => {
+        item.classList.add('d_active');
+    })
+    input_box_main.forEach((item) => {
+        item.classList.add('d_active');
+    })
+    user_name.forEach((item) => {
+        item.classList.add('d_active');
+    })
+    main_comment.forEach((item) => {
+        item.classList.add('d_active');
+    })
+    c_comment.forEach((item) => {
+        item.classList.add('d_active');
+    })
+    view_commets_btn.forEach((item) => {
+        item.classList.add('d_active');
+    })
     like_count_text.forEach((item) => {
         item.classList.add('d_active');
     })
@@ -171,7 +200,7 @@ if (getmode && getmode === "dark") {
 
 
 
-
+//dark mode condition
 dbtn.addEventListener('click', () => {
     maindiv.classList.toggle('d_active');
     if(!maindiv.classList.contains('d_active')){
@@ -179,6 +208,10 @@ dbtn.addEventListener('click', () => {
     }
     return localStorage.setItem("mode", "dark");
 });
+
+
+
+//dark mode btn toggeling
 
 dbtn.addEventListener('click', () => {
 
@@ -209,6 +242,27 @@ dbtn.addEventListener('click', () => {
     search_res_box.classList.toggle('d_active');
     noUser.classList.toggle('d_active');
     no_user.classList.toggle('d_active');
+    s_b.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
+    comment_area_main.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
+    input_box_main.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
+    user_name.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
+    main_comment.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
+    c_comment.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
+    view_commets_btn.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
     like_count_text.forEach((item) => {
         item.classList.toggle('d_active');
     })
