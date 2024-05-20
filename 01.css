@@ -1290,7 +1290,7 @@
 {
   width: 100%;
   padding: 5px 10px;
-  max-height: 134px;
+  max-height: 147px;
   overflow: hidden;
 }
 .main_div .main_content .main_vids .show_cmnt.active
@@ -1318,7 +1318,7 @@
 .main_div .main_content .main_vids .show_cmnt .comment_users .c_comment
 {
   min-width: 120px;
-  max-width: 90%;
+  max-width: 84%;
   padding: 8px 10px;
   background: rgba(0, 0, 0, 0.05);
   border-radius: 20px;
@@ -1349,7 +1349,80 @@
 {
   color: #e4e6eb;
 }
-
+/* three dots */
+.main_div .main_content .main_vids .show_cmnt .comment_users .c_three_dot
+{
+  margin: auto 2px;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  display: none;
+  color: #000;
+}
+.main_div .main_content .main_vids .show_cmnt .comment_users .c_three_dot.d_active
+{
+  color: #ededf1;
+}
+.main_div .main_content .main_vids .show_cmnt .comment_users .c_three_dot:hover
+{
+  cursor: pointer;
+  background: #ededf1;
+}
+.main_div .main_content .main_vids .show_cmnt .comment_users .c_three_dot.d_active:hover
+{
+  background: #353535;
+}
+.main_div .main_content .main_vids .show_cmnt .comment_users:hover > .c_three_dot
+{
+  display: block;
+}
+.main_div .main_content .main_vids .show_cmnt .comment_users .c_three_dot i
+{
+  font-size: 17px;
+}
+/* dialauge box of edit and delete */
+.main_div .main_content .main_vids .show_cmnt .dialauge
+{
+  background: #fff;
+  width: 300px;
+  padding: 10px 5px;
+  margin-left: 45px;
+  border-radius: 10px;
+  box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
+  display: none;
+}
+.main_div .main_content .main_vids .show_cmnt .dialauge.active
+{
+  display: block;
+}
+.main_div .main_content .main_vids .show_cmnt .dialauge.d_active
+{
+  background: #353535;
+}
+.main_div .main_content .main_vids .show_cmnt .dialauge a
+{
+  text-decoration: none;
+}
+.main_div .main_content .main_vids .show_cmnt .dialauge a .edit_comment,
+.main_div .main_content .main_vids .show_cmnt .dialauge a .delete_comment
+{
+  padding: 5px;
+  border-radius: 5px;
+  font-family: "Work Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+}
+.main_div .main_content .main_vids .show_cmnt .dialauge a .edit_comment.d_active,
+.main_div .main_content .main_vids .show_cmnt .dialauge a .delete_comment.d_active
+{
+  color: #e4e6eb;
+}
+.main_div .main_content .main_vids .show_cmnt .dialauge a .edit_comment:hover,
+.main_div .main_content .main_vids .show_cmnt .dialauge a .delete_comment:hover
+{
+  background: rgba(0, 0, 0, 0.09);
+}
 /* comment box */
 .main_div .main_content .main_vids .c_comment_box
 {
@@ -2200,6 +2273,22 @@
   }
   .main_div .main_content .main_vids .show_cmnt .comment_users .c_comment .main_comment {
     font-size: 13px;
+  }
+  .main_div .main_content .main_vids .show_cmnt .comment_users .c_three_dot {
+    padding: 5px;
+  }
+  .main_div .main_content .main_vids .show_cmnt .comment_users .c_three_dot i {
+    font-size: 15px;
+  }
+  .main_div .main_content .main_vids .show_cmnt .dialauge {
+    background: #fff;
+    width: 215px;
+    padding: 6px 5px;
+    margin-left: 40px;
+  }
+  .main_div .main_content .main_vids .show_cmnt .dialauge a .edit_comment,
+  .main_div .main_content .main_vids .show_cmnt .dialauge a .delete_comment {
+    font-size: 14px;
   }
   .main_div .main_content .main_vids .c_comment_box {
     padding: 9px 10px;

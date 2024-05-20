@@ -359,6 +359,13 @@ if (!isset($_SESSION['name'])) {
                                         <div class="user_name"><?php echo $c_data['user_name']; ?></div>
                                         <div class="main_comment"><?php echo $c_data['comment']; ?></div>
                                     </div>
+                                    <div class="c_three_dot">
+                                          <i class="fa-solid fa-ellipsis"></i>
+                                    </div>
+                                </div>
+                                <div class="dialauge">
+                                   <a href="updatemsg.php?id=<?php echo $c_data['id']; ?>"><div class="edit_comment">edit</div></a>
+                                   <a href="deletemsg.php?id=<?php echo $c_data['id']; ?>"><div class="delete_comment">delete</div></a>
                                 </div>
                                 <?php
                               }
@@ -376,7 +383,8 @@ if (!isset($_SESSION['name'])) {
                                 </div>
                                 <div class="send_btn_comment" data-post-id="<?php echo $arraydata['id']; ?>"
                                     data-user-name="<?php echo $namedta['name']; ?>"
-                                    data-user-img="<?php echo $_SESSION['pimg']; ?>">
+                                    data-user-img="<?php echo $_SESSION['pimg']; ?>"
+                                    data-user-email="<?php echo $_SESSION['pemail']; ?>" >
                                     <input type="button" value="send" class="s_b">
                                 </div>
                             </div>
@@ -521,6 +529,7 @@ if (!isset($_SESSION['name'])) {
     <script src="like.js"></script>
     <script src="share.js"></script>
     <script src="comments.js"></script>
+    <script src="edit_dlt.js"></script>
     <script>
 
         // //disable context-menu
