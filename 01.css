@@ -734,11 +734,6 @@
   display: none;
   position: fixed;
 }
-
-.main_div .backupload_upload_div .upload_div.d_active {
-  background: #242526;
-}
-
 .main_div .backupload_upload_div .upload_div .dia_head {
   text-align: center;
   padding: 10px 0;
@@ -746,8 +741,8 @@
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
   font-weight: 600;
+  color: #000;
 }
-
 .main_div .backupload_upload_div .upload_div .cancel_btn {
   position: absolute;
   top: 8px;
@@ -789,8 +784,8 @@
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
+  mix-blend-mode: multiply;
 }
-
 .main_div .backupload_upload_div .upload_div .upload_btn,
 .main_div .backupload_upload_div .upload_div .upload_btn label {
   width: 170px;

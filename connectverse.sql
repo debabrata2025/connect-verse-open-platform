@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2024 at 07:58 PM
+-- Generation Time: May 21, 2024 at 07:15 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,6 +48,29 @@ INSERT INTO `answer` (`aid`, `qid`, `ans`, `user_img`, `u_name`, `posttime`) VAL
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(255) NOT NULL,
+  `post_id` int(255) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `user_img` varchar(255) NOT NULL,
+  `comment` longtext NOT NULL,
+  `u_email` varchar(255) NOT NULL,
+  `p_u_email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `post_id`, `user_name`, `user_img`, `comment`, `u_email`, `p_u_email`) VALUES
+(52, 63, 'radhe debu', 'pimg/1000060164.png', 'abc', 'd@gmail.com', 'ds2357196@gmail.com');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `demodata`
 --
 
@@ -68,8 +91,9 @@ CREATE TABLE `demodata` (
 --
 
 INSERT INTO `demodata` (`id`, `name`, `email`, `phone`, `password`, `cpassword`, `image`, `token`, `status`) VALUES
-(54, 'Debabrata santra', 'ds2357196@gmail.com', '07319256047', '$2y$10$Rp9Gx3qfJneGnFFkf6aFSOu9uHx62KBUEwyQ1Sc1klPR.PEvnOeDi', '$2y$10$cFT2SL3kEl8c06Zw8uMiPuXpF5X9helBaLq10/67onBB7s7TDh20q', 'pimg/Screenshot 2024-02-21 184215.png', '', ''),
-(55, 'radhe debu', 'd@gmail.com', '123654', '$2y$10$1KrRAt5HKUqHmt6PDVcnW.ioCxxFDUdYeyxEK8CEY4IOJVfMHgjQW', '$2y$10$IPt.OPe7pGWxCnFEk4eu5OzwHMuxmahXzB9P504Y5Q5xoz3Cl3Oy2', 'pimg/1000060164.png', '', '');
+(54, 'radhedebu_321', 'ds2357196@gmail.com', '07319256047', '$2y$10$Rp9Gx3qfJneGnFFkf6aFSOu9uHx62KBUEwyQ1Sc1klPR.PEvnOeDi', '$2y$10$cFT2SL3kEl8c06Zw8uMiPuXpF5X9helBaLq10/67onBB7s7TDh20q', 'pimg/Screenshot 2024-02-21 184215.png', '', ''),
+(55, 'radhe debu', 'd@gmail.com', '123654', '$2y$10$1KrRAt5HKUqHmt6PDVcnW.ioCxxFDUdYeyxEK8CEY4IOJVfMHgjQW', '$2y$10$IPt.OPe7pGWxCnFEk4eu5OzwHMuxmahXzB9P504Y5Q5xoz3Cl3Oy2', 'pimg/1000060164.png', '', ''),
+(56, 'sbag', 's@gmail.com', '78854', '$2y$10$9kC526Mb5z4e0eipila8/.QyzUxHlIjbHRrhqdbFT5zvd41pbSXMG', '$2y$10$jNJ1z7CU25KOGPPlulKjTeAA.6lkHDXFcN8l5jBa7/ZhaccN88DPO', 'pimg/20240419_013013.jpg', '', '');
 
 -- --------------------------------------------------------
 
@@ -116,11 +140,11 @@ CREATE TABLE `mailtable` (
 --
 
 INSERT INTO `mailtable` (`id`, `name`, `image`, `msg`, `email`, `msgdate`) VALUES
-(73, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'good night', 'ds2357196@gmail.com', '09-03-24'),
-(74, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'swwet dream\r\n', 'ds2357196@gmail.com', '09-03-24'),
-(81, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'hi', 'ds2357196@gmail.com', '26-03-24'),
-(83, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'hello', 'ds2357196@gmail.com', '26-03-24'),
-(86, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'hi<br />hello<br />debu', 'ds2357196@gmail.com', '27-03-24');
+(73, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'good night', 'ds2357196@gmail.com', '09-03-24'),
+(74, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'swwet dream\r\n', 'ds2357196@gmail.com', '09-03-24'),
+(81, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'hi', 'ds2357196@gmail.com', '26-03-24'),
+(83, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'hello', 'ds2357196@gmail.com', '26-03-24'),
+(86, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'hi<br />hello<br />debu', 'ds2357196@gmail.com', '27-03-24');
 
 -- --------------------------------------------------------
 
@@ -142,17 +166,17 @@ CREATE TABLE `main_content` (
 --
 
 INSERT INTO `main_content` (`id`, `username`, `profileimg`, `video`, `desp`, `email`) VALUES
-(49, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/Screenshot 2024-01-12 191819.png', '', 'ds2357196@gmail.com'),
+(49, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/Screenshot 2024-01-12 191819.png', '', 'ds2357196@gmail.com'),
 (50, 'radhe debu', 'pimg/1000060164.png', 'mainmedia/PXL_20240313_143312693.MP.jpg', '', 'd@gmail.com'),
-(51, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_123527754.jpg', '', 'ds2357196@gmail.com'),
-(52, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_132229187.jpg', '', 'ds2357196@gmail.com'),
-(54, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240315_140218587.MP (1).jpg', '', 'ds2357196@gmail.com'),
-(55, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/1000060164.png', '', 'ds2357196@gmail.com'),
-(56, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_131634943.jpg', 'Radhe Radhe ❤️', 'ds2357196@gmail.com'),
-(57, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_132053466.jpg', 'Life is not about waiting for the storm to pass, but learning to dance in the rain.❤️❤️❤️', 'ds2357196@gmail.com'),
-(61, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/community forum.png', '', 'ds2357196@gmail.com'),
-(62, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/20240204_192800.jpg', 'Radhe Radhe ❤️ Hare Krishna ?', 'ds2357196@gmail.com'),
-(63, 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/peakpx.jpg', '', 'ds2357196@gmail.com');
+(51, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_123527754.jpg', '', 'ds2357196@gmail.com'),
+(52, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_132229187.jpg', '', 'ds2357196@gmail.com'),
+(54, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240315_140218587.MP (1).jpg', '', 'ds2357196@gmail.com'),
+(55, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/1000060164.png', '', 'ds2357196@gmail.com'),
+(56, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_131634943.jpg', 'Radhe Radhe ❤️', 'ds2357196@gmail.com'),
+(57, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_132053466.jpg', 'Life is not about waiting for the storm to pass, but learning to dance in the rain.❤️❤️❤️', 'ds2357196@gmail.com'),
+(61, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/community forum.png', '', 'ds2357196@gmail.com'),
+(62, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/20240204_192800.jpg', 'Radhe Radhe ❤️ Hare Krishna ?', 'ds2357196@gmail.com'),
+(63, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/peakpx.jpg', '', 'ds2357196@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -187,6 +211,12 @@ INSERT INTO `question` (`qid`, `ques`, `u_nam`, `u_im`, `post_a_time`) VALUES
 --
 ALTER TABLE `answer`
   ADD PRIMARY KEY (`aid`);
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `demodata`
@@ -229,10 +259,16 @@ ALTER TABLE `answer`
   MODIFY `aid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+
+--
 -- AUTO_INCREMENT for table `demodata`
 --
 ALTER TABLE `demodata`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `likes`

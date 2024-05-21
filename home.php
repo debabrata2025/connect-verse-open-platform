@@ -365,7 +365,7 @@ if (!isset($_SESSION['name'])) {
                                 </div>
                                 <div class="dialauge">
                                    <a href="updatemsg.php?id=<?php echo $c_data['id']; ?>"><div class="edit_comment">edit</div></a>
-                                   <a href="deletemsg.php?id=<?php echo $c_data['id']; ?>"><div class="delete_comment">delete</div></a>
+                                   <a href="deletemsg.php?id=<?php echo $c_data['id']; ?>&postuseremail=<?php echo urlencode($c_data['p_u_email']); ?>"><div class="delete_comment">delete</div></a>
                                 </div>
                                 <?php
                               }
@@ -384,7 +384,8 @@ if (!isset($_SESSION['name'])) {
                                 <div class="send_btn_comment" data-post-id="<?php echo $arraydata['id']; ?>"
                                     data-user-name="<?php echo $namedta['name']; ?>"
                                     data-user-img="<?php echo $_SESSION['pimg']; ?>"
-                                    data-user-email="<?php echo $_SESSION['pemail']; ?>" >
+                                    data-user-email="<?php echo $_SESSION['pemail']; ?>"
+                                    data-postuser-email="<?php echo $arraydata['email']; ?>" >
                                     <input type="button" value="send" class="s_b">
                                 </div>
                             </div>

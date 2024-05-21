@@ -45,6 +45,7 @@ comment_sec.forEach((button, index) => {
         let userName = this.getAttribute('data-user-name');
         let userImg = this.getAttribute('data-user-img');
         let userEmail = this.getAttribute('data-user-email');
+        let postuserEmail = this.getAttribute('data-postuser-email');
         let commentBox = this.closest('.c_comment_box').querySelector('.comment_area_main');
         let commentText = commentBox.value;
 
@@ -58,7 +59,8 @@ comment_sec.forEach((button, index) => {
             userName: userName,
             userImg: userImg,
             comment: commentText,
-            userEmail: userEmail
+            userEmail: userEmail,
+            postuserEmail : postuserEmail
         };
 
         fetch('submit_comment.php', {
