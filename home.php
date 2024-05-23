@@ -293,7 +293,7 @@ if (!isset($_SESSION['name'])) {
                             if (in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif'])) {
                                 echo '<img src="' . $arraydata['video'] . '" alt="Image" loading="lazy" class="media">';
                             } elseif (in_array($fileExtension, ['mp4', 'mov', 'avi'])) {
-                                echo '<video controls>';
+                                echo '<video controls loop>';
                                 echo '<source src="' . $arraydata['video'] . '" type="video/mp4" class="media">';
                                 echo 'Your browser does not support the video tag.';
                                 echo '</video>';
@@ -364,7 +364,7 @@ if (!isset($_SESSION['name'])) {
                                     </div>
                                 </div>
                                 <div class="dialauge">
-                                   <a href="updatemsg.php?id=<?php echo $c_data['id']; ?>"><div class="edit_comment">edit</div></a>
+                                   <a href="commentupdate.php?id=<?php echo $c_data['id']; ?>"><div class="edit_comment">edit</div></a>
                                    <a href="deletemsg.php?id=<?php echo $c_data['id']; ?>&postuseremail=<?php echo urlencode($c_data['p_u_email']); ?>"><div class="delete_comment">delete</div></a>
                                 </div>
                                 <?php
