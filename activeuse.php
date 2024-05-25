@@ -25,7 +25,7 @@ session_start();
     </div>
 	<div class="main">
         <div class="head">
-            <h2 class="ac_head">Active Users</h2>
+            <h2 class="ac_head">Connections</h2>
         </div>
         <div class="btn_div">
         <?php

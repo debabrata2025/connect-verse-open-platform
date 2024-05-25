@@ -99,10 +99,9 @@ if (!isset($_SESSION['name'])) {
                 <!-- lists options -->
                 <div class="menu">
                     <ul>
-                        <li class="m_view_none"><a href="#top" class="dtext">new-post</a></li>
-                        <li class="comments m_view_none"><a href="#" class="dtext">comments</a></li>
+                        <li class="comments m_view_none"><a href="#" class="dtext">feeds</a></li>
                         <li class="comments m_view_none"><a href="community.php" class="dtext">community</a></li>
-                        <li class="m_view_none"><a href="activeuse.php" class="dtext">active-user</a></li>
+                        <li class="m_view_none"><a href="activeuse.php" class="dtext">Connections</a></li>
                         <li class="faq m_view_none"><a href="#" class="dtext">faq</a></li>
                         <li>
                             <a href="#" class="dtext">

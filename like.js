@@ -1,5 +1,6 @@
 let lbtnicon = document.querySelectorAll('.fa-heart');
 let likeCountDisplay = document.querySelectorAll('.like-count');
+var likeaudio = new Audio('sounds/likesound.mp3');
 
 document.querySelectorAll('.like').forEach((likeBtn, index) => {
     likeBtn.addEventListener('click', (event) => {
@@ -21,6 +22,7 @@ document.querySelectorAll('.like').forEach((likeBtn, index) => {
                     if (data.isLiked) {
                         lbtnicon[index].classList.add('fa-solid');
                         lbtnicon[index].classList.add('active');
+                        likeaudio.play();
                     } else {
                         lbtnicon[index].classList.remove('fa-solid');
                         lbtnicon[index].classList.remove('active');
