@@ -7,6 +7,10 @@ const share_image = document.querySelectorAll('.media');
 
 share.forEach((item, index) => {
     item.addEventListener('click', () => {
+        // while switching modes a small vibration will happen in phone
+        if (navigator.vibrate) {
+            navigator.vibrate(5); // Extremely brief vibration for 5 milliseconds
+        }
         if(navigator.share){
             navigator.share({
                 title : 'content',

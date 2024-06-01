@@ -46,7 +46,6 @@ session_start();
                 // password hashing
                 $hasspass = password_hash($password, PASSWORD_BCRYPT);
                 $conhasspass = password_hash($cpassword, PASSWORD_BCRYPT);
-                $token = bin2hex(random_bytes(15));
 
                 //email validation
                 $checkemail = "select * from demodata where email='$email'";

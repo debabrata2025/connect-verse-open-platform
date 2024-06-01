@@ -290,7 +290,7 @@ if (!isset($_SESSION['name'])) {
                             <?php
                             $fileExtension = pathinfo($arraydata['video'], PATHINFO_EXTENSION);
                             if (in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif'])) {
-                                echo '<img src="' . $arraydata['video'] . '" alt="Image" loading="lazy" class="media">';
+                                echo '<img data-lazy="' . $arraydata['video'] . '" alt="Image" class="media">';
                             } elseif (in_array($fileExtension, ['mp4', 'mov', 'avi'])) {
                                 echo '<video controls loop>';
                                 echo '<source src="' . $arraydata['video'] . '" type="video/mp4" class="media">';
@@ -530,6 +530,7 @@ if (!isset($_SESSION['name'])) {
     <script src="share.js"></script>
     <script src="comments.js"></script>
     <script src="edit_dlt.js"></script>
+    <script src="lazy_img.js"></script>
     <script>
 
         // //disable context-menu

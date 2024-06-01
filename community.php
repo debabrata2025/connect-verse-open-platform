@@ -308,6 +308,9 @@ if (!isset ($_SESSION['name'])) {
         ans_btn.forEach((item, index) => {
             item.addEventListener('click', () => {
                 write_area[index].classList.toggle('active');
+                if (navigator.vibrate) {
+                  navigator.vibrate(3);
+                }
             })
         })
 

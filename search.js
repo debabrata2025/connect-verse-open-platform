@@ -4,6 +4,12 @@ const users_res = document.querySelectorAll('.users_res');
 const search_res_box = document.querySelector('.search_res_box');
 const no_user = document.querySelector('.no_user');
 
+//click to vibrate
+searchinput.addEventListener('click', () => {
+    if (navigator.vibrate) {
+        navigator.vibrate(10);
+    }
+})
 searchinput.addEventListener('keyup', () => {
     let updatedinput = searchinput.value.trim().toLowerCase(); // Trim input to remove leading/trailing whitespace
     if (updatedinput !== '') {

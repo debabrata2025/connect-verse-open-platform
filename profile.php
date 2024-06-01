@@ -246,6 +246,9 @@ if (!isset($_SESSION['name'])) {
         const cbtn = document.querySelector('.fa-pen-to-square');
         const profile_name_change = document.querySelector('.profile_name_change');
         cbtn.onclick = () => {
+            if (navigator.vibrate) {
+               navigator.vibrate(2);
+             }
             profile_name_change.style.display = 'block';
         }
 
@@ -257,6 +260,9 @@ if (!isset($_SESSION['name'])) {
         for (let i = 0; i < dltbtn.length; i++) {
             dltbtn[i].onclick = () => {
                 alert_box[i].style.display = 'block';
+                if (navigator.vibrate) {
+                   navigator.vibrate(3);
+                }
             }
             cancelbtn[i].onclick = (e) => {
                 alert_box[i].style.display = 'none';

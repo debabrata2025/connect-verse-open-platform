@@ -17,11 +17,19 @@ comment_btn_sec.forEach((item, index) => {
     item.addEventListener('click', () => {
         comment_sec[index].classList.toggle('active');
         comment_area_main[index].focus();
+        // while switching modes a small vibration will happen in phone
+        if (navigator.vibrate) {
+            navigator.vibrate(2); // Extremely brief vibration for 5 milliseconds
+        }
     })
 })
 comment_area_main.forEach((item, index) => {
     item.addEventListener('focus', () => {
         comment_sec[index].classList.add('active');
+        // while switching modes a small vibration will happen in phone
+        if (navigator.vibrate) {
+            navigator.vibrate(2); // Extremely brief vibration for 5 milliseconds
+        }
     })
 })
 
@@ -31,6 +39,10 @@ const view_commets_btn = document.querySelectorAll('.view_commets_btn');
 view_commets_btn.forEach((item, index) => {
     item.addEventListener('click', () => {
         commentSection[index].classList.toggle('active');
+        // while switching modes a small vibration will happen in phone
+        if (navigator.vibrate) {
+            navigator.vibrate(2); // Extremely brief vibration for 5 milliseconds
+        }
     });
 });
 

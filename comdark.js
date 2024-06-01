@@ -74,6 +74,10 @@ dbtn.addEventListener('click', () => {
 });
 
 dbtn.addEventListener('click', () => {
+    // while switching modes a small vibration will happen in phone
+    if (navigator.vibrate) {
+        navigator.vibrate(5); // Extremely brief vibration for 5 milliseconds
+    }
     dbtn.classList.toggle('d_active');
     // maindiv.classList.toggle('d_active');
     nav_div.classList.toggle('d_active');
