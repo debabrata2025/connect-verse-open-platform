@@ -28,7 +28,7 @@ if (!isset ($_SESSION['name'])) {
         <div class="nav_div">
             <div class="c_logo">
                 <a href="home.php">
-                    <img src="logo2_prev_ui.png" alt="logo" loading="lazy">
+                    <img src="logo2_prev_ui.svg" alt="logo" loading="lazy">
                 </a>
             </div>
             <div class="menu">

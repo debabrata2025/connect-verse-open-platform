@@ -71,7 +71,7 @@ session_start();
             <div class="box">
                 <div class="heading">
                     <div class="c_logo">
-                        <img src="logo2_prev_ui.png" alt="logo" loading="lazy" width="40">
+                        <img src="logo2_prev_ui.svg" alt="logo" loading="lazy" width="40">
                     </div>
                     <h2 class="mh">login</h2>
                 </div>
