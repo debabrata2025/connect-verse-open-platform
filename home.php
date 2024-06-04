@@ -1,13 +1,25 @@
 <?php
 session_start();
-if (!isset($_SESSION['name'])) {
-    header('location:login.php');
+
+if (!isset($_SESSION['user_id']) && !isset($_COOKIE['user_id'])) {
+    ?>
+    <script>
+        location.replace("login.php");
+    </script>
+    <?php
 }
 
+// If cookies are set, but session is not, set the session from cookies
+if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
+    $_SESSION['user_id'] = $_COOKIE['user_id'];
+    $_SESSION['name'] = $_COOKIE['name'];
+    $_SESSION['pimg'] = $_COOKIE['pimg'];
+    $_SESSION['pemail'] = $_COOKIE['email'];
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +30,6 @@ if (!isset($_SESSION['name'])) {
     <link rel="icon" type="images/webp" href="p5.webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body id="top">
     <div class="loading-bar"></div>
     <div class="main" id="loader">

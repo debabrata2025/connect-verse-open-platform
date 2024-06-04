@@ -1,9 +1,23 @@
 <?php
 session_start();
+include 'connection.php';
+// Check if the user is already logged in via cookies
+if (isset($_COOKIE['user_id']) && isset($_COOKIE['email']) && isset($_COOKIE['name']) && isset($_COOKIE['pimg'])) {
+    // Set session variables based on cookies
+    $_SESSION['user_id'] = $_COOKIE['user_id'];
+    $_SESSION['pemail'] = $_COOKIE['email'];
+    $_SESSION['name'] = $_COOKIE['name'];
+    $_SESSION['pimg'] = $_COOKIE['pimg'];
+
+    ?>
+    <script>
+        location.replace("home.php");
+    </script>
+    <?php
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +26,6 @@ session_start();
     <link rel="icon" type="images/webp" href="p2.webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
     <div class="loading-bar"></div>
     <div class="main" id="loader">

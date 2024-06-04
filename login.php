@@ -1,9 +1,23 @@
 <?php
 session_start();
+include 'connection.php';
+// Check if the user is already logged in via cookies
+if (isset($_COOKIE['user_id']) && isset($_COOKIE['email']) && isset($_COOKIE['name']) && isset($_COOKIE['pimg'])) {
+    // Set session variables based on cookies
+    $_SESSION['user_id'] = $_COOKIE['user_id'];
+    $_SESSION['pemail'] = $_COOKIE['email'];
+    $_SESSION['name'] = $_COOKIE['name'];
+    $_SESSION['pimg'] = $_COOKIE['pimg'];
+
+    ?>
+    <script>
+        location.replace("home.php");
+    </script>
+    <?php
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,6 +50,10 @@ session_start();
                     $_SESSION['pemail'] = $email;
                     $pass_decode = password_verify($password, $db_pass);
                     if ($pass_decode) {
+                        setcookie('user_id', $email_pass['id'], time() + (86400 * 30), "/"); // 30 days
+                        setcookie('email', $email, time() + (86400 * 30), "/");
+                        setcookie('name', $email_pass['name'], time() + (86400 * 30), "/");
+                        setcookie('pimg', $email_pass['image'], time() + (86400 * 30), "/");
                         if (isset($_POST['rememberme'])) {
                             setcookie('emailcookie', $email, time() + 86400);
                             setcookie('passwordcookie', $password, time() + 86400);
