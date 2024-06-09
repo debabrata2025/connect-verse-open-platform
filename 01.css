@@ -7,7 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 * {
   padding: 0;
   margin: 0;
@@ -659,6 +659,7 @@
 
 .main_div .sidebar .items ul li a {
   text-decoration: none;
+  position: relative;
 }
 
 .main_div .sidebar .items ul li a:hover>i {
@@ -686,6 +687,19 @@
   color: #e4e6eb;
 }
 
+/* unread msg count */
+.main_div .sidebar .items ul li a .unread {
+  padding: 2px 5px;
+  text-align: center;
+  background: #e8e8e8;
+  margin: 0 5px;
+  position: absolute;
+  bottom: 5px;
+  font-size: 15px;
+  color: #000;
+  font-weight: bold;
+}
+
 .main_div .sidebar .trademark {
   position: absolute;
   bottom: 10px;
@@ -707,6 +721,115 @@
   color: red;
 
 }
+
+/* slide bar for notofication */
+.main_div .main_notification
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100vh;
+  background: #fff;
+  z-index: 9999999;
+  padding: 20px 0;
+  overflow-y: auto;
+}
+.main_div .main_notification.active
+{
+  width: 300px;
+}
+.main_div .main_notification::-webkit-scrollbar
+{
+  width: 0;
+}
+.main_div .main_notification .noti_head
+{
+  margin-left: 20px;
+}
+.main_div .main_notification .noti_head h2{
+  font-size: 25px;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-family: "Roboto", sans-serif;
+}
+.main_div .main_notification .notification_div
+{
+  width: 100%;
+  margin-top: 20px;
+}
+.main_div .main_notification .notification_div .main_noti_user
+{
+  display: flex;
+  flex-direction: column;
+}
+.main_div .main_notification .notification_div .main_noti_user .noti_user
+{
+  /* background: red; */
+  width: 100%;
+  padding: 5px 10px; 
+  display: flex;
+  align-items: center;
+}
+/* .main_div .main_notification .notification_div .main_noti_user .noti_user:hover
+{
+  cursor: pointer;
+  background: #f1f1f1;
+} */
+.main_div .main_notification .notification_div .main_noti_user .noti_user .user_img_n
+{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+}
+.main_div .main_notification .notification_div .main_noti_user .noti_user .user_img_n img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.main_div .main_notification .notification_div .main_noti_user .noti_user .user_name_n
+{
+  margin-left: 10px;
+  color: #000;
+}
+.main_div .main_notification .notification_div .main_noti_user .noti_user .user_name_n span
+{
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Work Sans", sans-serif;
+  text-transform: capitalize;
+}
+/* confirmation btn */
+.main_div .main_notification .notification_div .main_noti_user .coti_confirm_div
+{
+  display: flex;
+  margin-left: 70px;
+}
+.main_div .main_notification .notification_div .main_noti_user .coti_confirm_div .com_btn
+{
+  padding: 10px 25px;
+  margin: 0 5px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+}
+.main_div .main_notification .notification_div .main_noti_user .coti_confirm_div .com_btn.confirm
+{
+  background: #0866ff;
+  color: #fff;
+}
+.main_div .main_notification .notification_div .main_noti_user .coti_confirm_div .com_btn.delete
+{
+  color: #000;
+  background: #e4e6eb;
+}
+.main_div .main_notification .notification_div .main_noti_user .coti_confirm_div .com_btn:hover
+{
+  cursor: pointer;
+  filter: brightness(0.9);
+}
+
 
 /* image/video upload dialogue box */
 .main_div .backupload_upload_div {
@@ -1690,12 +1813,49 @@
   color: aliceblue;
   cursor: pointer;
 }
+/* add friend btn */
+.main_div .main_profile_div .all_content .add_friend_div
+{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.main_div .main_profile_div .all_content .add_friend_div .sub_add_friend
+{
+  display: flex;
+  padding: 10px 13px;
+  background: #0866ff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.main_div .main_profile_div .all_content .add_friend_div .sub_add_friend:hover
+{
+  cursor: pointer;
+  filter: brightness(0.9);
+}
+.main_div .main_profile_div .all_content .add_friend_div .sub_add_friend .add_btn
+{
+  margin-right: 3px;
+}
+.main_div .main_profile_div .all_content .add_friend_div .sub_add_friend .add_btn i
+{
+  color: #fff;
+  font-size: 15px;
+}
+.main_div .main_profile_div .all_content .add_friend_div .sub_add_friend span
+{
+  color: #fff;
+  font-family: "Rubik", sans-serif;
+}
 
+
+
+/* video heading */
 .main_div .main_profile_div .all_content .profile_des h3 {
   font-size: 20px;
   text-align: center;
 }
-
+/* post div */
 .main_div .main_profile_div .all_content .profile_videos_div {
   width: 70%;
   height: auto;

@@ -20,6 +20,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +31,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
     <link rel="icon" type="images/webp" href="p5.webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body id="top">
     <div class="loading-bar"></div>
     <div class="main" id="loader">
@@ -166,6 +168,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
                 <ul>
                     <div class="op active"><a href="#top" class="dt active">new post</a></div>
                     <div class="op comments"><a href="#" class="dt">comments</a></div>
+                    <div class="op"><a href="#" class="dt">Signals</a></div>
                     <div class="op"><a href="community.php" class="dt">community</a></div>
                     <div class="op"><a href="activeuse.php" class="dt">active-user</a></div>
                     <div class="op"><a href="#" class="dt" id="faq">faq</a></div>
@@ -188,6 +191,8 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
                         <li><a href="#"><i class="fa-solid fa-house dicon"></i><span class="iname">home</span></a></li>
                         <li class="add_media"><a id="upload"><i class="fa-sharp fa-solid fa-circle-plus dicon"></i><span
                                     class="iname">upload</span></a></li>
+                        <li class="bell_noti"><a><i class="fa-solid fa-bell dicon"></i><span class="iname">Signals</span><span class="unread"></span></a>
+                        </li>
                         <li><a href="tel: +917319256047"><i class="fa-solid fa-phone-volume dicon"></i><span
                                     class="iname">call
                                     us</span></a></li>
@@ -206,6 +211,20 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
                         ?>
                     </a>
                 </div> -->
+            </div>
+
+            <!-- side menu for notificattion -->
+            <div class="main_notification">
+                <div class="noti_head">
+                    <h2>Signals</h2>
+                </div>
+                <!-- users notification -->
+                <div class="notification_div">
+                    <div class="main_noti_user">
+                        <!-- all user details will come from ajax -->
+                    </div>
+
+                </div>
             </div>
 
             <!-- profile box -->
@@ -355,11 +374,11 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
                         <!-- display  post comments -->
                         <div class="show_cmnt">
                             <?php
-                              include 'connection.php';
-                              $pid = $arraydata['id'];
-                              $all_user_comment = "select * from comments where post_id=$pid ORDER BY id DESC";
-                              $comment_q = mysqli_query($con, $all_user_comment);
-                              while($c_data = mysqli_fetch_array($comment_q)){
+                            include 'connection.php';
+                            $pid = $arraydata['id'];
+                            $all_user_comment = "select * from comments where post_id=$pid ORDER BY id DESC";
+                            $comment_q = mysqli_query($con, $all_user_comment);
+                            while ($c_data = mysqli_fetch_array($comment_q)) {
                                 ?>
                                 <div class="comment_users">
                                     <div class="c_user_img">
@@ -370,15 +389,20 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
                                         <div class="main_comment"><?php echo $c_data['comment']; ?></div>
                                     </div>
                                     <div class="c_three_dot">
-                                          <i class="fa-solid fa-ellipsis"></i>
+                                        <i class="fa-solid fa-ellipsis"></i>
                                     </div>
                                 </div>
                                 <div class="dialauge">
-                                   <a href="commentupdate.php?id=<?php echo $c_data['id']; ?>"><div class="edit_comment">edit</div></a>
-                                   <a href="deletemsg.php?id=<?php echo $c_data['id']; ?>&postuseremail=<?php echo urlencode($c_data['p_u_email']); ?>"><div class="delete_comment">delete</div></a>
+                                    <a href="commentupdate.php?id=<?php echo $c_data['id']; ?>">
+                                        <div class="edit_comment">edit</div>
+                                    </a>
+                                    <a
+                                        href="deletemsg.php?id=<?php echo $c_data['id']; ?>&postuseremail=<?php echo urlencode($c_data['p_u_email']); ?>">
+                                        <div class="delete_comment">delete</div>
+                                    </a>
                                 </div>
                                 <?php
-                              }
+                            }
                             ?>
                         </div>
                         <!-- make a comment by user -->
@@ -395,7 +419,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
                                     data-user-name="<?php echo $namedta['name']; ?>"
                                     data-user-img="<?php echo $_SESSION['pimg']; ?>"
                                     data-user-email="<?php echo $_SESSION['pemail']; ?>"
-                                    data-postuser-email="<?php echo $arraydata['email']; ?>" >
+                                    data-postuser-email="<?php echo $arraydata['email']; ?>">
                                     <input type="button" value="send" class="s_b">
                                 </div>
                             </div>
@@ -542,6 +566,10 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
     <script src="comments.js"></script>
     <script src="edit_dlt.js"></script>
     <script src="lazy_img.js"></script>
+    <script src="notification.js"></script>
+    <script src="noti_count.js"></script>
+    <script src="show_req.js"></script>
+    <script src="accept.js"></script>
     <script>
 
         // //disable context-menu
@@ -672,12 +700,31 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
         let commentbtn = document.querySelectorAll('.comments');
         let commentbox = document.querySelector('.main_show_div1');
 
-        commentbtn[0].onclick = () => {
+        // Function to toggle showactive class
+        const toggleShowActive = (event) => {
             commentbox.classList.toggle('showactive');
-        }
-        commentbtn[2].onclick = () => {
-            commentbox.classList.toggle('showactive');
-        }
+            event.stopPropagation(); // Stop event from propagating to document
+        };
+
+        // Function to remove showactive class
+        const removeShowActive = () => {
+            commentbox.classList.remove('showactive');
+        };
+
+        // Add click event listeners to specific comment buttons
+        commentbtn[0].addEventListener('click', toggleShowActive);
+        commentbtn[2].addEventListener('click', toggleShowActive);
+
+        // Add click event listener to the document
+        document.addEventListener('click', removeShowActive);
+
+        // Prevent the comment box from being deactivated when it's clicked
+        commentbox.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+
+
+
         //for stroing date ipn comment
         let datedisplay = document.getElementById("ldate");
         let date = new Date().getDate();

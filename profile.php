@@ -158,7 +158,16 @@ if (!isset($_SESSION['name'])) {
                             </div>
                         </form>
                     </div>
-
+                    <div class="add_friend_div">
+                        <div class="sub_add_friend">
+                            <div class="add_btn">
+                                <i class="fa-solid fa-link"></i>
+                            </div>
+                            <span>
+                                Connects
+                            </span>
+                        </div>
+                    </div>
                     <div class="profile_des">
                         <h3>your posts...</h3>
                     </div>
@@ -247,8 +256,8 @@ if (!isset($_SESSION['name'])) {
         const profile_name_change = document.querySelector('.profile_name_change');
         cbtn.onclick = () => {
             if (navigator.vibrate) {
-               navigator.vibrate(2);
-             }
+                navigator.vibrate(2);
+            }
             profile_name_change.style.display = 'block';
         }
 
@@ -261,7 +270,7 @@ if (!isset($_SESSION['name'])) {
             dltbtn[i].onclick = () => {
                 alert_box[i].style.display = 'block';
                 if (navigator.vibrate) {
-                   navigator.vibrate(3);
+                    navigator.vibrate(3);
                 }
             }
             cancelbtn[i].onclick = (e) => {

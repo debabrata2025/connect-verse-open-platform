@@ -88,6 +88,7 @@ if (!isset($_SESSION['name'])) {
             $useremaildata = mysqli_fetch_array($selectemailquery);
             $username = $useremaildata['name'];
             $userimg = $useremaildata['image'];
+            $receiver_id = $useremaildata['id'];
             ?>
             <div class="main_profile_div">
                 <div class="all_content">
@@ -100,6 +101,20 @@ if (!isset($_SESSION['name'])) {
                         <h2 class="up_name">
                             <?php echo $username; ?>
                         </h2>
+                    </div>
+                    <div class="add_friend_div">
+                        <?php if ($useremail != $_SESSION['pemail']) { ?>
+                        <div class="sub_add_friend" 
+                        data-sender-id="<?php echo $_SESSION['user_id']; ?>"
+                        data-receiver-id="<?php echo $receiver_id; ?>" >
+                            <div class="add_btn">
+                                <i class="fa-solid fa-link"></i>
+                            </div>
+                            <span id="c_con_text">
+                                Connect
+                            </span>
+                        </div>
+                        <?php } ?>
                     </div>
                     <div class="profile_des">
                         <h3>Posts...</h3>
@@ -143,6 +158,7 @@ if (!isset($_SESSION['name'])) {
     <script src="checkprofile.js"></script>
     <script src="online.js"></script>
     <script src="toploader.js"></script>
+    <script src="friend_req.js"></script>
     <script>
         //profile div toggle
         const profilebtn = document.querySelector('.profile');
