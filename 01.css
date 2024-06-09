@@ -1847,7 +1847,18 @@
   color: #fff;
   font-family: "Rubik", sans-serif;
 }
-
+/* friends counts */
+.main_div .main_profile_div .all_content .no_of_friends
+{
+  text-align: center;
+  margin-top: 5px;
+}
+.main_div .main_profile_div .all_content .no_of_friends .f_count
+{
+  font-size: 17px;
+  font-family: "Roboto", sans-serif;
+  color: #000;
+}
 
 
 /* video heading */
@@ -1981,6 +1992,72 @@
 }
 
 .main_div .alert_box .dlt_btn .cm {
+  background: red;
+}
+/* delete friend  btn */
+
+
+.main_div .alert_box1 {
+  background: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999999999999999;
+  width: 395px;
+  padding: 5px 20px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.3);
+  display: none;
+}
+
+.main_div .alert_box1 .dltmain {
+  width: 100%;
+}
+
+.main_div .alert_box1 .dltmain h2 {
+  text-align: center;
+  font-family: 'Belanosima', sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  text-shadow: 4px 0px 10px rgba(43, 154, 210, 0.158);
+  margin: 12px 0;
+}
+
+.main_div .alert_box1 .msg_alt {
+  text-align: center;
+  font-size: 15px;
+}
+
+.main_div .alert_box1 .dlt_btn {
+  display: flex;
+  margin: 5px auto;
+  width: 230px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.main_div .alert_box1 .dlt_btn .btn_class {
+  padding: 10px 20px;
+  margin: 10px 0 0 0;
+  border: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-family: 'Belanosima', sans-serif;
+  transition: all 0.3s linear;
+  background: #ba45e9;
+  color: aliceblue;
+  cursor: pointer;
+  margin: auto;
+  text-decoration: none;
+}
+
+.main_div .alert_box1 .dlt_btn .btn_class.active {
+  background: red;
+}
+
+.main_div .alert_box1 .dlt_btn .cm {
   background: red;
 }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2024 at 07:15 PM
+-- Generation Time: Jun 09, 2024 at 10:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -66,7 +66,12 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `post_id`, `user_name`, `user_img`, `comment`, `u_email`, `p_u_email`) VALUES
-(52, 63, 'radhe debu', 'pimg/1000060164.png', 'abc', 'd@gmail.com', 'ds2357196@gmail.com');
+(54, 63, 'radhe debu', 'pimg/1000060164.png', 'radhe radhe', 'd@gmail.com', 'ds2357196@gmail.com'),
+(55, 63, 'sbag', 'pimg/20240419_013013.jpg', 'radhe radhe', 's@gmail.com', 'ds2357196@gmail.com'),
+(57, 63, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'radhe krishna', 'ds2357196@gmail.com', 'ds2357196@gmail.com'),
+(59, 65, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'fbdfgdg', 'ds2357196@gmail.com', 'ds2357196@gmail.com'),
+(60, 65, 'connect verse', 'pimg/logo2_prev_ui.png', 'dfdsfsdf', 'cv@gmail.com', 'ds2357196@gmail.com'),
+(62, 67, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'thank you team @connectverse', 'ds2357196@gmail.com', 'cv@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -93,7 +98,34 @@ CREATE TABLE `demodata` (
 INSERT INTO `demodata` (`id`, `name`, `email`, `phone`, `password`, `cpassword`, `image`, `token`, `status`) VALUES
 (54, 'radhedebu_321', 'ds2357196@gmail.com', '07319256047', '$2y$10$Rp9Gx3qfJneGnFFkf6aFSOu9uHx62KBUEwyQ1Sc1klPR.PEvnOeDi', '$2y$10$cFT2SL3kEl8c06Zw8uMiPuXpF5X9helBaLq10/67onBB7s7TDh20q', 'pimg/Screenshot 2024-02-21 184215.png', '', ''),
 (55, 'radhe debu', 'd@gmail.com', '123654', '$2y$10$1KrRAt5HKUqHmt6PDVcnW.ioCxxFDUdYeyxEK8CEY4IOJVfMHgjQW', '$2y$10$IPt.OPe7pGWxCnFEk4eu5OzwHMuxmahXzB9P504Y5Q5xoz3Cl3Oy2', 'pimg/1000060164.png', '', ''),
-(56, 'sbag', 's@gmail.com', '78854', '$2y$10$9kC526Mb5z4e0eipila8/.QyzUxHlIjbHRrhqdbFT5zvd41pbSXMG', '$2y$10$jNJ1z7CU25KOGPPlulKjTeAA.6lkHDXFcN8l5jBa7/ZhaccN88DPO', 'pimg/20240419_013013.jpg', '', '');
+(56, 'sbag', 's@gmail.com', '78854', '$2y$10$9kC526Mb5z4e0eipila8/.QyzUxHlIjbHRrhqdbFT5zvd41pbSXMG', '$2y$10$jNJ1z7CU25KOGPPlulKjTeAA.6lkHDXFcN8l5jBa7/ZhaccN88DPO', 'pimg/20240419_013013.jpg', '', ''),
+(57, 'connect verse', 'cv@gmail.com', '123', '$2y$10$PAHvCgh3YlKMzOixhD7JcOQykUDu18yDAoLHofeORbm2.v2HeRirW', '$2y$10$T/ebozmXDKE6ZU8Ngr5zA.EPPjoEDrWDYbxcS6twFPRVbGJJcr2gO', 'pimg/logo2_prev_ui.png', '', ''),
+(58, 'radhe cc', 'cc@gmail.com', '4544554', '$2y$10$8yhNjFTXwYq8OtwOdvUY.ebQM3qLWLQpqyPeiqI0eHYulzNFWkWvm', '$2y$10$G2DYEhMlf.r4wCDfN73uoeZnXetosM.b6aezxMeM3QsLUL5X6vOgO', 'pimg/debunew.jpg', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `friend_req`
+--
+
+CREATE TABLE `friend_req` (
+  `id` int(255) NOT NULL,
+  `sender_id` int(255) NOT NULL,
+  `receiver_id` int(255) NOT NULL,
+  `req_status` varchar(255) NOT NULL,
+  `notification_status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `friend_req`
+--
+
+INSERT INTO `friend_req` (`id`, `sender_id`, `receiver_id`, `req_status`, `notification_status`) VALUES
+(83, 58, 54, 'friend', 'no'),
+(84, 55, 54, 'friend', 'no'),
+(85, 56, 54, 'friend', 'no'),
+(86, 57, 54, 'friend', 'no'),
+(87, 55, 57, 'friend', 'no');
 
 -- --------------------------------------------------------
 
@@ -113,12 +145,17 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`id`, `post_id`, `user_id`, `active_status`) VALUES
-(19, 63, 54, 0),
+(19, 63, 54, 1),
 (20, 62, 54, 1),
 (21, 49, 55, 1),
 (22, 63, 55, 1),
 (23, 49, 54, 0),
-(24, 61, 54, 0);
+(24, 61, 54, 0),
+(25, 64, 54, 1),
+(26, 65, 54, 1),
+(27, 65, 57, 0),
+(28, 67, 57, 1),
+(29, 67, 54, 1);
 
 -- --------------------------------------------------------
 
@@ -144,7 +181,7 @@ INSERT INTO `mailtable` (`id`, `name`, `image`, `msg`, `email`, `msgdate`) VALUE
 (74, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'swwet dream\r\n', 'ds2357196@gmail.com', '09-03-24'),
 (81, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'hi', 'ds2357196@gmail.com', '26-03-24'),
 (83, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'hello', 'ds2357196@gmail.com', '26-03-24'),
-(86, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'hi<br />hello<br />debu', 'ds2357196@gmail.com', '27-03-24');
+(87, 'radhe debu', 'pimg/1000060164.png', 'fdsffsd', 'd@gmail.com', '21-05-24');
 
 -- --------------------------------------------------------
 
@@ -168,7 +205,6 @@ CREATE TABLE `main_content` (
 INSERT INTO `main_content` (`id`, `username`, `profileimg`, `video`, `desp`, `email`) VALUES
 (49, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/Screenshot 2024-01-12 191819.png', '', 'ds2357196@gmail.com'),
 (50, 'radhe debu', 'pimg/1000060164.png', 'mainmedia/PXL_20240313_143312693.MP.jpg', '', 'd@gmail.com'),
-(51, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_123527754.jpg', '', 'ds2357196@gmail.com'),
 (52, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_132229187.jpg', '', 'ds2357196@gmail.com'),
 (54, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240315_140218587.MP (1).jpg', '', 'ds2357196@gmail.com'),
 (55, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/1000060164.png', '', 'ds2357196@gmail.com'),
@@ -176,7 +212,10 @@ INSERT INTO `main_content` (`id`, `username`, `profileimg`, `video`, `desp`, `em
 (57, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_132053466.jpg', 'Life is not about waiting for the storm to pass, but learning to dance in the rain.❤️❤️❤️', 'ds2357196@gmail.com'),
 (61, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/community forum.png', '', 'ds2357196@gmail.com'),
 (62, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/20240204_192800.jpg', 'Radhe Radhe ❤️ Hare Krishna ?', 'ds2357196@gmail.com'),
-(63, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/peakpx.jpg', '', 'ds2357196@gmail.com');
+(63, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/peakpx.jpg', '', 'ds2357196@gmail.com'),
+(64, 'sbag', 'pimg/20240419_013013.jpg', 'mainmedia/v2.mp4', 'In my own universe ❤️ #connectverse', 's@gmail.com'),
+(65, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/v1.mp4', '', 'ds2357196@gmail.com'),
+(67, 'connect verse', 'pimg/logo2_prev_ui.png', 'mainmedia/PXL_20240313_045708035.jpg', 'In my own universe ❤️ #connectverse', 'cv@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -225,6 +264,12 @@ ALTER TABLE `demodata`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `friend_req`
+--
+ALTER TABLE `friend_req`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `likes`
 --
 ALTER TABLE `likes`
@@ -262,31 +307,37 @@ ALTER TABLE `answer`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `demodata`
 --
 ALTER TABLE `demodata`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+
+--
+-- AUTO_INCREMENT for table `friend_req`
+--
+ALTER TABLE `friend_req`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `mailtable`
 --
 ALTER TABLE `mailtable`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `main_content`
 --
 ALTER TABLE `main_content`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `question`

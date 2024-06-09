@@ -4,7 +4,7 @@ session_start();
 
 $receiverId = $_SESSION['user_id'];
 
-$query = "UPDATE friend_req SET notification_status = 'NO'
+$query = "UPDATE friend_req SET notification_status = 'no'
  WHERE receiver_id = '$receiverId' AND notification_status = 'yes' AND req_status = 'pending'";
 
 $result = mysqli_query($con, $query);

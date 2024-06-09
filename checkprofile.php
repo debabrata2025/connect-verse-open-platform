@@ -102,6 +102,7 @@ if (!isset($_SESSION['name'])) {
                             <?php echo $username; ?>
                         </h2>
                     </div>
+                    <!-- friend req btn -->
                     <div class="add_friend_div">
                         <?php if ($useremail != $_SESSION['pemail']) { ?>
                         <div class="sub_add_friend" 
@@ -116,6 +117,38 @@ if (!isset($_SESSION['name'])) {
                         </div>
                         <?php } ?>
                     </div>
+                    <!-- friends count -->
+                <?php
+                    $receiverId = $receiver_id;
+                     // Query to count the number of friend requests
+                     $query = "SELECT COUNT(*) AS friend_count FROM friend_req
+                      WHERE ((receiver_id = '$receiverId') 
+                      OR (sender_id = '$receiverId')) AND req_status = 'friend'";
+
+                      // Execute the query
+                      $result = mysqli_query($con, $query);
+
+                    // Check if query execution was successful
+                    if ($result) {
+                       // Fetch the row
+                       $row = mysqli_fetch_assoc($result);
+                        // Get the friend count
+                       $friendCount = $row['friend_count'];
+                    } else {
+                        // Error handling if query execution fails
+                        $friendCount = 0; // Set default friend count to 0
+                        echo "Error: " . mysqli_error($connection);
+                    }
+
+                ?>
+                    <div class="no_of_friends">
+                       <p class="f_count">
+                         <span class="sub_f_count"><?php echo $friendCount; ?></span>
+                         <?php echo ($friendCount < 2) ? "friend" : "friends"; ?>
+                       </p>
+                    </div>
+
+                    <!-- post heading -->
                     <div class="profile_des">
                         <h3>Posts...</h3>
                     </div>
@@ -144,6 +177,20 @@ if (!isset($_SESSION['name'])) {
                         }
 
                         ?>
+                        <div class="alert_box1">
+                                <div class="dltmain">
+                                    <h2>Unfriend</h2>
+                                </div>
+                                <div class="msg_alt">
+                                    <p>Are you sure to Unfriend ?</p>
+                                </div>
+                                <div class="dlt_btn">
+                                    <a href="#" class='btn_class cl' id="cancel-btn">cancel</a>
+                                    <a href="#"  class="btn_class active" id="confirm-btn">
+                                        confirm
+                                    </a>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>

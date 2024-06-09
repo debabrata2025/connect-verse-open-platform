@@ -158,15 +158,35 @@ if (!isset($_SESSION['name'])) {
                             </div>
                         </form>
                     </div>
-                    <div class="add_friend_div">
-                        <div class="sub_add_friend">
-                            <div class="add_btn">
-                                <i class="fa-solid fa-link"></i>
-                            </div>
-                            <span>
-                                Connects
-                            </span>
-                        </div>
+                    <!-- friends count -->
+                <?php
+                    $receiverId = $_SESSION['user_id'];
+                     // Query to count the number of friend requests
+                     $query = "SELECT COUNT(*) AS friend_count FROM friend_req
+                      WHERE ((receiver_id = '$receiverId') 
+                      OR (sender_id = '$receiverId')) AND req_status = 'friend'";
+
+                      // Execute the query
+                      $result = mysqli_query($con, $query);
+
+                    // Check if query execution was successful
+                    if ($result) {
+                       // Fetch the row
+                       $row = mysqli_fetch_assoc($result);
+                        // Get the friend count
+                       $friendCount = $row['friend_count'];
+                    } else {
+                        // Error handling if query execution fails
+                        $friendCount = 0; // Set default friend count to 0
+                        echo "Error: " . mysqli_error($connection);
+                    }
+
+                ?>
+                    <div class="no_of_friends">
+                       <p class="f_count">
+                         <span class="sub_f_count"><?php echo $friendCount; ?></span>
+                         <?php echo ($friendCount < 2) ? "friend" : "friends"; ?>
+                       </p>
                     </div>
                     <div class="profile_des">
                         <h3>your posts...</h3>

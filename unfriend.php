@@ -15,11 +15,11 @@ if (isset($data['senderId']) && isset($data['receiverId'])) {
     if (mysqli_num_rows($checkResult) > 0) {
         // Fetch the existing request details
         $row = mysqli_fetch_assoc($checkResult);
-        if ($row['req_status'] == 'pending' && $receiverId == $row['sender_id']) {
-            // Update the request to set req_status to 'friend' and notification_status to 'no'
-            $updateQuery = "UPDATE friend_req SET req_status = 'friend', notification_status = 'no' WHERE sender_id = '$receiverId' AND receiver_id = '$senderId'";
-            if (mysqli_query($con, $updateQuery)) {
-                echo json_encode(['success' => true, 'status' => 'friend']);
+        if ($row['req_status'] == 'friend') {
+            // Unfriend the user by deleting the record
+            $deleteQuery = "DELETE FROM friend_req WHERE (sender_id = '$senderId' AND receiver_id = '$receiverId') OR (sender_id = '$receiverId' AND receiver_id = '$senderId')";
+            if (mysqli_query($con, $deleteQuery)) {
+                echo json_encode(['success' => true, 'status' => 'connect']);
             } else {
                 echo json_encode(['success' => false, 'error' => mysqli_error($con)]);
             }
@@ -27,13 +27,7 @@ if (isset($data['senderId']) && isset($data['receiverId'])) {
             echo json_encode(['success' => false, 'error' => 'Request already exists']);
         }
     } else {
-        // Insert a new friend request if not already existing
-        $query = "INSERT INTO friend_req (sender_id, receiver_id, req_status, notification_status) VALUES ('$senderId', '$receiverId', 'pending', 'yes')";
-        if (mysqli_query($con, $query)) {
-            echo json_encode(['success' => true, 'status' => 'pending']);
-        } else {
             echo json_encode(['success' => false, 'error' => mysqli_error($con)]);
-        }
     }
 } else {
     echo json_encode(['success' => false, 'error' => 'Invalid data']);
