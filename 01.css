@@ -1850,14 +1850,20 @@
 /* friends counts */
 .main_div .main_profile_div .all_content .no_of_friends
 {
-  text-align: center;
-  margin-top: 5px;
+  display: flex;
+  justify-content: center;
 }
-.main_div .main_profile_div .all_content .no_of_friends .f_count
+.main_div .main_profile_div .all_content .no_of_friends ul
+{
+  display: flex;
+}
+.main_div .main_profile_div .all_content .no_of_friends ul .f_count,
+.main_div .main_profile_div .all_content .no_of_friends ul .post_count
 {
   font-size: 17px;
   font-family: "Roboto", sans-serif;
   color: #000;
+  margin: 0 12px;
 }
 
 

@@ -178,15 +178,36 @@ if (!isset($_SESSION['name'])) {
                     } else {
                         // Error handling if query execution fails
                         $friendCount = 0; // Set default friend count to 0
-                        echo "Error: " . mysqli_error($connection);
+                        echo "Error: " . mysqli_error($con);
                     }
+
+                    // post count
+                    $email_db = $_SESSION['pemail'];
+                    $post_count_query = "SELECT COUNT(*) AS post_count FROM main_content
+                      WHERE email='$email_db'";
+                      $result1 = mysqli_query($con, $post_count_query);
+
+                      // Check if query execution was successful
+                      if ($result1) {
+                         // Fetch the row
+                         $row1 = mysqli_fetch_assoc($result1);
+                          // Get the friend count
+                         $postcount = $row1['post_count'];
+                      } else {
+                          // Error handling if query execution fails
+                          $postcount = 0; // Set default friend count to 0
+                          echo "Error: " . mysqli_error($con);
+                      }
 
                 ?>
                     <div class="no_of_friends">
-                       <p class="f_count">
-                         <span class="sub_f_count"><?php echo $friendCount; ?></span>
-                         <?php echo ($friendCount < 2) ? "friend" : "friends"; ?>
-                       </p>
+                       <ul>
+                          <li class="f_count">
+                            <span class="sub_f_count"><?php echo $friendCount; ?></span>
+                            <?php echo ($friendCount < 2) ? "friend" : "friends"; ?>
+                          </li>
+                          <li class="post_count"><?php echo $postcount; ?> <?php echo ($postcount < 2) ? "post" : "posts"; ?></li>
+                       </ul>
                     </div>
                     <div class="profile_des">
                         <h3>your posts...</h3>
