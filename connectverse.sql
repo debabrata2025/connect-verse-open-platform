@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2024 at 10:13 PM
+-- Generation Time: Jun 10, 2024 at 11:47 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -87,20 +87,19 @@ CREATE TABLE `demodata` (
   `password` varchar(255) NOT NULL,
   `cpassword` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL
+  `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `demodata`
 --
 
-INSERT INTO `demodata` (`id`, `name`, `email`, `phone`, `password`, `cpassword`, `image`, `token`, `status`) VALUES
-(54, 'radhedebu_321', 'ds2357196@gmail.com', '07319256047', '$2y$10$Rp9Gx3qfJneGnFFkf6aFSOu9uHx62KBUEwyQ1Sc1klPR.PEvnOeDi', '$2y$10$cFT2SL3kEl8c06Zw8uMiPuXpF5X9helBaLq10/67onBB7s7TDh20q', 'pimg/Screenshot 2024-02-21 184215.png', '', ''),
-(55, 'radhe debu', 'd@gmail.com', '123654', '$2y$10$1KrRAt5HKUqHmt6PDVcnW.ioCxxFDUdYeyxEK8CEY4IOJVfMHgjQW', '$2y$10$IPt.OPe7pGWxCnFEk4eu5OzwHMuxmahXzB9P504Y5Q5xoz3Cl3Oy2', 'pimg/1000060164.png', '', ''),
-(56, 'sbag', 's@gmail.com', '78854', '$2y$10$9kC526Mb5z4e0eipila8/.QyzUxHlIjbHRrhqdbFT5zvd41pbSXMG', '$2y$10$jNJ1z7CU25KOGPPlulKjTeAA.6lkHDXFcN8l5jBa7/ZhaccN88DPO', 'pimg/20240419_013013.jpg', '', ''),
-(57, 'connect verse', 'cv@gmail.com', '123', '$2y$10$PAHvCgh3YlKMzOixhD7JcOQykUDu18yDAoLHofeORbm2.v2HeRirW', '$2y$10$T/ebozmXDKE6ZU8Ngr5zA.EPPjoEDrWDYbxcS6twFPRVbGJJcr2gO', 'pimg/logo2_prev_ui.png', '', ''),
-(58, 'radhe cc', 'cc@gmail.com', '4544554', '$2y$10$8yhNjFTXwYq8OtwOdvUY.ebQM3qLWLQpqyPeiqI0eHYulzNFWkWvm', '$2y$10$G2DYEhMlf.r4wCDfN73uoeZnXetosM.b6aezxMeM3QsLUL5X6vOgO', 'pimg/debunew.jpg', '', '');
+INSERT INTO `demodata` (`id`, `name`, `email`, `phone`, `password`, `cpassword`, `image`, `description`) VALUES
+(54, 'radhedebu_321', 'ds2357196@gmail.com', '07319256047', '$2y$10$Rp9Gx3qfJneGnFFkf6aFSOu9uHx62KBUEwyQ1Sc1klPR.PEvnOeDi', '$2y$10$cFT2SL3kEl8c06Zw8uMiPuXpF5X9helBaLq10/67onBB7s7TDh20q', 'pimg/Screenshot 2024-02-21 184215.png', 'Software Engineer | Developer | Rider'),
+(55, 'radhe debu', 'd@gmail.com', '123654', '$2y$10$1KrRAt5HKUqHmt6PDVcnW.ioCxxFDUdYeyxEK8CEY4IOJVfMHgjQW', '$2y$10$IPt.OPe7pGWxCnFEk4eu5OzwHMuxmahXzB9P504Y5Q5xoz3Cl3Oy2', 'pimg/1000060164.png', ''),
+(56, 'sbag', 's@gmail.com', '78854', '$2y$10$9kC526Mb5z4e0eipila8/.QyzUxHlIjbHRrhqdbFT5zvd41pbSXMG', '$2y$10$jNJ1z7CU25KOGPPlulKjTeAA.6lkHDXFcN8l5jBa7/ZhaccN88DPO', 'pimg/20240419_013013.jpg', ''),
+(57, 'connect verse', 'cv@gmail.com', '123', '$2y$10$PAHvCgh3YlKMzOixhD7JcOQykUDu18yDAoLHofeORbm2.v2HeRirW', '$2y$10$T/ebozmXDKE6ZU8Ngr5zA.EPPjoEDrWDYbxcS6twFPRVbGJJcr2gO', 'pimg/logo2_prev_ui.png', 'A product to connect whole world.'),
+(58, 'radhe cc', 'cc@gmail.com', '4544554', '$2y$10$8yhNjFTXwYq8OtwOdvUY.ebQM3qLWLQpqyPeiqI0eHYulzNFWkWvm', '$2y$10$G2DYEhMlf.r4wCDfN73uoeZnXetosM.b6aezxMeM3QsLUL5X6vOgO', 'pimg/debunew.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -124,8 +123,9 @@ INSERT INTO `friend_req` (`id`, `sender_id`, `receiver_id`, `req_status`, `notif
 (83, 58, 54, 'friend', 'no'),
 (84, 55, 54, 'friend', 'no'),
 (85, 56, 54, 'friend', 'no'),
-(86, 57, 54, 'friend', 'no'),
-(87, 55, 57, 'friend', 'no');
+(87, 55, 57, 'friend', 'no'),
+(88, 57, 56, 'friend', 'no'),
+(95, 57, 54, 'friend', 'no');
 
 -- --------------------------------------------------------
 
@@ -319,7 +319,7 @@ ALTER TABLE `demodata`
 -- AUTO_INCREMENT for table `friend_req`
 --
 ALTER TABLE `friend_req`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `likes`

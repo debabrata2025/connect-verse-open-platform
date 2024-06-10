@@ -158,57 +158,104 @@ if (!isset($_SESSION['name'])) {
                             </div>
                         </form>
                     </div>
-                    <!-- friends count -->
-                <?php
-                    $receiverId = $_SESSION['user_id'];
-                     // Query to count the number of friend requests
-                     $query = "SELECT COUNT(*) AS friend_count FROM friend_req
+
+                    <!-- profile description -->
+                    <div class="profile_description">
+                        <?php 
+                           include 'connection.php';
+                           $user_email = $_SESSION['pemail'];
+                           $des_q = "SELECT * FROM demodata WHERE email='$user_email'";
+                           $query = mysqli_query($con,$des_q);
+                           $res = mysqli_fetch_array($query);
+                           $desp = $res['description'];
+                        ?>
+                        <p class="desp_pp"><?php echo $desp; ?></p>
+                        <div class="des_edit">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                    </div>
+                    <!-- description edit section -->
+                    <div class="des_editor">
+                        <div class="des_editor_com">
+                            <div class="text_area">
+                                <textarea class="des_edit_main"></textarea>
+                            </div>
+                            <div class="remaing">50 words remainning</div>
+                            <div class="editor_btns">
+                                <div class="edit_cancel comb">cancel</div>
+                                <div class="edit_save comb">save</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- friend req btn -->
+                    <div class="add_friend_div">
+
+                        <!-- friends count -->
+                        <?php
+                        $receiverId = $_SESSION['user_id'];
+                        // Query to count the number of friend requests
+                        $query = "SELECT COUNT(*) AS friend_count FROM friend_req
                       WHERE ((receiver_id = '$receiverId') 
                       OR (sender_id = '$receiverId')) AND req_status = 'friend'";
 
-                      // Execute the query
-                      $result = mysqli_query($con, $query);
+                        // Execute the query
+                        $result = mysqli_query($con, $query);
 
-                    // Check if query execution was successful
-                    if ($result) {
-                       // Fetch the row
-                       $row = mysqli_fetch_assoc($result);
-                        // Get the friend count
-                       $friendCount = $row['friend_count'];
-                    } else {
-                        // Error handling if query execution fails
-                        $friendCount = 0; // Set default friend count to 0
-                        echo "Error: " . mysqli_error($con);
-                    }
+                        // Check if query execution was successful
+                        if ($result) {
+                            // Fetch the row
+                            $row = mysqli_fetch_assoc($result);
+                            // Get the friend count
+                            $friendCount = $row['friend_count'];
+                        } else {
+                            // Error handling if query execution fails
+                            $friendCount = 0; // Set default friend count to 0
+                            echo "Error: " . mysqli_error($con);
+                        }
 
-                    // post count
-                    $email_db = $_SESSION['pemail'];
-                    $post_count_query = "SELECT COUNT(*) AS post_count FROM main_content
+                        // post count
+                        $email_db = $_SESSION['pemail'];
+                        $post_count_query = "SELECT COUNT(*) AS post_count FROM main_content
                       WHERE email='$email_db'";
-                      $result1 = mysqli_query($con, $post_count_query);
+                        $result1 = mysqli_query($con, $post_count_query);
 
-                      // Check if query execution was successful
-                      if ($result1) {
-                         // Fetch the row
-                         $row1 = mysqli_fetch_assoc($result1);
-                          // Get the friend count
-                         $postcount = $row1['post_count'];
-                      } else {
-                          // Error handling if query execution fails
-                          $postcount = 0; // Set default friend count to 0
-                          echo "Error: " . mysqli_error($con);
-                      }
+                        // Check if query execution was successful
+                        if ($result1) {
+                            // Fetch the row
+                            $row1 = mysqli_fetch_assoc($result1);
+                            // Get the friend count
+                            $postcount = $row1['post_count'];
+                        } else {
+                            // Error handling if query execution fails
+                            $postcount = 0; // Set default friend count to 0
+                            echo "Error: " . mysqli_error($con);
+                        }
 
-                ?>
-                    <div class="no_of_friends">
-                       <ul>
-                          <li class="f_count">
-                            <span class="sub_f_count"><?php echo $friendCount; ?></span>
-                            <?php echo ($friendCount < 2) ? "friend" : "friends"; ?>
-                          </li>
-                          <li class="post_count"><?php echo $postcount; ?> <?php echo ($postcount < 2) ? "post" : "posts"; ?></li>
-                       </ul>
+                        ?>
+                        <!-- total no of post -->
+                        <div class="sub_add_friend">
+                            <div class="add_btn">
+                                <i class="fa-brands fa-medium"></i>
+                            </div>
+                            <span class="c_con_text">
+                                <?php echo $postcount; ?> <?php echo ($postcount < 2) ? "post" : "posts"; ?>
+                            </span>
+                        </div>
+                        <!-- total no of friends -->
+                        <div class="sub_add_friend">
+                            <div class="add_btn">
+                                <i class="fa-solid fa-user-group"></i>
+                            </div>
+                            <span class="c_con_text">
+                                <?php echo $friendCount; ?> <?php echo ($friendCount < 2) ? "friend" : "friends"; ?>
+                            </span>
+                        </div>
+
                     </div>
+
+                    <!-- video div starts  -->
                     <div class="profile_des">
                         <h3>your posts...</h3>
                     </div>
@@ -277,6 +324,7 @@ if (!isset($_SESSION['name'])) {
     <script src="online.js"></script>
     <script src="toploader.js"></script>
     <script src="preloader.js"></script>
+    <script src="profile_desp_edit.js"></script>
     <script>
         //profile div toggle
         const profilebtn = document.querySelector('.profile');
@@ -318,6 +366,15 @@ if (!isset($_SESSION['name'])) {
                 alert_box[i].style.display = 'none';
             }
         }
+
+
+        //show and hide description box
+        const description_btn = document.querySelector('.des_edit');
+        const description_box = document.querySelector('.des_editor');
+
+        description_btn.addEventListener('click', () => {
+            description_box.classList.add('active');
+        });
 
     </script>
 </body>

@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const connectBtn = document.querySelector('.sub_add_friend');
-    const senderId = connectBtn.getAttribute('data-sender-id');
-    const receiverId = connectBtn.getAttribute('data-receiver-id');
+    const connectBtn = document.querySelectorAll('.sub_add_friend');
+    const senderId = connectBtn[2].getAttribute('data-sender-id');
+    const receiverId = connectBtn[2].getAttribute('data-receiver-id');
+    const textMsg = document.querySelectorAll('.c_con_text');
 
     const popup = document.querySelector('.alert_box1');
     const confirmBtn = document.getElementById('confirm-btn');
@@ -25,24 +26,24 @@ document.addEventListener('DOMContentLoaded', function () {
             if (data.success) {
                 if (data.status === 'pending') {
                     if (data.is_sender) {
-                        document.getElementById('c_con_text').textContent = "Pending";
+                        textMsg[2].textContent = "Pending";
                     } else {
-                        document.getElementById('c_con_text').textContent = "Requested";
+                        textMsg[2].textContent = "Requested";
                     }
                 } else if (data.status === 'friend') {
-                    document.getElementById('c_con_text').textContent = "Friend"; // Update text context to "Friend"
+                    textMsg[2].textContent = "Friend"; // Update text context to "Friend"
                 } else {
-                    document.getElementById('c_con_text').textContent = "Connect";
+                    textMsg[2].textContent = "Connect";
                 }
             } else {
-                document.getElementById('c_con_text').textContent = "Connect";
+                textMsg[2].textContent = "Connect";
             }
         })
         .catch(error => console.error('Error:', error));
 
     // Add event listener to handle the friend request on click
-    connectBtn.addEventListener('click', function () {
-        if (document.getElementById('c_con_text').textContent === 'Friend') {
+    connectBtn[2].addEventListener('click', function () {
+        if (textMsg[2].textContent === 'Friend') {
             showPopup();
         } else {
             let data = {
@@ -66,11 +67,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(result => {
                     if (result.success) {
                         if (result.status === 'friend') {
-                            document.getElementById('c_con_text').textContent = "Friend"; // Update text context to "Friend"
+                            textMsg[2].textContent = "Friend"; // Update text context to "Friend"
                         } else if (result.status === 'pending') {
-                            document.getElementById('c_con_text').textContent = "Pending";
+                            textMsg[2].textContent = "Pending";
                         } else {
-                            document.getElementById('c_con_text').textContent = "connect";
+                            textMsg[2].textContent = "connect";
                         }
                     } else {
                         console.log("request already sent");
@@ -106,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(result => {
             if (result.success) {
-                document.getElementById('c_con_text').textContent = "Connect";
+                textMsg[2].textContent = "Connect";
             } else {
                 console.log("Error in unfriending");
             }

@@ -1813,6 +1813,102 @@
   color: aliceblue;
   cursor: pointer;
 }
+/* profile description */
+.main_div .main_profile_div .all_content .profile_description
+{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.main_div .main_profile_div .all_content .profile_description .desp_pp
+{
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  margin-right: 3px;
+  font-weight: 500;
+  color: #000;
+  /* background: red; */
+  max-width: 30%;
+  text-align: center;
+  word-wrap: break-word;
+}
+.main_div .main_profile_div .all_content .profile_description .des_edit
+{
+  transform: translateY(-5px);
+}
+/* description edit box */
+.main_div .main_profile_div .all_content .des_editor
+{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  display: none;
+}
+.main_div .main_profile_div .all_content .des_editor.active
+{
+  display: flex;
+}
+.main_div .main_profile_div .all_content .des_editor .des_editor_com
+{
+  width: 30%;
+}
+.main_div .main_profile_div .all_content .des_editor .des_editor_com .text_area
+{
+  width: 100%;
+  height: 90px;
+}
+.main_div .main_profile_div .all_content .des_editor .des_editor_com .text_area textarea
+{
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  resize: none;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  background: transparent;
+  color: #000;
+}
+.main_div .main_profile_div .all_content .des_editor .des_editor_com .text_area textarea:focus
+{
+  outline-color: #0866ff;
+}
+.main_div .main_profile_div .all_content .des_editor .des_editor_com .remaing
+{
+  text-align: right;
+  margin: 3px 0;
+  font-size: 17px;
+  font-family: "Roboto", sans-serif;
+  color: #000;
+}
+.main_div .main_profile_div .all_content .des_editor .des_editor_com .editor_btns
+{
+  display: flex;
+  justify-content: flex-end;
+}
+.main_div .main_profile_div .all_content .des_editor .des_editor_com .editor_btns .comb
+{
+  padding: 8px 13px;
+  border-radius: 5px;
+  margin-left: 5px;
+  transition: all 0.3s ease;
+}
+.main_div .main_profile_div .all_content .des_editor .des_editor_com .editor_btns .comb:hover
+{
+  filter: brightness(0.8);
+  cursor: pointer;
+}
+.main_div .main_profile_div .all_content .des_editor .des_editor_com .editor_btns .comb.edit_cancel
+{
+  color: #000;
+  background: #d7d9de;
+}
+.main_div .main_profile_div .all_content .des_editor .des_editor_com .editor_btns .comb.edit_save
+{
+  background: #0866ff;
+  color: #fff;
+}
+
 /* add friend btn */
 .main_div .main_profile_div .all_content .add_friend_div
 {
@@ -1827,6 +1923,28 @@
   background: #0866ff;
   border-radius: 5px;
   transition: all 0.3s ease;
+  transition: transform 0.1s ease;
+  margin: 0 10px;
+}
+.main_div .main_profile_div .all_content .add_friend_div .sub_add_friend:first-child,
+.main_div .main_profile_div .all_content .add_friend_div .sub_add_friend:nth-child(2)
+{
+  background: #ccd9f3;
+}
+.main_div .main_profile_div .all_content .add_friend_div .sub_add_friend:active
+{
+  animation: press 0.2s;
+}
+@keyframes press {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(0.95);
+  }
+  100% {
+      transform: scale(1);
+  }
 }
 .main_div .main_profile_div .all_content .add_friend_div .sub_add_friend:hover
 {
@@ -1842,10 +1960,19 @@
   color: #fff;
   font-size: 15px;
 }
+.main_div .main_profile_div .all_content .add_friend_div .sub_add_friend:first-child .add_btn i,
+.main_div .main_profile_div .all_content .add_friend_div .sub_add_friend:nth-child(2) .add_btn i{
+  color: #465fcc;
+}
 .main_div .main_profile_div .all_content .add_friend_div .sub_add_friend span
 {
   color: #fff;
   font-family: "Rubik", sans-serif;
+}
+.main_div .main_profile_div .all_content .add_friend_div .sub_add_friend:first-child span,
+.main_div .main_profile_div .all_content .add_friend_div .sub_add_friend:nth-child(2) span
+{
+  color: #0f4cdb;
 }
 /* friends counts */
 .main_div .main_profile_div .all_content .no_of_friends

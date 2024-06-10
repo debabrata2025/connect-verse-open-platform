@@ -102,22 +102,22 @@ if (!isset($_SESSION['name'])) {
                             <?php echo $username; ?>
                         </h2>
                     </div>
+                    <!-- profile description -->
+                    <div class="profile_description">
+                        <?php 
+                           include 'connection.php';
+                           $des_q = "SELECT * FROM demodata WHERE email='$useremail'";
+                           $query = mysqli_query($con,$des_q);
+                           $res = mysqli_fetch_array($query);
+                           $desp = $res['description'];
+                        ?>
+                        <p class="desp_pp"><?php echo $desp; ?></p>
+                    </div>
+
                     <!-- friend req btn -->
                     <div class="add_friend_div">
-                        <?php if ($useremail != $_SESSION['pemail']) { ?>
-                        <div class="sub_add_friend" 
-                        data-sender-id="<?php echo $_SESSION['user_id']; ?>"
-                        data-receiver-id="<?php echo $receiver_id; ?>" >
-                            <div class="add_btn">
-                                <i class="fa-solid fa-link"></i>
-                            </div>
-                            <span id="c_con_text">
-                                Connect
-                            </span>
-                        </div>
-                        <?php } ?>
-                    </div>
-                    <!-- friends count -->
+
+                     <!-- friends count -->
                 <?php
                     $receiverId = $receiver_id;
                      // Query to count the number of friend requests
@@ -160,14 +160,39 @@ if (!isset($_SESSION['name'])) {
                       }
 
                 ?>
-                    <div class="no_of_friends">
-                       <ul>
-                          <li class="f_count">
-                            <span class="sub_f_count"><?php echo $friendCount; ?></span>
-                            <?php echo ($friendCount < 2) ? "friend" : "friends"; ?>
-                          </li>
-                          <li class="post_count"><?php echo $postcount; ?> <?php echo ($postcount < 2) ? "post" : "posts"; ?></li>
-                       </ul>
+                    <!-- total no of post -->
+                        <div class="sub_add_friend" >
+                            <div class="add_btn">
+                                <i class="fa-brands fa-medium"></i>
+                            </div>
+                            <span class="c_con_text">
+                                 <?php echo $postcount; ?> <?php echo ($postcount < 2) ? "post" : "posts"; ?>
+                            </span>
+                        </div>
+                    <!-- total no of friends -->
+                        <div class="sub_add_friend" >
+                            <div class="add_btn">
+                                <i class="fa-solid fa-user-group"></i>
+                            </div>
+                            <span class="c_con_text">
+                                <?php echo $friendCount; ?> <?php echo ($friendCount < 2) ? "friend" : "friends"; ?>
+                            </span>
+                        </div>
+                <!-- for sending friend request-->
+                        <?php if ($useremail != $_SESSION['pemail']) { ?>
+                        <div class="sub_add_friend" 
+                        data-sender-id="<?php echo $_SESSION['user_id']; ?>"
+                        data-receiver-id="<?php echo $receiver_id; ?>" >
+                            <div class="add_btn">
+                                <i class="fa-solid fa-link"></i>
+                            </div>
+                            <span class="c_con_text">
+                                Connect
+                            </span>
+                        </div>
+                        <?php } ?>
+
+
                     </div>
 
                     <!-- post heading -->
