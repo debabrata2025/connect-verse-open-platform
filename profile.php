@@ -161,13 +161,13 @@ if (!isset($_SESSION['name'])) {
 
                     <!-- profile description -->
                     <div class="profile_description">
-                        <?php 
-                           include 'connection.php';
-                           $user_email = $_SESSION['pemail'];
-                           $des_q = "SELECT * FROM demodata WHERE email='$user_email'";
-                           $query = mysqli_query($con,$des_q);
-                           $res = mysqli_fetch_array($query);
-                           $desp = $res['description'];
+                        <?php
+                        include 'connection.php';
+                        $user_email = $_SESSION['pemail'];
+                        $des_q = "SELECT * FROM demodata WHERE email='$user_email'";
+                        $query = mysqli_query($con, $des_q);
+                        $res = mysqli_fetch_array($query);
+                        $desp = $res['description'];
                         ?>
                         <p class="desp_pp"><?php echo $desp; ?></p>
                         <div class="des_edit">
@@ -180,7 +180,7 @@ if (!isset($_SESSION['name'])) {
                             <div class="text_area">
                                 <textarea class="des_edit_main"></textarea>
                             </div>
-                            <div class="remaing">50 words remainning</div>
+                            <div class="remaing"><span class="remaining">101</span> words remainning</div>
                             <div class="editor_btns">
                                 <div class="edit_cancel comb">cancel</div>
                                 <div class="edit_save comb">save</div>
@@ -308,6 +308,23 @@ if (!isset($_SESSION['name'])) {
             </div>
         </form>
 
+        <!-- show frinds  where status=friends-->
+        <div class="friends_overlay">
+            <div class="main_friends">
+                <div class="friends_heading">
+                    <h2>Connections</h2>
+                </div>
+                <div class="can_btn">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+                <div class="main_friends_all">
+                    <div class="all_friend">
+                        <!-- all data will come from ajax -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- online offline -->
         <div class="internet_status">
             <div class="status"></div>
@@ -325,6 +342,7 @@ if (!isset($_SESSION['name'])) {
     <script src="toploader.js"></script>
     <script src="preloader.js"></script>
     <script src="profile_desp_edit.js"></script>
+    <script src="displayfriend.js"></script>
     <script>
         //profile div toggle
         const profilebtn = document.querySelector('.profile');

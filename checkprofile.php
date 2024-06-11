@@ -170,7 +170,7 @@ if (!isset($_SESSION['name'])) {
                             </span>
                         </div>
                     <!-- total no of friends -->
-                        <div class="sub_add_friend" >
+                        <div class="sub_add_friend" data-user-id="<?php echo $receiver_id ?>">
                             <div class="add_btn">
                                 <i class="fa-solid fa-user-group"></i>
                             </div>
@@ -243,6 +243,23 @@ if (!isset($_SESSION['name'])) {
             </div>
         </form>
 
+        <!-- show frinds  where status=friends-->
+        <div class="friends_overlay">
+            <div class="main_friends">
+                <div class="friends_heading">
+                    <h2>Connections</h2>
+                </div>
+                <div class="can_btn">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+                <div class="main_friends_all">
+                    <div class="all_friend">
+                        <!-- all data will come from ajax -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="internet_status">
             <div class="status"></div>
         </div>
@@ -253,6 +270,7 @@ if (!isset($_SESSION['name'])) {
     <script src="online.js"></script>
     <script src="toploader.js"></script>
     <script src="friend_req.js"></script>
+    <script src="displayfriend1.js"></script>
     <script>
         //profile div toggle
         const profilebtn = document.querySelector('.profile');

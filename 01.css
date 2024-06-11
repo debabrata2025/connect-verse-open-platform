@@ -2128,8 +2128,6 @@
   background: red;
 }
 /* delete friend  btn */
-
-
 .main_div .alert_box1 {
   background: #fff;
   position: fixed;
@@ -2193,6 +2191,112 @@
 .main_div .alert_box1 .dlt_btn .cm {
   background: red;
 }
+
+/* show user friend lists */
+.main_div .friends_overlay
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, .6) 0, #121212 100%), url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.main_div .friends_overlay.active
+{
+  display: flex;
+}
+.main_div .friends_overlay .main_friends
+{
+  width: 380px;
+  height: 400px;
+  background: #f1f1f1;
+  border-radius: 10px;
+  position: relative;
+}
+.main_div .friends_overlay .main_friends .friends_heading
+{
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #000;
+}
+.main_div .friends_overlay .main_friends .friends_heading h2
+{
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  color: #000;
+}
+.main_div .friends_overlay .main_friends .can_btn
+{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.main_div .friends_overlay .main_friends .can_btn i
+{
+  font-size: 20px;
+  color: #000;
+}
+.main_div .friends_overlay .main_friends .can_btn i:hover
+{
+  cursor: pointer;
+}
+.main_div .friends_overlay .main_friends .main_friends_all
+{
+  width: 100%;
+  height: 350px;
+  padding: 20px 15px 0 15px;
+  overflow-y: auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.main_div .friends_overlay .main_friends .main_friends_all .all_friend a
+{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  text-decoration: none;
+}
+.main_div .friends_overlay .main_friends .main_friends_all .all_friend a .friends_img
+{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.main_div .friends_overlay .main_friends .main_friends_all .all_friend a .friends_img img
+{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.main_div .friends_overlay .main_friends .main_friends_all .all_friend a .friends_name
+{
+  margin-left: 13px;
+}
+.main_div .friends_overlay .main_friends .main_friends_all .all_friend a .friends_name .name
+{
+  font-size: 17px;
+  font-family: "Roboto", sans-serif;
+  color: #000;
+  font-weight: 500;
+}
+.main_div .friends_overlay .main_friends .main_friends_all .all_friend a .friends_name .friends_count
+{
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  color: #6f8295;
+  font-weight: 500;
+}
+
 
 /* internet status */
 .main_div .internet_status {

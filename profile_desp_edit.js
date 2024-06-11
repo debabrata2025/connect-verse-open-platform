@@ -1,9 +1,14 @@
 const inputArea = document.querySelector('.des_edit_main');
+const remainingText = document.querySelector('.remaining');
 const maxChar = 101;
 
 // restrict typing in a range of 101
 inputArea.addEventListener('input', () => {
     const textLen = inputArea.value.length;
+    remainingText.textContent = maxChar - textLen;
+    if((maxChar - textLen)<1){
+        remainingText.textContent = '0';
+    }
     if(textLen > maxChar){
         inputArea.value = inputArea.value.substring(0, maxChar);
     }
