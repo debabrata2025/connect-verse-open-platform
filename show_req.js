@@ -22,7 +22,7 @@ function showuserReq() {
                     userDiv.innerHTML = `
                         <div class="noti_user">
                             <div class="user_img_n">
-                                <img src="${request.image}" alt="${request.name}" width="100">
+                                <img src="${request.image}" alt="${request.name}">
                             </div>
                             <div class="user_name_n">
                                 <span>${request.name}</span> sent you a<br>connect request

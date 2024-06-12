@@ -311,10 +311,10 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
                                 <div class="user_img">
                                     <img src="<?php echo $arraydata['profileimg']; ?>" alt="">
                                 </div>
+                                <div class="username">
+                                   <?php echo $arraydata['username']; ?>
+                                </div>
                             </a>
-                            <div class="username">
-                                <?php echo $arraydata['username']; ?>
-                            </div>
                         </div>
                         <div class="content_video">
                             <?php

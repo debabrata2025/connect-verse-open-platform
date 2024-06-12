@@ -15,15 +15,22 @@ if (isset($data['senderId']) && isset($data['receiverId'])) {
     if (mysqli_num_rows($checkResult) > 0) {
         // Fetch the existing request details
         $row = mysqli_fetch_assoc($checkResult);
-        if ($row['req_status'] == 'pending' && $receiverId == $row['sender_id']) {
-            // Update the request to set req_status to 'friend' and notification_status to 'no'
-            $updateQuery = "UPDATE friend_req SET req_status = 'friend', notification_status = 'no' WHERE sender_id = '$receiverId' AND receiver_id = '$senderId'";
-            if (mysqli_query($con, $updateQuery)) {
-                echo json_encode(['success' => true, 'status' => 'friend']);
+        
+        if ($row['req_status'] == 'pending') {
+            if ($receiverId == $row['sender_id']) {
+                // Update the request to set req_status to 'friend' and notification_status to 'no'
+                $updateQuery = "UPDATE friend_req SET req_status = 'friend', notification_status = 'no' WHERE sender_id = '$receiverId' AND receiver_id = '$senderId'";
+                if (mysqli_query($con, $updateQuery)) {
+                    echo json_encode(['success' => true, 'status' => 'friend']);
+                } else {
+                    echo json_encode(['success' => false, 'error' => mysqli_error($con)]);
+                }
             } else {
-                echo json_encode(['success' => false, 'error' => mysqli_error($con)]);
+                echo json_encode(['success' => false, 'error' => 'Request already pending']);
             }
-        }else {
+        } elseif ($row['req_status'] == 'friend') {
+            echo json_encode(['success' => false, 'error' => 'Already friends']);
+        } else {
             echo json_encode(['success' => false, 'error' => 'Request already exists']);
         }
     } else {
