@@ -234,6 +234,7 @@ if (!isset($_SESSION['name'])) {
                         }
 
                         ?>
+
                         <!-- total no of post -->
                         <div class="sub_add_friend">
                             <div class="add_btn">
@@ -252,7 +253,6 @@ if (!isset($_SESSION['name'])) {
                                 <?php echo $friendCount; ?> <?php echo ($friendCount < 2) ? "friend" : "friends"; ?>
                             </span>
                         </div>
-
                     </div>
 
                     <!-- video div starts  -->
@@ -312,14 +312,68 @@ if (!isset($_SESSION['name'])) {
         <div class="friends_overlay">
             <div class="main_friends">
                 <div class="friends_heading">
-                    <h2>Connections</h2>
+                    <h2 class="s_head">Connections</h2>
                 </div>
                 <div class="can_btn">
-                    <i class="fa-regular fa-circle-xmark"></i>
+                    <i class="fa-regular fa-circle-xmark xcxc"></i>
                 </div>
                 <div class="main_friends_all">
                     <div class="all_friend">
                         <!-- all data will come from ajax -->
+                    </div>
+                </div>
+            </div>
+        </div>
+           
+
+        <!-- show public private and friends-->
+        <div class="friends_overlay1">
+            <div class="main_friends1">
+                <div class="friends_heading1">
+                    <h2 class="s_head">Post Visibility</h2>
+                </div>
+                <div class="can_btn1">
+                    <i class="fa-regular fa-circle-xmark xcxc"></i>
+                </div>
+                <div class="main_friends_all1">
+                    <div class="all_friend1">
+                        <div class="pp_icon">
+                            <i class="fa-solid fa-earth-americas comic"></i>
+                        </div>
+                        <div class="pp_text">
+                            <p class="ss">Public</p>
+                            <span class="sss">make your profile visible to all</span>
+                        </div>
+                        <div class="radio_btn">
+                            <input type="radio" id="public" name="visibility" value="public">
+                            <label for="public"></label>
+                        </div>
+                    </div>
+                    <div class="all_friend1">
+                        <div class="pp_icon">
+                            <i class="fa-solid fa-lock comic"></i>
+                        </div>
+                        <div class="pp_text">
+                            <p class="ss">Private</p>
+                            <span class="sss">Hide your posts from others</span>
+                        </div>
+                        <div class="radio_btn">
+                            <input type="radio" id="private" name="visibility" value="private">
+                            <label for="private"></label>
+                        </div>
+                    </div>
+                    <div class="all_friend1">
+                        <div class="pp_icon">
+                            <i class="fa-solid fa-user-group comic"></i>
+                        </div>
+                        <div class="pp_text">
+                            <p class="ss">Friends</p>
+                            <span class="sss">share your posts with friends</span>
+                        </div>
+                        <div class="radio_btn">
+                            <input type="radio" id="friends" name="visibility" value="friends">
+                            <label for="friends"></label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -336,13 +390,13 @@ if (!isset($_SESSION['name'])) {
 
 
 
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="darkmode1.js"></script>
     <script src="online.js"></script>
     <script src="toploader.js"></script>
     <script src="preloader.js"></script>
     <script src="profile_desp_edit.js"></script>
     <script src="displayfriend.js"></script>
+    <script src="status_update_profile.js"></script>
     <script>
         //profile div toggle
         const profilebtn = document.querySelector('.profile');

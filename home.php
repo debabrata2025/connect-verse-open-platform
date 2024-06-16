@@ -112,9 +112,8 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
                 <!-- lists options -->
                 <div class="menu">
                     <ul>
-                        <li class="comments m_view_none"><a href="#" class="dtext">feeds</a></li>
+                        <li class="comments m_view_none"><a href="#" class="dtext">What's New</a></li>
                         <li class="comments m_view_none"><a href="community.php" class="dtext">community</a></li>
-                        <li class="m_view_none"><a href="activeuse.php" class="dtext">Connections</a></li>
                         <li class="faq m_view_none"><a href="#" class="dtext">faq</a></li>
                         <li>
                             <a href="#" class="dtext">
@@ -167,10 +166,8 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
             <div class="scroll_option">
                 <ul>
                     <div class="op active"><a href="#top" class="dt active">new post</a></div>
-                    <div class="op comments"><a href="#" class="dt">comments</a></div>
-                    <div class="op"><a href="#" class="dt">Signals</a></div>
+                    <div class="op comments"><a href="#" class="dt">What's New</a></div>
                     <div class="op"><a href="community.php" class="dt">community</a></div>
-                    <div class="op"><a href="activeuse.php" class="dt">active-user</a></div>
                     <div class="op"><a href="#" class="dt" id="faq">faq</a></div>
                     <!-- Add some extra dummy items to create extra space for scrolling -->
                     <div class="op dummy"></div>
@@ -216,7 +213,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
             <!-- side menu for notificattion -->
             <div class="main_notification">
                 <div class="noti_head">
-                    <h2>Signals</h2>
+                    <h2 class="n_head">Signals</h2>
                 </div>
                 <!-- users notification -->
                 <div class="notification_div">
@@ -553,8 +550,6 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
 
     </div>
 
-
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="darkmode.js"></script>
     <script src="ph_dark.js"></script>
     <script src="online.js"></script>

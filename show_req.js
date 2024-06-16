@@ -47,6 +47,15 @@ function showuserReq() {
                         const requestId = this.getAttribute('data-id');
                         cencelRequest(requestId, userDiv); // Call AJAX function to cancel request
                     });
+                    const noti_user = userDiv.querySelector('.user_name_n');
+                    let getmode = localStorage.getItem("mode");
+                    if (getmode && getmode === "dark") {
+                        noti_user.classList.add('d_active');
+                    }
+
+                    dbtn.addEventListener('click', () => {
+                        noti_user.classList.toggle('d_active');
+                    })
 
                     notificationDiv.appendChild(userDiv);
                 });

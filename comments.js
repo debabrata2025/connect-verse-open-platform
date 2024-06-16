@@ -100,15 +100,15 @@ comment_sec.forEach((button, index) => {
                 // Append the new comment to the comment section
                 commentSection[index].insertAdjacentHTML('afterbegin', newCommentHtml);
                 // Check dark mode and apply class if necessary
+                const newCommentElement = commentSection[index].querySelector('.comment_users');
+                const newUserName = newCommentElement.querySelector('.user_name');
+                const newMainComment = newCommentElement.querySelector('.main_comment');
+                const newCComment = newCommentElement.querySelector('.c_comment');
                 let getmode = localStorage.getItem("mode");
                 console.log(getmode);
                 if (getmode && getmode === "dark") {
-                    const newCommentElement = commentSection[index].querySelector('.comment_users');
+                    
                     if (newCommentElement) {
-                        const newUserName = newCommentElement.querySelector('.user_name');
-                        const newMainComment = newCommentElement.querySelector('.main_comment');
-                        const newCComment = newCommentElement.querySelector('.c_comment');
-                        
                         if (newUserName) {
                             newUserName.classList.add('d_active');
                         }
@@ -120,6 +120,20 @@ comment_sec.forEach((button, index) => {
                         }
                     }
                 }
+
+                dbtn.addEventListener('click', () => {
+                    if (newCommentElement) {
+                        if (newUserName) {
+                            newUserName.classList.toggle('d_active');
+                        }
+                        if (newMainComment) {
+                            newMainComment.classList.toggle('d_active');
+                        }
+                        if (newCComment) {
+                            newCComment.classList.toggle('d_active');
+                        }
+                    }
+                })
 
                 // Clear the comment box
                 commentBox.value = "";

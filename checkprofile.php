@@ -79,7 +79,7 @@ if (!isset($_SESSION['name'])) {
                     </a>
                 </div>
             </div>
-            <!-- profile actual       -->
+            <!-- profile actual -->
             <?php
             include 'connection.php';
             $useremail = $_GET['useremail'];
@@ -111,7 +111,7 @@ if (!isset($_SESSION['name'])) {
                            $res = mysqli_fetch_array($query);
                            $desp = $res['description'];
                         ?>
-                        <p class="desp_pp"><?php echo $desp; ?></p>
+                        <p class="desp_pp dddd"><?php echo $desp; ?></p>
                     </div>
 
                     <!-- friend req btn -->
@@ -201,9 +201,13 @@ if (!isset($_SESSION['name'])) {
                     </div>
                     <div class="profile_videos_div">
                         <?php
+
                         include 'connection.php';
                         $email = $_GET['useremail'];
-                        $videoselect = "select * from main_content where email='$email' ORDER BY id DESC";
+                        $videoselect = "SELECT main_content.username, main_content.email, main_content.video 
+                        FROM main_content JOIN demodata ON main_content.email = demodata.email
+                        WHERE demodata.status = 'public' AND main_content.email = '$email'
+                        ORDER BY main_content.id DESC";
                         $videoquery = mysqli_query($con, $videoselect);
                         while ($totalvideo = mysqli_fetch_array($videoquery)) {
                             ?>
@@ -247,10 +251,10 @@ if (!isset($_SESSION['name'])) {
         <div class="friends_overlay">
             <div class="main_friends">
                 <div class="friends_heading">
-                    <h2>Connections</h2>
+                    <h2 class="s_head">Connections</h2>
                 </div>
                 <div class="can_btn">
-                    <i class="fa-regular fa-circle-xmark"></i>
+                    <i class="fa-regular fa-circle-xmark xcxc"></i>
                 </div>
                 <div class="main_friends_all">
                     <div class="all_friend">
@@ -271,6 +275,8 @@ if (!isset($_SESSION['name'])) {
     <script src="toploader.js"></script>
     <script src="friend_req.js"></script>
     <script src="displayfriend1.js"></script>
+    <script src="des_toggle.js"></script>
+
     <script>
         //profile div toggle
         const profilebtn = document.querySelector('.profile');

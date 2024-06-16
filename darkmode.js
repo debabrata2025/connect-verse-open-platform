@@ -66,6 +66,13 @@ const delete_comment = document.querySelectorAll('.delete_comment');
 const edit_comment = document.querySelectorAll('.edit_comment'); 
 
 
+//notifuication area 
+main_area = document.querySelector('.main_notification');
+const noti_head = document.querySelector('.n_head');
+
+
+
+
 
 // top options up and down scroll
 container.addEventListener('scroll', () => {
@@ -121,6 +128,8 @@ if (getmode && getmode === "dark") {
     search_res_box.classList.add('d_active');
     noUser.classList.add('d_active');
     no_user.classList.add('d_active');
+    main_area.classList.add('d_active');
+    noti_head.classList.add('d_active');
     edit_comment.forEach((item) => {
         item.classList.add('d_active');
     })
@@ -262,6 +271,8 @@ dbtn.addEventListener('click', () => {
     search_res_box.classList.toggle('d_active');
     noUser.classList.toggle('d_active');
     no_user.classList.toggle('d_active');
+    main_area.classList.toggle('d_active');
+    noti_head.classList.toggle('d_active');
     edit_comment.forEach((item) => {
         item.classList.toggle('d_active');
     })

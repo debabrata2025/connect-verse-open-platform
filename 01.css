@@ -253,8 +253,8 @@
 .main_div .nav_div .menu ul li a {
   text-decoration: none;
   font-size: 15px;
-  text-transform: uppercase;
-  font-family: 'Belanosima', sans-serif;
+  text-transform: capitalize;
+  font-family: "Roboto", sans-serif;
   color: #1a1145;
 }
 
@@ -735,6 +735,10 @@
   padding: 20px 0;
   overflow-y: auto;
 }
+.main_div .main_notification.d_active
+{
+  background: #242526;
+}
 .main_div .main_notification.active
 {
   width: 300px;
@@ -752,6 +756,11 @@
   font-weight: 700;
   text-transform: capitalize;
   font-family: "Roboto", sans-serif;
+  color: #000;
+}
+.main_div .main_notification .noti_head h2.d_active
+{
+  color: #e4e6eb;
 }
 .main_div .main_notification .notification_div
 {
@@ -792,6 +801,10 @@
 {
   margin-left: 10px;
   color: #000;
+}
+.main_div .main_notification .notification_div .main_noti_user .noti_user .user_name_n.d_active
+{
+  color: #e4e6eb;
 }
 .main_div .main_notification .notification_div .main_noti_user .noti_user .user_name_n span
 {
@@ -1829,10 +1842,21 @@
   margin-right: 3px;
   font-weight: 500;
   color: #000;
-  /* background: red; */
   max-width: 30%;
   text-align: center;
   word-wrap: break-word;
+}
+.main_div .main_profile_div .all_content .profile_description .desp_pp.dddd
+{
+  color: #000;
+}
+.main_div .main_profile_div .all_content .profile_description .desp_pp.d_active
+{
+  color: #e4e6eb;
+}
+.main_div .main_profile_div .all_content .profile_description .desp_pp.dddd.d_active
+{
+  color: #e4e6eb;
 }
 .main_div .main_profile_div .all_content .profile_description .des_edit
 {
@@ -1921,6 +1945,7 @@
 .main_div .main_profile_div .all_content .add_friend_div .sub_add_friend
 {
   display: flex;
+  align-items: center;
   padding: 10px 13px;
   background: #0866ff;
   border-radius: 5px;
@@ -1957,6 +1982,10 @@
 {
   margin-right: 3px;
 }
+.main_div .main_profile_div .all_content .add_friend_div .sub_add_friend .add_btn.d_down
+{
+  margin-right: 0;
+}
 .main_div .main_profile_div .all_content .add_friend_div .sub_add_friend .add_btn i
 {
   color: #fff;
@@ -1970,6 +1999,7 @@
 {
   color: #fff;
   font-family: "Rubik", sans-serif;
+  font-size: 15px;
 }
 .main_div .main_profile_div .all_content .add_friend_div .sub_add_friend:first-child span,
 .main_div .main_profile_div .all_content .add_friend_div .sub_add_friend:nth-child(2) span
@@ -1994,7 +2024,6 @@
   color: #000;
   margin: 0 12px;
 }
-
 
 /* video heading */
 .main_div .main_profile_div .all_content .profile_des h3 {
@@ -2223,6 +2252,10 @@
   border-radius: 10px;
   position: relative;
 }
+.main_div .friends_overlay .main_friends.d_active
+{
+  background: #202020;
+}
 .main_div .friends_overlay .main_friends .friends_heading
 {
   width: 100%;
@@ -2236,6 +2269,10 @@
   font-family: "Roboto", sans-serif;
   color: #000;
 }
+.main_div .friends_overlay .main_friends .friends_heading h2.d_active
+{
+  color: #ebebeb;
+}
 .main_div .friends_overlay .main_friends .can_btn
 {
   position: absolute;
@@ -2246,6 +2283,10 @@
 {
   font-size: 20px;
   color: #000;
+}
+.main_div .friends_overlay .main_friends .can_btn i.d_active
+{
+  color: #fcfcfc;
 }
 .main_div .friends_overlay .main_friends .can_btn i:hover
 {
@@ -2292,6 +2333,10 @@
   color: #000;
   font-weight: 500;
 }
+.main_div .friends_overlay .main_friends .main_friends_all .all_friend a .friends_name .name.d_active
+{
+  color: #e4e6eb;
+}
 .main_div .friends_overlay .main_friends .main_friends_all .all_friend a .friends_name .friends_count
 {
   font-size: 15px;
@@ -2300,6 +2345,174 @@
   font-weight: 500;
 }
 
+
+/* profile status : public-private-friends */
+.main_div .friends_overlay1
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, .6) 0, #121212 100%), url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.main_div .friends_overlay1.active
+{
+  display: flex;
+}
+.main_div .friends_overlay1 .main_friends1
+{
+  width: 380px;
+  height: 400px;
+  background: #f1f1f1;
+  border-radius: 10px;
+  position: relative;
+}
+.main_div .friends_overlay1 .main_friends1.d_active
+{
+  background: #202020;
+}
+.main_div .friends_overlay1 .main_friends1 .friends_heading1
+{
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #000;
+}
+.main_div .friends_overlay1 .main_friends1 .friends_heading1 h2
+{
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  color: #000;
+}
+.main_div .friends_overlay1 .main_friends1 .friends_heading1 h2.d_active
+{
+  color: #ebebeb;
+}
+.main_div .friends_overlay1 .main_friends1 .can_btn1
+{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.main_div .friends_overlay1 .main_friends1 .can_btn1 i
+{
+  font-size: 20px;
+  color: #000;
+}
+.main_div .friends_overlay1 .main_friends1 .can_btn1 i.d_active
+{
+  color: #fcfcfc;
+}
+.main_div .friends_overlay1 .main_friends1 .can_btn1 i:hover
+{
+  cursor: pointer;
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1
+{
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1
+{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  padding: 10px;
+  transition: all 0.3s linear;
+  border-radius: 5px;
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1:hover
+{
+  background: rgba(210, 210, 211);
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1 .pp_icon
+{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #d5d9f1;
+  border-radius: 50%;
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1 .pp_icon.d_active
+{
+  background: #424242;
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1 .pp_icon i
+{
+  font-size: 20px;
+  color: #000;
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1 .pp_icon i.d_active
+{
+  color: #fcfcfc;
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1 .pp_text
+{
+  margin-left: 10px;
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1 .pp_text p
+{
+  font-size: 17px;
+  font-family: "Roboto", sans-serif;
+  color: #000;
+  font-weight: 500;
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1 .pp_text p.d_active
+{
+  color: #fcfcfc;
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1 .pp_text span
+{
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  color: #6f8295;
+  font-weight: 500;
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1 .radio_btn
+{
+  margin-left: auto;
+  display: flex;
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1 .radio_btn input[type="radio"]
+{
+  display: none;
+}
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1 .radio_btn label {
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  background-color: #fff;
+  border: 3px solid #386af4;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.main_div .friends_overlay1 .main_friends1 .main_friends_all1 .all_friend1 .radio_btn input[type="radio"]:checked + label::after {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: #386af4;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 /* internet status */
 .main_div .internet_status {
@@ -2505,6 +2718,7 @@
     height: auto;
     top: 100%;
     transform: translateY(-100%);
+    padding: 7px 10px 0 10px;
   }
 
   .main_div .sidebar.d_ph {
@@ -2553,6 +2767,12 @@
 
   .main_div .sidebar .items ul li a span {
     display: none;
+  }
+  .main_div .sidebar .items ul li a .unread {
+    display: block;
+    margin: 0 11px;
+    bottom: 9px;
+    border-radius: 50%;
   }
 
   /* //video upload div */
@@ -2808,6 +3028,20 @@
   .main_div .main_profile_div .all_content .profile_name h2 {
     font-size: 25px;
   }
+  .main_div .main_profile_div .all_content .profile_description .desp_pp {
+    font-size: 16px;
+    max-width: 65%;
+  }
+  .main_div .main_profile_div .all_content .des_editor .des_editor_com {
+    width: 91%;
+  }
+  
+  .main_div .main_profile_div .all_content .add_friend_div .sub_add_friend .add_btn i,
+  .main_div .main_profile_div .all_content .add_friend_div .sub_add_friend span
+  {
+    font-size: 12px;
+  }
+  
 
   .main_div .main_profile_div .all_content .profile_des h3 {
     font-size: 16px;
@@ -2853,6 +3087,28 @@
     padding: 10px 15px;
     font-size: 13px;
   }
+  .main_div .friends_overlay .main_friends {
+    width: 285px;
+    height: 315px;
+  }
+  .main_div .friends_overlay .main_friends .main_friends_all {
+    height: 270px;
+  }
+  .main_div .friends_overlay .main_friends .main_friends_all .all_friend a .friends_img {
+    width: 39px;
+    height: 39px;
+  }
+  .main_div .friends_overlay .main_friends .main_friends_all .all_friend a .friends_name .name {
+    font-size: 15px;
+  }
+  .main_div .friends_overlay .main_friends .main_friends_all .all_friend a .friends_name .friends_count {
+    font-size: 12px;
+  }
+  .main_div .friends_overlay1 .main_friends1 {
+    width: 303px;
+    height: 315px;
+  }
+  
 
 }
 

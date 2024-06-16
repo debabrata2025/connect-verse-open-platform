@@ -73,8 +73,8 @@ if (isset($_COOKIE['user_id']) && isset($_COOKIE['email']) && isset($_COOKIE['na
                         if ($fileerror == 0) {
                             $destpath = 'pimg/' . $filename;
                             move_uploaded_file($filepath, $destpath);
-                            $insertquery = "insert into demodata(name,email,phone,password,cpassword,image) 
-                 values('$name','$email', '$phone', '$hasspass', '$conhasspass', '$destpath')";
+                            $insertquery = "insert into demodata(name,email,phone,password,cpassword,image, status) 
+                 values('$name','$email', '$phone', '$hasspass', '$conhasspass', '$destpath', 'public')";
                             $query = mysqli_query($con, $insertquery);
                             if ($query) {
                                 ?>

@@ -43,6 +43,15 @@ function fetchallFriends() {
                         </div>
                     </a>
                     `;
+                    const name = userDiv.querySelector('.name');
+
+                    let getmode = localStorage.getItem("mode");
+                    if(getmode && getmode === "dark"){
+                        name.classList.add('d_active');
+                    }
+
+                    main_friends_all.appendChild(userDiv);
+                    console.log(request);
                     main_friends_all.appendChild(userDiv);
                     console.log(request);
                 });
