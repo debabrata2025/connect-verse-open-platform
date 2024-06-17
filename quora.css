@@ -106,8 +106,8 @@ body
   {
     text-decoration: none;
     font-size: 15px;
-    text-transform: uppercase;
-    font-family: 'Belanosima', sans-serif;
+    text-transform: capitalize;
+    font-family: "Roboto", sans-serif;
     color: #1a1145;
   }
   .main_div .nav_div .menu ul li a.d_active

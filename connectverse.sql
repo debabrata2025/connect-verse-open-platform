@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2024 at 11:47 PM
+-- Generation Time: Jun 17, 2024 at 09:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -71,7 +71,9 @@ INSERT INTO `comments` (`id`, `post_id`, `user_name`, `user_img`, `comment`, `u_
 (57, 63, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'radhe krishna', 'ds2357196@gmail.com', 'ds2357196@gmail.com'),
 (59, 65, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'fbdfgdg', 'ds2357196@gmail.com', 'ds2357196@gmail.com'),
 (60, 65, 'connect verse', 'pimg/logo2_prev_ui.png', 'dfdsfsdf', 'cv@gmail.com', 'ds2357196@gmail.com'),
-(62, 67, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'thank you team @connectverse', 'ds2357196@gmail.com', 'cv@gmail.com');
+(62, 67, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'thank you team @connectverse', 'ds2357196@gmail.com', 'cv@gmail.com'),
+(63, 67, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'ssdsd', 'ds2357196@gmail.com', 'cv@gmail.com'),
+(64, 67, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'thtthth', 'ds2357196@gmail.com', 'cv@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -87,19 +89,24 @@ CREATE TABLE `demodata` (
   `password` varchar(255) NOT NULL,
   `cpassword` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL
+  `description` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `q_status` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `demodata`
 --
 
-INSERT INTO `demodata` (`id`, `name`, `email`, `phone`, `password`, `cpassword`, `image`, `description`) VALUES
-(54, 'radhedebu_321', 'ds2357196@gmail.com', '07319256047', '$2y$10$Rp9Gx3qfJneGnFFkf6aFSOu9uHx62KBUEwyQ1Sc1klPR.PEvnOeDi', '$2y$10$cFT2SL3kEl8c06Zw8uMiPuXpF5X9helBaLq10/67onBB7s7TDh20q', 'pimg/Screenshot 2024-02-21 184215.png', 'Software Engineer | Developer | Rider'),
-(55, 'radhe debu', 'd@gmail.com', '123654', '$2y$10$1KrRAt5HKUqHmt6PDVcnW.ioCxxFDUdYeyxEK8CEY4IOJVfMHgjQW', '$2y$10$IPt.OPe7pGWxCnFEk4eu5OzwHMuxmahXzB9P504Y5Q5xoz3Cl3Oy2', 'pimg/1000060164.png', ''),
-(56, 'sbag', 's@gmail.com', '78854', '$2y$10$9kC526Mb5z4e0eipila8/.QyzUxHlIjbHRrhqdbFT5zvd41pbSXMG', '$2y$10$jNJ1z7CU25KOGPPlulKjTeAA.6lkHDXFcN8l5jBa7/ZhaccN88DPO', 'pimg/20240419_013013.jpg', ''),
-(57, 'connect verse', 'cv@gmail.com', '123', '$2y$10$PAHvCgh3YlKMzOixhD7JcOQykUDu18yDAoLHofeORbm2.v2HeRirW', '$2y$10$T/ebozmXDKE6ZU8Ngr5zA.EPPjoEDrWDYbxcS6twFPRVbGJJcr2gO', 'pimg/logo2_prev_ui.png', 'A product to connect whole world.'),
-(58, 'radhe cc', 'cc@gmail.com', '4544554', '$2y$10$8yhNjFTXwYq8OtwOdvUY.ebQM3qLWLQpqyPeiqI0eHYulzNFWkWvm', '$2y$10$G2DYEhMlf.r4wCDfN73uoeZnXetosM.b6aezxMeM3QsLUL5X6vOgO', 'pimg/debunew.jpg', '');
+INSERT INTO `demodata` (`id`, `name`, `email`, `phone`, `password`, `cpassword`, `image`, `description`, `status`, `q_status`) VALUES
+(54, 'radhedebu_321', 'ds2357196@gmail.com', '07319256047', '$2y$10$Rp9Gx3qfJneGnFFkf6aFSOu9uHx62KBUEwyQ1Sc1klPR.PEvnOeDi', '$2y$10$cFT2SL3kEl8c06Zw8uMiPuXpF5X9helBaLq10/67onBB7s7TDh20q', 'pimg/Screenshot 2024-02-21 184215.png', 'IEM 25 | coder | Developer | Kolkata', 'public', 1),
+(55, 'radhe debu', 'd@gmail.com', '123654', '$2y$10$1KrRAt5HKUqHmt6PDVcnW.ioCxxFDUdYeyxEK8CEY4IOJVfMHgjQW', '$2y$10$IPt.OPe7pGWxCnFEk4eu5OzwHMuxmahXzB9P504Y5Q5xoz3Cl3Oy2', 'pimg/1000060164.png', '', '', 0),
+(56, 'sbag', 's@gmail.com', '78854', '$2y$10$9kC526Mb5z4e0eipila8/.QyzUxHlIjbHRrhqdbFT5zvd41pbSXMG', '$2y$10$jNJ1z7CU25KOGPPlulKjTeAA.6lkHDXFcN8l5jBa7/ZhaccN88DPO', 'pimg/20240419_013013.jpg', 'Find your self', 'public', 0),
+(57, 'connect verse', 'cv@gmail.com', '123', '$2y$10$PAHvCgh3YlKMzOixhD7JcOQykUDu18yDAoLHofeORbm2.v2HeRirW', '$2y$10$T/ebozmXDKE6ZU8Ngr5zA.EPPjoEDrWDYbxcS6twFPRVbGJJcr2gO', 'pimg/logo2_prev_ui.png', 'A product to connect whole world.', 'public', 0),
+(58, 'radhe cc', 'cc@gmail.com', '4544554', '$2y$10$8yhNjFTXwYq8OtwOdvUY.ebQM3qLWLQpqyPeiqI0eHYulzNFWkWvm', '$2y$10$G2DYEhMlf.r4wCDfN73uoeZnXetosM.b6aezxMeM3QsLUL5X6vOgO', 'pimg/debunew.jpg', 'Smile is the best thing to do.', '', 0),
+(59, 'abir paria', 'abc@gmail.com', '12364555', '$2y$10$3LBXyyKdHED3xkdJ7yANgeLeinFGbOwkn7ZMVmoGmOEmcqPFOWOQ.', '$2y$10$PmTyk4ItEVqnTIRppHOeZOpb4vGG6NeH1FBWmUjJXkeBHPZJM27IK', 'pimg/Screenshot 2024-01-19 224856.png', '', '', 0),
+(60, 'star fish', 'sf@gmail.com', '123', '$2y$10$bxSVb2Nz0nLKww7BzYnV4eJvz9PwlyhcmnwIAci.0.HCx8seNZs5u', '$2y$10$rWKIw/kqluelIqeYRo/Ib.BsB0UlYicKeCR/pCcsdWiVdC5R7AzTa', 'pimg/PXL_20240314_125557018.jpg', '', 'public', 0),
+(61, '', '', '', '', '', '', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -120,12 +127,15 @@ CREATE TABLE `friend_req` (
 --
 
 INSERT INTO `friend_req` (`id`, `sender_id`, `receiver_id`, `req_status`, `notification_status`) VALUES
-(83, 58, 54, 'friend', 'no'),
-(84, 55, 54, 'friend', 'no'),
-(85, 56, 54, 'friend', 'no'),
-(87, 55, 57, 'friend', 'no'),
-(88, 57, 56, 'friend', 'no'),
-(95, 57, 54, 'friend', 'no');
+(121, 58, 54, 'friend', 'no'),
+(124, 55, 54, 'friend', 'no'),
+(125, 55, 58, 'friend', 'no'),
+(126, 56, 58, 'friend', 'no'),
+(127, 59, 58, 'friend', 'no'),
+(128, 57, 58, 'friend', 'no'),
+(129, 57, 54, 'friend', 'no'),
+(130, 54, 56, 'friend', 'no'),
+(131, 57, 56, 'friend', 'no');
 
 -- --------------------------------------------------------
 
@@ -241,6 +251,28 @@ INSERT INTO `question` (`qid`, `ques`, `u_nam`, `u_im`, `post_a_time`) VALUES
 (67, 'Hi, community!!!', 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', '1712087286238'),
 (68, 'hi', 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', '1712133007943');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_sessions`
+--
+
+CREATE TABLE `user_sessions` (
+  `id` int(255) NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `session_id` varchar(255) NOT NULL,
+  `device_info` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `log_time` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_sessions`
+--
+
+INSERT INTO `user_sessions` (`id`, `user_id`, `session_id`, `device_info`, `location`, `log_time`) VALUES
+(69, 54, 'f5a44fc3546de805cbb98931c13a9bf3', 'Windows', '', '6/18/2024, 12:16:52 AM');
+
 --
 -- Indexes for dumped tables
 --
@@ -294,6 +326,12 @@ ALTER TABLE `question`
   ADD PRIMARY KEY (`qid`);
 
 --
+-- Indexes for table `user_sessions`
+--
+ALTER TABLE `user_sessions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -307,19 +345,19 @@ ALTER TABLE `answer`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `demodata`
 --
 ALTER TABLE `demodata`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `friend_req`
 --
 ALTER TABLE `friend_req`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- AUTO_INCREMENT for table `likes`
@@ -344,6 +382,12 @@ ALTER TABLE `main_content`
 --
 ALTER TABLE `question`
   MODIFY `qid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+
+--
+-- AUTO_INCREMENT for table `user_sessions`
+--
+ALTER TABLE `user_sessions`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

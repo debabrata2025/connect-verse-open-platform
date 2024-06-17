@@ -18,8 +18,10 @@ const sss = document.querySelectorAll('.sss');
 const comic = document.querySelectorAll('.comic');
 const ppicon = document.querySelectorAll('.pp_icon');
 const cross_btn = document.querySelectorAll('.xcxc');
-let getmode = localStorage.getItem("mode");
+const lbtns = document.querySelectorAll('.ld');
 
+
+let getmode = localStorage.getItem("mode");
 if(getmode && getmode === "dark"){
     profilebox.classList.add('d_active');
     dbtn.classList.add('d_active');
@@ -33,6 +35,9 @@ if(getmode && getmode === "dark"){
     dp_profile.classList.add('d_active');
     main_friends1.classList.add('d_active');
     main_friends.classList.add('d_active');
+    lbtns.forEach((item)=>{
+        item.classList.add('d_active');
+    })
     s_head.forEach((item)=>{
         item.classList.add('d_active');
     })
@@ -79,6 +84,9 @@ dbtn.addEventListener('click', () => {
     dp_profile.classList.toggle('d_active');
     main_friends1.classList.toggle('d_active');
     main_friends.classList.toggle('d_active');
+    lbtns.forEach((item)=>{
+        item.classList.toggle('d_active');
+    })
     s_head.forEach((item)=>{
         item.classList.toggle('d_active');
     })

@@ -70,6 +70,15 @@ const edit_comment = document.querySelectorAll('.edit_comment');
 main_area = document.querySelector('.main_notification');
 const noti_head = document.querySelector('.n_head');
 
+//logout btns
+const lbtns = document.querySelectorAll('.ld');
+
+//user activity
+a_box = document.querySelector('.user_activity');
+const ud = document.querySelector('.ud');
+const activity_details = document.querySelector('.activity_details');
+const ac_text = document.querySelectorAll('.iii');
+
 
 
 
@@ -130,6 +139,15 @@ if (getmode && getmode === "dark") {
     no_user.classList.add('d_active');
     main_area.classList.add('d_active');
     noti_head.classList.add('d_active');
+    a_box.classList.add('d_active');
+    ud.classList.add('d_active');
+    activity_details.classList.add('d_active');
+    ac_text.forEach((item) => {
+        item.classList.add('d_active');
+    })
+    lbtns.forEach((item) => {
+        item.classList.add('d_active');
+    })
     edit_comment.forEach((item) => {
         item.classList.add('d_active');
     })
@@ -273,6 +291,15 @@ dbtn.addEventListener('click', () => {
     no_user.classList.toggle('d_active');
     main_area.classList.toggle('d_active');
     noti_head.classList.toggle('d_active');
+    a_box.classList.toggle('d_active');
+    ud.classList.toggle('d_active');
+    activity_details.classList.toggle('d_active');
+    ac_text.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
+    lbtns.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
     edit_comment.forEach((item) => {
         item.classList.toggle('d_active');
     })

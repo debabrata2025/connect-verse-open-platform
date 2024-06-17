@@ -1,7 +1,40 @@
 <?php
 session_start();
-if (!isset ($_SESSION['name'])) {
-    header('location:login.php');
+include 'connection.php';
+
+// Function to clear cookies and redirect to login
+if (!isset($_SESSION['user_id']) && !isset($_COOKIE['user_id'])) {
+    echo "<script>location.replace('login.php');</script>";
+    exit;
+}
+
+// If cookies are set, but session is not, set the session from cookies
+if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
+    $_SESSION['user_id'] = $_COOKIE['user_id'];
+    $_SESSION['name'] = $_COOKIE['name'];
+    $_SESSION['pimg'] = $_COOKIE['pimg'];
+    $_SESSION['pemail'] = $_COOKIE['email'];
+    $_SESSION['session_id'] = $_COOKIE['sid'];
+}
+
+// Update user status for maintaining all the sessions
+$user_id = mysqli_real_escape_string($con, $_SESSION['user_id']);
+$check_cookie_query = "SELECT q_status FROM demodata WHERE id='$user_id'";
+$query_result = mysqli_query($con, $check_cookie_query);
+$rd = mysqli_fetch_array($query_result);
+
+if ($rd['q_status'] == 0) {
+    // Delete cookies by setting their expiration time in the past
+    setcookie('user_id', '', time() - 3600, "/");
+    setcookie('email', '', time() - 3600, "/");
+    setcookie('name', '', time() - 3600, "/");
+    setcookie('pimg', '', time() - 3600, "/");
+    setcookie('sid', '', time() - 3600, "/");
+    echo "<script>location.replace('login.php');</script>";
+    exit;
+} else {
+    $update_cookie_query = "UPDATE demodata SET q_status=1 WHERE id='$user_id'";
+    mysqli_query($con, $update_cookie_query);
 }
 ?>
 <!DOCTYPE html>
@@ -34,8 +67,8 @@ if (!isset ($_SESSION['name'])) {
             <div class="menu">
                 <ul>
                     <li><a href="home.php" class="dtext">home</a></li>
-                    <li class="comments"><a href="#" class="dtext">comments</a></li>
-                    <li><a href="activeuse.php" class="dtext">active-user</a></li>
+                    <li class="comments"><a href="#" class="dtext">Recents</a></li>
+                    <li><a href="activeuse.php" class="dtext">contacts</a></li>
                     <li>
                         <a href="#" class="dtext">
                             <i class="fa-solid fa-circle-half-stroke darkm"></i>

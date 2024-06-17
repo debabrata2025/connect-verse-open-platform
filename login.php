@@ -2,13 +2,13 @@
 session_start();
 include 'connection.php';
 // Check if the user is already logged in via cookies
-if (isset($_COOKIE['user_id']) && isset($_COOKIE['email']) && isset($_COOKIE['name']) && isset($_COOKIE['pimg'])) {
+if (isset($_COOKIE['user_id']) && isset($_COOKIE['email']) && isset($_COOKIE['name']) && isset($_COOKIE['pimg']) && isset($_COOKIE['sid'])) {
     // Set session variables based on cookies
     $_SESSION['user_id'] = $_COOKIE['user_id'];
     $_SESSION['pemail'] = $_COOKIE['email'];
     $_SESSION['name'] = $_COOKIE['name'];
     $_SESSION['pimg'] = $_COOKIE['pimg'];
-
+    $_SESSION['session_id'] = $_COOKIE['sid'];
     ?>
     <script>
         location.replace("home.php");
@@ -50,10 +50,27 @@ if (isset($_COOKIE['user_id']) && isset($_COOKIE['email']) && isset($_COOKIE['na
                     $_SESSION['pemail'] = $email;
                     $pass_decode = password_verify($password, $db_pass);
                     if ($pass_decode) {
+                        // Insert new session record with device info
+                        $session_id = bin2hex(random_bytes(16));
+                        $_SESSION['session_id'] = $session_id;
+                        $device_info = $_POST['device'];
+                        $location = $_POST['location'];
+                        $l_time = $_POST['time'];
+                        $insert_session_query = "INSERT INTO 
+                        user_sessions (user_id, session_id, device_info, location, log_time) VALUES ('{$_SESSION['user_id']}', '$session_id', '$device_info', '$location', '$l_time')";
+                        mysqli_query($con, $insert_session_query);
+                        $update_cookie_query = "UPDATE demodata SET q_status=1 WHERE id='{$_SESSION['user_id']}'";
+                        mysqli_query($con, $update_cookie_query);;
+
                         setcookie('user_id', $email_pass['id'], time() + (86400 * 30), "/"); // 30 days
                         setcookie('email', $email, time() + (86400 * 30), "/");
                         setcookie('name', $email_pass['name'], time() + (86400 * 30), "/");
                         setcookie('pimg', $email_pass['image'], time() + (86400 * 30), "/");
+                        setcookie('sid', $session_id, time() + (86400 * 30), "/");
+
+                        
+                        
+                    
                         if (isset($_POST['rememberme'])) {
                             setcookie('emailcookie', $email, time() + 86400);
                             setcookie('passwordcookie', $password, time() + 86400);
@@ -117,7 +134,10 @@ if (isset($_COOKIE['user_id']) && isset($_COOKIE['email']) && isset($_COOKIE['na
                             echo $_COOKIE['passwordcookie'];
                         } ?>"
                         class="pp mi">
-                    <div class="show_pass">
+                        <input type="hidden" class="infor_div" name="location">
+                        <input type="hidden" class="infor_div" name="device">
+                        <input type="hidden" class="infor_div" name="time">
+                        <div class="show_pass">
                         <i class="fa-regular fa-eye"></i>
                     </div>
                 </div>
@@ -137,6 +157,7 @@ if (isset($_COOKIE['user_id']) && isset($_COOKIE['email']) && isset($_COOKIE['na
     <script src="form1.js"></script>
     <script src="online.js"></script>
     <script src="toploader.js"></script>
+    <script src="location_device_time.js"></script>
     <script>
         //show pass
         const showeye = document.querySelector('.fa-eye');

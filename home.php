@@ -1,12 +1,11 @@
 <?php
 session_start();
+include 'connection.php';
 
+// Function to clear cookies and redirect to login
 if (!isset($_SESSION['user_id']) && !isset($_COOKIE['user_id'])) {
-    ?>
-    <script>
-        location.replace("login.php");
-    </script>
-    <?php
+    echo "<script>location.replace('login.php');</script>";
+    exit;
 }
 
 // If cookies are set, but session is not, set the session from cookies
@@ -15,8 +14,31 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
     $_SESSION['name'] = $_COOKIE['name'];
     $_SESSION['pimg'] = $_COOKIE['pimg'];
     $_SESSION['pemail'] = $_COOKIE['email'];
+    $_SESSION['session_id'] = $_COOKIE['sid'];
+}
+
+// Update user status for maintaining all the sessions
+$user_id = mysqli_real_escape_string($con, $_SESSION['user_id']);
+$check_cookie_query = "SELECT q_status FROM demodata WHERE id='$user_id'";
+$query_result = mysqli_query($con, $check_cookie_query);
+$rd = mysqli_fetch_array($query_result);
+
+if ($rd['q_status'] == 0) {
+    // Delete cookies by setting their expiration time in the past
+    setcookie('user_id', '', time() - 3600, "/");
+    setcookie('email', '', time() - 3600, "/");
+    setcookie('name', '', time() - 3600, "/");
+    setcookie('pimg', '', time() - 3600, "/");
+    setcookie('sid', '', time() - 3600, "/");
+    echo "<script>location.replace('login.php');</script>";
+    exit;
+} else {
+    $update_cookie_query = "UPDATE demodata SET q_status=1 WHERE id='$user_id'";
+    mysqli_query($con, $update_cookie_query);
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -114,6 +136,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
                     <ul>
                         <li class="comments m_view_none"><a href="#" class="dtext">What's New</a></li>
                         <li class="comments m_view_none"><a href="community.php" class="dtext">community</a></li>
+                        <li class="uactivity m_view_none"><a href="#" class="dtext">User activity</a></li>
                         <li class="faq m_view_none"><a href="#" class="dtext">faq</a></li>
                         <li>
                             <a href="#" class="dtext">
@@ -168,6 +191,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
                     <div class="op active"><a href="#top" class="dt active">new post</a></div>
                     <div class="op comments"><a href="#" class="dt">What's New</a></div>
                     <div class="op"><a href="community.php" class="dt">community</a></div>
+                    <div class="op uactivity"><a href="#" class="dt">user activity</a></div>
                     <div class="op"><a href="#" class="dt" id="faq">faq</a></div>
                     <!-- Add some extra dummy items to create extra space for scrolling -->
                     <div class="op dummy"></div>
@@ -244,9 +268,13 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
                     <img src="<?php echo $_SESSION['pimg']; ?>" alt="profile_image" class="dp_head">
                 </div>
                 <div class="lout">
-                    <a href="logout.php" class="logout" tooltip="logout" flow="down">
+                    <a class="logout" tooltip="logout" flow="down">
                         <i class="fa fa-sign-out"></i>
                     </a>
+                </div>
+                <div class="log_devices">
+                    <a href="logout.php" class="primary_device ld">Logout for this device</a>
+                    <a href="logoutall.php" class="all_devices ld">Logout for all device</a>
                 </div>
             </div>
 
@@ -459,7 +487,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
                 }
             }
             ?>
-
+            <!-- feedback  -->
             <div class="mail_div">
                 <div class="head_part">Tweet across the whole world</div>
                 <div class="form_div">
@@ -467,6 +495,27 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
                         <textarea name="umsg" rows="8" placeholder="comment us" autocomplete="off" required></textarea>
                     </div>
                     <input type="submit" value="send" name="mailsubmit">
+                </div>
+            </div>
+          <!-- user activity -->
+            <div class="user_activity">
+                <div class="activity_details">
+                    <h2 class="ud">user activity</h2>
+                </div>
+                <div class="user_info">
+                <?php
+                 include 'connection.php';
+                 $u_id = $_SESSION['user_id'];
+                 $display_act = "SELECT * FROM user_sessions WHERE user_id='$u_id'";
+                 $m_q = mysqli_query($con, $display_act);
+                 while($row_act = mysqli_fetch_array($m_q)){
+                    ?>
+                    <div class="info">
+                        <li class="iii"><?php echo $row_act['device_info'] ?>, <?php echo $row_act['location'] ?>, <?php echo $row_act['log_time'] ?></li>
+                    </div>
+                    <?php
+                 }
+                ?>
                 </div>
             </div>
 
@@ -565,6 +614,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
     <script src="noti_count.js"></script>
     <script src="show_req.js"></script>
     <script src="accept.js"></script>
+    <script src="log_div.js"></script>
     <script>
 
         // //disable context-menu
@@ -767,6 +817,35 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_id'])) {
         faq_btn.addEventListener('click', () => {
             faq_box.classList.toggle('active');
         })
+
+
+        //toggle user act
+        //-----------------comments-----------------//
+        let activityBtn = document.querySelectorAll('.uactivity');
+        let activitybox = document.querySelector('.user_activity');
+
+        // Function to toggle showactive class
+        const toggleShowActive1 = (event) => {
+            activitybox.classList.toggle('active');
+            event.stopPropagation(); // Stop event from propagating to document
+        };
+
+        // Function to remove showactive class
+        const removeShowActive1 = () => {
+            activitybox.classList.remove('active');
+        };
+
+        // Add click event listeners to specific comment buttons
+        activityBtn[0].addEventListener('click', toggleShowActive1);
+        activityBtn[1].addEventListener('click', toggleShowActive1);
+
+        // Add click event listener to the document
+        document.addEventListener('click', removeShowActive1);
+
+        // Prevent the comment box from being deactivated when it's clicked
+        activitybox.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
 
     </script>
 </body>
