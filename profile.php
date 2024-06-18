@@ -204,7 +204,7 @@ if ($rd['q_status'] == 0) {
                         ?>
                         <p class="desp_pp"><?php echo $desp; ?></p>
                         <div class="des_edit">
-                            <i class="fa-solid fa-pen-to-square"></i>
+                            <i class="fa-solid fa-pen-to-square d_pen"></i>
                         </div>
                     </div>
                     <!-- description edit section -->

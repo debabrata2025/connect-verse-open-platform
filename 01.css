@@ -1960,6 +1960,14 @@
 {
   transform: translateY(-5px);
 }
+.main_div .main_profile_div .all_content .profile_description .des_edit i
+{
+  color: #000;
+}
+.main_div .main_profile_div .all_content .profile_description .des_edit i.d_active
+{
+  color: #e4e6eb;
+}
 /* description edit box */
 .main_div .main_profile_div .all_content .des_editor
 {
@@ -1992,6 +2000,10 @@
   font-family: "Roboto", sans-serif;
   background: transparent;
   color: #000;
+}
+.main_div .main_profile_div .all_content .des_editor .des_editor_com .text_area textarea.d_active
+{
+  color: #e4e6eb;
 }
 .main_div .main_profile_div .all_content .des_editor .des_editor_com .text_area textarea:focus
 {

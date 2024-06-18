@@ -19,6 +19,8 @@ const comic = document.querySelectorAll('.comic');
 const ppicon = document.querySelectorAll('.pp_icon');
 const cross_btn = document.querySelectorAll('.xcxc');
 const lbtns = document.querySelectorAll('.ld');
+const d_pen = document.querySelector(".d_pen");
+des_edit_main = document.querySelector('.des_edit_main');
 
 
 let getmode = localStorage.getItem("mode");
@@ -35,6 +37,8 @@ if(getmode && getmode === "dark"){
     dp_profile.classList.add('d_active');
     main_friends1.classList.add('d_active');
     main_friends.classList.add('d_active');
+    d_pen.classList.add('d_active');
+    des_edit_main.classList.add('d_active');
     lbtns.forEach((item)=>{
         item.classList.add('d_active');
     })
@@ -80,10 +84,12 @@ dbtn.addEventListener('click', () => {
     penicon.classList.toggle('d_active');
     pdes.classList.toggle('d_active');
     username.classList.toggle('d_active');
-    profile_videos_div.classList.toggle('d_active');
+    profile_videos_div.classList.toggle('d_active');    
     dp_profile.classList.toggle('d_active');
     main_friends1.classList.toggle('d_active');
     main_friends.classList.toggle('d_active');
+    d_pen.classList.toggle('d_active');
+    des_edit_main.classList.toggle('d_active');
     lbtns.forEach((item)=>{
         item.classList.toggle('d_active');
     })

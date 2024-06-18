@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2024 at 09:23 PM
+-- Generation Time: Jun 18, 2024 at 02:21 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,15 +36,6 @@ CREATE TABLE `answer` (
   `posttime` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `answer`
---
-
-INSERT INTO `answer` (`aid`, `qid`, `ans`, `user_img`, `u_name`, `posttime`) VALUES
-(68, '65', '5 steps to learn DSA from scratch<br />\r\nLearn at least one Programming Language<br />\r\nLearn about Complexities<br />\r\nLearn Data Structure and Algorithms<br />\r\n1) Array<br />\r\n2) String<br />\r\n3) Linked List<br />\r\n4) Searching Algorithm<br />\r\n5) Sorting Algorithm<br />\r\n6) Divide and Conquer Algorithm<br />\r\n7) Stack<br />\r\n8) Queue<br />\r\n9) Tree Data Structure<br />\r\n10) Graph Data Structure<br />\r\n11) Greedy Methodology<br />\r\n12) Recursion<br />\r\n13) Backtracking Algorithm<br />\r\n14) Dynamic Programming<br />\r\nPractice, practice and practice more<br />\r\nCompete and become a pro', 'pimg/1000060164.png', 'radhe debu', '1711546656256'),
-(69, '66', 'Self-improvement Tips to Try<br />\r\n1. Evaluate what isn\'t working and change it. We all have habits that don\'t serve us. ...<br />\r\n2. Set realistic goals. ...<br />\r\nMake a list of small changes you can make in your daily routine. ...<br />\r\n3. Invest in your health. ...<br />\r\nSurround yourself with people who want to see you do well. ...<br />\r\n4. Be patient with yourself.', 'pimg/Screenshot 2024-02-21 184215.png', 'Debabrata santra', '1711546707462'),
-(70, '67', 'ping me📌', 'pimg/Screenshot 2024-02-21 184215.png', 'Debabrata santra', '1712087300069');
-
 -- --------------------------------------------------------
 
 --
@@ -66,14 +57,48 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `post_id`, `user_name`, `user_img`, `comment`, `u_email`, `p_u_email`) VALUES
-(54, 63, 'radhe debu', 'pimg/1000060164.png', 'radhe radhe', 'd@gmail.com', 'ds2357196@gmail.com'),
-(55, 63, 'sbag', 'pimg/20240419_013013.jpg', 'radhe radhe', 's@gmail.com', 'ds2357196@gmail.com'),
-(57, 63, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'radhe krishna', 'ds2357196@gmail.com', 'ds2357196@gmail.com'),
-(59, 65, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'fbdfgdg', 'ds2357196@gmail.com', 'ds2357196@gmail.com'),
-(60, 65, 'connect verse', 'pimg/logo2_prev_ui.png', 'dfdsfsdf', 'cv@gmail.com', 'ds2357196@gmail.com'),
-(62, 67, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'thank you team @connectverse', 'ds2357196@gmail.com', 'cv@gmail.com'),
-(63, 67, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'ssdsd', 'ds2357196@gmail.com', 'cv@gmail.com'),
-(64, 67, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'thtthth', 'ds2357196@gmail.com', 'cv@gmail.com');
+(65, 77, 'Alexander', 'pimg/Screenshot 2024-06-18 143314.png', 'fantastic video ', 'a@gmail.com', 'f@gmail.com'),
+(66, 76, 'Alexander', 'pimg/Screenshot 2024-06-18 143314.png', 'that\'s right...', 'a@gmail.com', 'h@gmail.com'),
+(67, 75, 'Alexander', 'pimg/Screenshot 2024-06-18 143314.png', 'osm view', 'a@gmail.com', 's@gmail.com'),
+(68, 74, 'Alexander', 'pimg/Screenshot 2024-06-18 143314.png', 'good shot 😍😌', 'a@gmail.com', 'annable@gmail.com'),
+(69, 71, 'Alexander', 'pimg/Screenshot 2024-06-18 143314.png', 'VR is most exiting tech.', 'a@gmail.com', 'ser@gmail.com'),
+(70, 70, 'Alexander', 'pimg/Screenshot 2024-06-18 143314.png', 'great', 'a@gmail.com', 'james@gmail.com'),
+(71, 68, 'Alexander', 'pimg/Screenshot 2024-06-18 143314.png', 'welcome here 💕', 'a@gmail.com', 'ram@gmail.com'),
+(72, 77, 'James', 'pimg/2.png', 'good video', 'james@gmail.com', 'f@gmail.com'),
+(73, 76, 'James', 'pimg/2.png', '❤️❤️❤️', 'james@gmail.com', 'h@gmail.com'),
+(74, 75, 'James', 'pimg/2.png', '😍', 'james@gmail.com', 's@gmail.com'),
+(75, 74, 'James', 'pimg/2.png', 'nice view ❤️', 'james@gmail.com', 'annable@gmail.com'),
+(76, 73, 'James', 'pimg/2.png', 'my fav ❤️', 'james@gmail.com', 'a@gmail.com'),
+(77, 72, 'James', 'pimg/2.png', 'adventourous ✌️✌️', 'james@gmail.com', 'ram@gmail.com'),
+(78, 71, 'James', 'pimg/2.png', 'good tech', 'james@gmail.com', 'ser@gmail.com'),
+(79, 69, 'James', 'pimg/2.png', 'wow !!!', 'james@gmail.com', 's@gmail.com'),
+(80, 68, 'James', 'pimg/2.png', 'thx and welcome here 👍', 'james@gmail.com', 'ram@gmail.com'),
+(81, 77, 'Harry', 'pimg/5.png', 'pleasent view 😌😌😌', 'h@gmail.com', 'f@gmail.com'),
+(82, 75, 'Harry', 'pimg/5.png', 'love it ❤️', 'h@gmail.com', 's@gmail.com'),
+(83, 73, 'Harry', 'pimg/5.png', 'both are professional 📌', 'h@gmail.com', 'a@gmail.com'),
+(84, 71, 'Harry', 'pimg/5.png', 'I hav one .', 'h@gmail.com', 'ser@gmail.com'),
+(85, 69, 'Mr. Ram', 'pimg/4.png', 'Good picture 💓', 'ram@gmail.com', 's@gmail.com'),
+(86, 70, 'Mr. Ram', 'pimg/4.png', 'Fabulous 👍', 'ram@gmail.com', 'james@gmail.com'),
+(87, 72, 'Mr. Ram', 'pimg/4.png', 'Great job 👍', 'ram@gmail.com', 'ram@gmail.com'),
+(88, 73, 'Mr. Ram', 'pimg/4.png', 'Yes 😊', 'ram@gmail.com', 'a@gmail.com'),
+(89, 75, 'Mr. Ram', 'pimg/4.png', 'I wish to sleep in a filed seeing the night sky ✨✨✨', 'ram@gmail.com', 's@gmail.com'),
+(90, 78, 'Harry', 'pimg/5.png', '💕💕💕', 'h@gmail.com', 'ram@gmail.com'),
+(91, 78, 'seriyan', 'pimg/10.png', '❤️', 'ser@gmail.com', 'ram@gmail.com'),
+(92, 77, 'seriyan', 'pimg/10.png', 'sea my place of peace 😌', 'ser@gmail.com', 'f@gmail.com'),
+(93, 76, 'seriyan', 'pimg/10.png', '@follow my account ...', 'ser@gmail.com', 'h@gmail.com'),
+(94, 74, 'seriyan', 'pimg/10.png', 'that turtule is very lucky', 'ser@gmail.com', 'annable@gmail.com'),
+(95, 78, 'annable', 'pimg/9.png', '@connect verse 📌', 'annable@gmail.com', 'ram@gmail.com'),
+(96, 77, 'annable', 'pimg/9.png', 'that returns evey thing in a big term 💕', 'annable@gmail.com', 'f@gmail.com'),
+(97, 75, 'annable', 'pimg/9.png', 'i love too..', 'annable@gmail.com', 's@gmail.com'),
+(98, 74, 'annable', 'pimg/9.png', 'how was the post guys!!!', 'annable@gmail.com', 'annable@gmail.com'),
+(99, 71, 'annable', 'pimg/9.png', 'good but has more side effects', 'annable@gmail.com', 'ser@gmail.com'),
+(100, 71, 'Sophia', 'pimg/8.png', 'guys floow me ...', 'sophia@gmail.com', 'ser@gmail.com'),
+(101, 80, 'Sophia', 'pimg/8.png', 'Congratulations 🎉🎉🎉', 'sophia@gmail.com', 'ram@gmail.com'),
+(102, 79, 'Mr. Ram', 'pimg/4.png', 'congrats !!!', 'ram@gmail.com', 'sophia@gmail.com'),
+(103, 80, 'syam', 'pimg/6.png', 'congrats ..✌️✌️✌️', 's@gmail.com', 'ram@gmail.com'),
+(104, 79, 'syam', 'pimg/6.png', 'congrats ..✌️✌️✌️', 's@gmail.com', 'sophia@gmail.com'),
+(105, 80, 'foxypro', 'pimg/fox.jpg', 'congrats ❤️👍', 'f@gmail.com', 'ram@gmail.com'),
+(106, 79, 'foxypro', 'pimg/fox.jpg', 'congrats .', 'f@gmail.com', 'sophia@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -99,14 +124,16 @@ CREATE TABLE `demodata` (
 --
 
 INSERT INTO `demodata` (`id`, `name`, `email`, `phone`, `password`, `cpassword`, `image`, `description`, `status`, `q_status`) VALUES
-(54, 'radhedebu_321', 'ds2357196@gmail.com', '07319256047', '$2y$10$Rp9Gx3qfJneGnFFkf6aFSOu9uHx62KBUEwyQ1Sc1klPR.PEvnOeDi', '$2y$10$cFT2SL3kEl8c06Zw8uMiPuXpF5X9helBaLq10/67onBB7s7TDh20q', 'pimg/Screenshot 2024-02-21 184215.png', 'IEM 25 | coder | Developer | Kolkata', 'public', 1),
-(55, 'radhe debu', 'd@gmail.com', '123654', '$2y$10$1KrRAt5HKUqHmt6PDVcnW.ioCxxFDUdYeyxEK8CEY4IOJVfMHgjQW', '$2y$10$IPt.OPe7pGWxCnFEk4eu5OzwHMuxmahXzB9P504Y5Q5xoz3Cl3Oy2', 'pimg/1000060164.png', '', '', 0),
-(56, 'sbag', 's@gmail.com', '78854', '$2y$10$9kC526Mb5z4e0eipila8/.QyzUxHlIjbHRrhqdbFT5zvd41pbSXMG', '$2y$10$jNJ1z7CU25KOGPPlulKjTeAA.6lkHDXFcN8l5jBa7/ZhaccN88DPO', 'pimg/20240419_013013.jpg', 'Find your self', 'public', 0),
-(57, 'connect verse', 'cv@gmail.com', '123', '$2y$10$PAHvCgh3YlKMzOixhD7JcOQykUDu18yDAoLHofeORbm2.v2HeRirW', '$2y$10$T/ebozmXDKE6ZU8Ngr5zA.EPPjoEDrWDYbxcS6twFPRVbGJJcr2gO', 'pimg/logo2_prev_ui.png', 'A product to connect whole world.', 'public', 0),
-(58, 'radhe cc', 'cc@gmail.com', '4544554', '$2y$10$8yhNjFTXwYq8OtwOdvUY.ebQM3qLWLQpqyPeiqI0eHYulzNFWkWvm', '$2y$10$G2DYEhMlf.r4wCDfN73uoeZnXetosM.b6aezxMeM3QsLUL5X6vOgO', 'pimg/debunew.jpg', 'Smile is the best thing to do.', '', 0),
-(59, 'abir paria', 'abc@gmail.com', '12364555', '$2y$10$3LBXyyKdHED3xkdJ7yANgeLeinFGbOwkn7ZMVmoGmOEmcqPFOWOQ.', '$2y$10$PmTyk4ItEVqnTIRppHOeZOpb4vGG6NeH1FBWmUjJXkeBHPZJM27IK', 'pimg/Screenshot 2024-01-19 224856.png', '', '', 0),
-(60, 'star fish', 'sf@gmail.com', '123', '$2y$10$bxSVb2Nz0nLKww7BzYnV4eJvz9PwlyhcmnwIAci.0.HCx8seNZs5u', '$2y$10$rWKIw/kqluelIqeYRo/Ib.BsB0UlYicKeCR/pCcsdWiVdC5R7AzTa', 'pimg/PXL_20240314_125557018.jpg', '', 'public', 0),
-(61, '', '', '', '', '', '', '', '', 0);
+(62, 'Mr. Ram', 'ram@gmail.com', '123654', '$2y$10$nST1/reIgR7Gn9z5E0soy.NvWuNk9g.2WSOoo3JWu3/fKvAsr8dSa', '$2y$10$duV4ENGp1g5Lo0fr0g1dredxR7VfK6dHyXQWT.b3Avq0AFuk3.QVy', 'pimg/4.png', 'Believe you can and you\'re halfway there.', 'public', 1),
+(63, 'James', 'james@gmail.com', '123', '$2y$10$fXKfWb982dQxjvkgZMiUBeronbQVQ2s5oJtLpQiz0flIicjPkLtjq', '$2y$10$WboOm8b4rTXh4XD4Lcp2ru9o2jmf74TJhALJW0IthokoZkUh8Ye7m', 'pimg/2.png', 'Beauty begins the moment you decide to be yourself.', 'public', 1),
+(64, 'Alexander', 'a@gmail.com', '123', '$2y$10$qKuevqWh/YCOCh8JIM9DTudGHnw9AP7UVNo19oOTM.kyldwGz6Ot2', '$2y$10$ciojpr.XTiaWWtNffFY.2ub3Y0aoyVsD.67GNxCdjTdRdtajbBTmq', 'pimg/Screenshot 2024-06-18 143314.png', 'To travel is to live.', 'public', 1),
+(65, 'Harry', 'h@gmail.com', '123', '$2y$10$yP4JFux9Il3ktJfKP931iOxR2lFbsR3SWn43k/0exbjjlk0mZwEhy', '$2y$10$bvBbTuYJZ.mchPBPxwJAM.ord.Hnx50vTWySjPai3ftkEue.tR3jO', 'pimg/5.png', '', 'public', 1),
+(66, 'syam', 's@gmail.com', '123', '$2y$10$w6Er7SHlpZg3SLbia8Jq3.1XeGNca2cBYynoOmfXmqRSuPLAsXWhu', '$2y$10$TAJw8yZrAL0RWAxeMPAEpukD8AV0hYw2L/vKYGipecxUyAcEin2Ya', 'pimg/6.png', '', 'public', 1),
+(67, 'seriyan', 'ser@gmail.com', '123', '$2y$10$Nkamv8mqW.EmdUP98Iti8usU8vv6cUHJwPshFimknNxmntxoXIJaS', '$2y$10$dUGi0gnVDhiI.F92SP7xLOWQziG1.PmdpJh0RO7T/b30lSDhsTIDW', 'pimg/10.png', 'Who needs a gym when you have a jungle to prowl?', 'public', 1),
+(68, 'foxypro', 'f@gmail.com', '123', '$2y$10$0aaFiudmulM.TTzE3wcwiOLJaGOKRHs5.muMKKB3TJxbABhU06xMu', '$2y$10$xu4MLACaL/zgY02/rZvzsOASIWc.F3IsBOJNVwMQlj.qM84fR95Rq', 'pimg/fox.jpg', 'If you think I\'m sneaky, wait until you see my dance moves!', 'public', 1),
+(69, 'annable', 'annable@gmail.com', '123654', '$2y$10$q0ACcTRjU7/nEFZ6v47buONPDIZG7g1BiW4Zh9Kh/wtPkFn6dcR4K', '$2y$10$SnOAibq3T0OleWsdCM/Gk.h9eNNzJ.KnD86NX9NSBH3Tcdv1HBLTC', 'pimg/9.png', 'To love and be loved is to feel the sun from both sides.', 'public', 1),
+(70, 'Sophia', 'sophia@gmail.com', '123', '$2y$10$QSmrC8/sPtBnmFDNKuMnXe9In3SLZeBDCccFy3jrhTEJr2juVr5Q.', '$2y$10$kWZTe2k6KIyFFFDhwygV2.m1g7BS9qwN4IVpedBUJgNMXyYHF5nRu', 'pimg/8.png', '', 'public', 1),
+(71, 'Connect Verse', 'cv@gmail.com', '123321', '$2y$10$2Nu9bjqwiz2ntBEXe1hynutaoap15joQQYU/2Tu1LyG7EYftdOLWC', '$2y$10$G3wWViq4X9eB/kNqJq.Llepj0ariOd308/fbpuiwHzf0oPG.m/UE6', 'pimg/logo2_prev_ui.png', '', 'public', 0);
 
 -- --------------------------------------------------------
 
@@ -127,15 +154,25 @@ CREATE TABLE `friend_req` (
 --
 
 INSERT INTO `friend_req` (`id`, `sender_id`, `receiver_id`, `req_status`, `notification_status`) VALUES
-(121, 58, 54, 'friend', 'no'),
-(124, 55, 54, 'friend', 'no'),
-(125, 55, 58, 'friend', 'no'),
-(126, 56, 58, 'friend', 'no'),
-(127, 59, 58, 'friend', 'no'),
-(128, 57, 58, 'friend', 'no'),
-(129, 57, 54, 'friend', 'no'),
-(130, 54, 56, 'friend', 'no'),
-(131, 57, 56, 'friend', 'no');
+(132, 68, 62, 'friend', 'no'),
+(133, 64, 62, 'friend', 'no'),
+(134, 63, 62, 'friend', 'no'),
+(135, 65, 62, 'friend', 'no'),
+(136, 67, 62, 'friend', 'no'),
+(137, 70, 62, 'friend', 'no'),
+(138, 64, 70, 'friend', 'no'),
+(139, 63, 70, 'friend', 'no'),
+(140, 63, 68, 'friend', 'yes'),
+(141, 63, 65, 'friend', 'yes'),
+(142, 63, 66, 'friend', 'yes'),
+(143, 65, 70, 'friend', 'yes'),
+(144, 65, 68, 'friend', 'yes'),
+(145, 65, 66, 'friend', 'yes'),
+(146, 65, 69, 'friend', 'no'),
+(147, 65, 67, 'friend', 'yes'),
+(148, 69, 70, 'friend', 'no'),
+(149, 69, 68, 'friend', 'no'),
+(150, 68, 70, 'friend', 'no');
 
 -- --------------------------------------------------------
 
@@ -155,17 +192,82 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`id`, `post_id`, `user_id`, `active_status`) VALUES
-(19, 63, 54, 1),
-(20, 62, 54, 1),
-(21, 49, 55, 1),
-(22, 63, 55, 1),
-(23, 49, 54, 0),
-(24, 61, 54, 0),
-(25, 64, 54, 1),
-(26, 65, 54, 1),
-(27, 65, 57, 0),
-(28, 67, 57, 1),
-(29, 67, 54, 1);
+(30, 73, 69, 1),
+(31, 72, 69, 1),
+(32, 71, 69, 1),
+(33, 70, 69, 1),
+(34, 69, 69, 1),
+(35, 68, 69, 1),
+(36, 75, 65, 1),
+(37, 74, 65, 1),
+(38, 73, 65, 1),
+(39, 72, 65, 1),
+(40, 71, 65, 1),
+(41, 70, 65, 1),
+(42, 69, 65, 1),
+(43, 68, 65, 1),
+(44, 77, 63, 1),
+(45, 76, 63, 1),
+(46, 75, 63, 1),
+(47, 74, 63, 1),
+(48, 73, 63, 1),
+(49, 72, 63, 1),
+(50, 71, 63, 1),
+(51, 70, 63, 1),
+(52, 69, 63, 1),
+(53, 68, 63, 1),
+(54, 77, 65, 1),
+(55, 76, 65, 1),
+(56, 74, 62, 1),
+(57, 75, 62, 1),
+(58, 76, 62, 1),
+(59, 77, 62, 1),
+(60, 73, 62, 1),
+(61, 72, 62, 1),
+(62, 71, 62, 1),
+(63, 70, 62, 1),
+(64, 69, 62, 1),
+(65, 68, 62, 1),
+(66, 78, 65, 1),
+(67, 78, 67, 1),
+(68, 73, 67, 1),
+(69, 72, 67, 1),
+(70, 71, 67, 1),
+(71, 70, 67, 1),
+(72, 69, 67, 1),
+(73, 68, 67, 1),
+(74, 77, 69, 1),
+(75, 78, 69, 1),
+(76, 76, 69, 1),
+(77, 75, 69, 1),
+(78, 78, 70, 1),
+(79, 77, 70, 1),
+(80, 76, 70, 1),
+(81, 75, 70, 1),
+(82, 74, 70, 1),
+(83, 73, 70, 1),
+(84, 72, 70, 1),
+(85, 71, 70, 1),
+(86, 70, 70, 1),
+(87, 69, 70, 1),
+(88, 68, 70, 1),
+(89, 79, 62, 1),
+(90, 79, 64, 1),
+(91, 78, 64, 1),
+(92, 77, 64, 1),
+(93, 76, 64, 1),
+(94, 75, 64, 1),
+(95, 74, 64, 1),
+(96, 73, 64, 1),
+(97, 72, 64, 1),
+(98, 71, 64, 1),
+(99, 70, 64, 1),
+(100, 69, 64, 1),
+(101, 68, 64, 1),
+(102, 79, 63, 1),
+(103, 78, 63, 1),
+(104, 80, 62, 1),
+(105, 80, 70, 1);
 
 -- --------------------------------------------------------
 
@@ -187,11 +289,8 @@ CREATE TABLE `mailtable` (
 --
 
 INSERT INTO `mailtable` (`id`, `name`, `image`, `msg`, `email`, `msgdate`) VALUES
-(73, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'good night', 'ds2357196@gmail.com', '09-03-24'),
-(74, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'swwet dream\r\n', 'ds2357196@gmail.com', '09-03-24'),
-(81, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'hi', 'ds2357196@gmail.com', '26-03-24'),
-(83, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'hello', 'ds2357196@gmail.com', '26-03-24'),
-(87, 'radhe debu', 'pimg/1000060164.png', 'fdsffsd', 'd@gmail.com', '21-05-24');
+(88, 'Sophia', 'pimg/8.png', 'Hello, people what\'s up...', 'sophia@gmail.com', '18-06-24'),
+(89, 'Mr. Ram', 'pimg/4.png', 'Hi, sophia welcome here...', 'ram@gmail.com', '18-06-24');
 
 -- --------------------------------------------------------
 
@@ -213,19 +312,19 @@ CREATE TABLE `main_content` (
 --
 
 INSERT INTO `main_content` (`id`, `username`, `profileimg`, `video`, `desp`, `email`) VALUES
-(49, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/Screenshot 2024-01-12 191819.png', '', 'ds2357196@gmail.com'),
-(50, 'radhe debu', 'pimg/1000060164.png', 'mainmedia/PXL_20240313_143312693.MP.jpg', '', 'd@gmail.com'),
-(52, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_132229187.jpg', '', 'ds2357196@gmail.com'),
-(54, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240315_140218587.MP (1).jpg', '', 'ds2357196@gmail.com'),
-(55, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/1000060164.png', '', 'ds2357196@gmail.com'),
-(56, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_131634943.jpg', 'Radhe Radhe ❤️', 'ds2357196@gmail.com'),
-(57, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/PXL_20240314_132053466.jpg', 'Life is not about waiting for the storm to pass, but learning to dance in the rain.❤️❤️❤️', 'ds2357196@gmail.com'),
-(61, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/community forum.png', '', 'ds2357196@gmail.com'),
-(62, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/20240204_192800.jpg', 'Radhe Radhe ❤️ Hare Krishna ?', 'ds2357196@gmail.com'),
-(63, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/peakpx.jpg', '', 'ds2357196@gmail.com'),
-(64, 'sbag', 'pimg/20240419_013013.jpg', 'mainmedia/v2.mp4', 'In my own universe ❤️ #connectverse', 's@gmail.com'),
-(65, 'radhedebu_321', 'pimg/Screenshot 2024-02-21 184215.png', 'mainmedia/v1.mp4', '', 'ds2357196@gmail.com'),
-(67, 'connect verse', 'pimg/logo2_prev_ui.png', 'mainmedia/PXL_20240313_045708035.jpg', 'In my own universe ❤️ #connectverse', 'cv@gmail.com');
+(68, 'Mr. Ram', 'pimg/4.png', 'mainmedia/1.jpg', 'Welcome Guys !!! ', 'ram@gmail.com'),
+(69, 'syam', 'pimg/6.png', 'mainmedia/aarn-giri-IBhsB71R97k-unsplash.jpg', 'Change the world by being yourself.??', 's@gmail.com'),
+(70, 'James', 'pimg/2.png', 'mainmedia/leo_visions-dTJISDQZ1y4-unsplash.jpg', 'Hope is being able to see that there is light despite all of the darkness.?❤️', 'james@gmail.com'),
+(71, 'seriyan', 'pimg/10.png', 'mainmedia/Screenshot 2024-06-18 162421.png', 'With VR, you’re creating a world where anything is possible. ❤️', 'ser@gmail.com'),
+(72, 'Mr. Ram', 'pimg/4.png', 'mainmedia/jordan-sanchez-sLraJyotfeY-unsplash.jpg', 'Live your life by a compass not a clock.❤️', 'ram@gmail.com'),
+(73, 'Alexander', 'pimg/Screenshot 2024-06-18 143314.png', 'mainmedia/marjan-taghipour-jrqqBsvPYV0-unsplash.jpg', 'Black and white creates a strange dreamscape that color never can.', 'a@gmail.com'),
+(74, 'annable', 'pimg/9.png', 'mainmedia/35427-407130886_small.mp4', 'that view ?', 'annable@gmail.com'),
+(75, 'syam', 'pimg/6.png', 'mainmedia/beautiful-2297208_1280.jpg', 'I often think that the night is more alive and more richly colored than the day.  ❤️?', 's@gmail.com'),
+(76, 'Harry', 'pimg/5.png', 'mainmedia/xr-7499160_1280.jpg', 'The most powerful area ever ...', 'h@gmail.com'),
+(77, 'foxypro', 'pimg/fox.jpg', 'mainmedia/198488-907576442_small.mp4', 'Individually, we are one drop. Together, we are an ocean.', 'f@gmail.com'),
+(78, 'Mr. Ram', 'pimg/4.png', 'mainmedia/IMG_20231120_143924_156.jpg', 'maa durga ❤️?', 'ram@gmail.com'),
+(79, 'Sophia', 'pimg/8.png', 'mainmedia/IMG_20240524_132911_007.jpg', 'New swags from gcloud study jam?', 'sophia@gmail.com'),
+(80, 'Mr. Ram', 'pimg/4.png', 'mainmedia/1708516948419.jpeg', 'Finally, I received my Google Cloud Study Jam swags! ❤️? ', 'ram@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -240,16 +339,6 @@ CREATE TABLE `question` (
   `u_im` varchar(255) NOT NULL,
   `post_a_time` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `question`
---
-
-INSERT INTO `question` (`qid`, `ques`, `u_nam`, `u_im`, `post_a_time`) VALUES
-(65, 'tell me road map of dsa?<br />\r\n', 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', '1711546508493'),
-(66, 'how to make yourself perfect?<br />\r\n', 'radhe debu', 'pimg/1000060164.png', '1711546662402'),
-(67, 'Hi, community!!!', 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', '1712087286238'),
-(68, 'hi', 'Debabrata santra', 'pimg/Screenshot 2024-02-21 184215.png', '1712133007943');
 
 -- --------------------------------------------------------
 
@@ -271,7 +360,8 @@ CREATE TABLE `user_sessions` (
 --
 
 INSERT INTO `user_sessions` (`id`, `user_id`, `session_id`, `device_info`, `location`, `log_time`) VALUES
-(69, 54, 'f5a44fc3546de805cbb98931c13a9bf3', 'Windows', '', '6/18/2024, 12:16:52 AM');
+(96, 70, '4d2bbaf1694d09fc7cfd9e28d7f31cc9', 'Android', '', '6/18/2024, 5:23:56 PM'),
+(105, 68, 'af8cd328dc700e8c90124f21a7836d22', 'Windows', '', '6/18/2024, 5:42:28 PM');
 
 --
 -- Indexes for dumped tables
@@ -345,37 +435,37 @@ ALTER TABLE `answer`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `demodata`
 --
 ALTER TABLE `demodata`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `friend_req`
 --
 ALTER TABLE `friend_req`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 
 --
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT for table `mailtable`
 --
 ALTER TABLE `mailtable`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `main_content`
 --
 ALTER TABLE `main_content`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `question`
@@ -387,7 +477,7 @@ ALTER TABLE `question`
 -- AUTO_INCREMENT for table `user_sessions`
 --
 ALTER TABLE `user_sessions`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
