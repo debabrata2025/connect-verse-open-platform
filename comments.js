@@ -11,6 +11,7 @@ comment_area_main.forEach((ta) => {
 const comment_btn_sec = document.querySelectorAll('.fa-comment');
 const comment_sec = document.querySelectorAll('.send_btn_comment');
 const commentSection = document.querySelectorAll('.show_cmnt');
+const commentCount = document.querySelectorAll('.cmnt-count');
 
 //clicking on commet btn and toggle the comment setion
 comment_btn_sec.forEach((item, index) => {
@@ -96,6 +97,14 @@ comment_sec.forEach((button, index) => {
                         </div>
                     </div>
                 `;
+
+                if (result.cCount < 1) {
+                    commentCount[index].textContent = 'no';
+                } else {
+                    commentCount[index].textContent = result.cCount;
+                }
+
+
                 console.log(commentText);
                 // Append the new comment to the comment section
                 commentSection[index].insertAdjacentHTML('afterbegin', newCommentHtml);

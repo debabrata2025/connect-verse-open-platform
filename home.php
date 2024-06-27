@@ -370,13 +370,22 @@ if ($rd['q_status'] == 0) {
                         </div>
                         <div class="like_count">
                             <?php
+
+                            //like count
                             $postid = $arraydata['id'];
                             $countLikesQuery = "SELECT COUNT(*) AS likeCount FROM likes WHERE post_id = $postid  AND active_status = 1";
                             $result = mysqli_query($con, $countLikesQuery);
                             $row = mysqli_fetch_assoc($result);
                             $likeCount = $row['likeCount'];
+
+                            //comments count 
+                            $countcmntQuery = "SELECT COUNT(*) AS cmntCount FROM comments WHERE post_id = $postid";
+                            $result_com = mysqli_query($con, $countcmntQuery);
+                            $row_n = mysqli_fetch_assoc($result_com);
+                            $cmntCount = $row_n['cmntCount'];
                             ?>
                             <span class="like-count"><?php echo ($likeCount < 1) ? 'no' : $likeCount; ?></span> likes
+                            <span class="cmnt-count"><?php echo ($cmntCount < 1) ? 'no' : $cmntCount; ?></span> comments
                         </div>
                         <div class="des">
                             <span>

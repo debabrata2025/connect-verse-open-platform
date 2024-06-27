@@ -1452,6 +1452,7 @@
 /* like count  */
 .main_div .main_content .main_vids .like_count
 {
+  margin: 5px 0 10px;
   margin-left: 10px;
   font-family: "Roboto", sans-serif;
   font-size: 15px;
@@ -1461,6 +1462,10 @@
 .main_div .main_content .main_vids .like_count.d_active
 {
   color: #fff;
+}
+.main_div .main_content .main_vids .like_count .cmnt-count
+{
+  margin-left: 5px;
 }
 /* content description */
 .main_div .main_content .main_vids .des {
