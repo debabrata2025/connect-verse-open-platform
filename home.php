@@ -188,7 +188,7 @@ if ($rd['q_status'] == 0) {
             <!-- scroll options -->
             <div class="scroll_option">
                 <ul>
-                    <div class="op active"><a href="#top" class="dt active">new post</a></div>
+                    <div class="op active addsss"><a href="#top" class="dt active">add story</a></div>
                     <div class="op comments"><a href="#" class="dt">What's New</a></div>
                     <div class="op"><a href="community.php" class="dt">community</a></div>
                     <div class="op uactivity"><a href="#" class="dt">user activity</a></div>
@@ -212,7 +212,8 @@ if ($rd['q_status'] == 0) {
                         <li><a href="#"><i class="fa-solid fa-house dicon"></i><span class="iname">home</span></a></li>
                         <li class="add_media"><a id="upload"><i class="fa-sharp fa-solid fa-circle-plus dicon"></i><span
                                     class="iname">upload</span></a></li>
-                        <li class="bell_noti"><a><i class="fa-solid fa-bell dicon"></i><span class="iname">Signals</span><span class="unread"></span></a>
+                        <li class="bell_noti"><a><i class="fa-solid fa-bell dicon"></i><span
+                                    class="iname">Signals</span><span class="unread"></span></a>
                         </li>
                         <li><a href="tel: +917319256047"><i class="fa-solid fa-phone-volume dicon"></i><span
                                     class="iname">call
@@ -301,6 +302,79 @@ if ($rd['q_status'] == 0) {
                 </div>
             </div>
 
+            <!-- story section -->
+            <div class="main_stoey">
+                <!-- prev next icon -->
+                <div class="s_icon left" id="prev-slide">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+                <div class="s_icon right" id="next-slide">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+                <div class="stories">
+                    <label for="story_id">
+                        <div class="story">
+                            <div class="story_img">
+                                <img src="<?php echo $_SESSION['pimg']; ?>" alt="my_stroy" width="100">
+                            </div>
+                            <div class="story_user">
+                                add 
+                            </div>
+                        </div>
+                    </label>
+                    <?php
+                    include 'connection.php';
+                    $fetch_query = "SELECT * FROM story ORDER BY id DESC";
+                    $fq = mysqli_query($con, $fetch_query);
+                    while ($data = mysqli_fetch_array($fq)) {
+                        ?>
+                        <div class="story st">
+                            <div class="story_img">
+                                <img src="<?php echo $data['userimg'] ?>" alt="my_stroy" width="100" class="sub_s_img">
+                                <input type="hidden" value="<?php echo $data['story_p'] ?>" class="inputmmm">
+                            </div>
+                            <div class="story_user ppp">
+                                <?php echo $data['username'] ?>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+
+                </div>
+            </div>
+
+            <!-- add story section -->
+            <div class="story_box">
+                <div class="sb_head">
+                    <h2 class="ssh_h">add story</h2>
+                </div>
+                <div class="story_box_icon">
+                    <img src="upload_p.png" alt="hsdhshdhs" width="100" class="image_area_story">
+                </div>
+                <input type="file" id="story_id" accept="/images" style="display: none" class="input_story">
+                <div class="grp_st_btn">
+                    <label for="story_id">
+                        <div class="sb_btn">
+                            <div class="add_btn">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <span class="c_con_text">
+                                add
+                            </span>
+                        </div>
+                    </label>
+                    <div class="sb_btn">
+                        <div class="add_btn">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <span class="c_con_text">
+                            publish
+                        </span>
+                    </div>
+                </div>
+            </div>
+
             <!-- main content -->
             <div class="main_content">
                 <div class="copy_r"></div>
@@ -337,7 +411,7 @@ if ($rd['q_status'] == 0) {
                                     <img src="<?php echo $arraydata['profileimg']; ?>" alt="">
                                 </div>
                                 <div class="username">
-                                   <?php echo $arraydata['username']; ?>
+                                    <?php echo $arraydata['username']; ?>
                                 </div>
                             </a>
                         </div>
@@ -506,25 +580,27 @@ if ($rd['q_status'] == 0) {
                     <input type="submit" value="send" name="mailsubmit">
                 </div>
             </div>
-          <!-- user activity -->
+            <!-- user activity -->
             <div class="user_activity">
                 <div class="activity_details">
                     <h2 class="ud">user activity</h2>
                 </div>
                 <div class="user_info">
-                <?php
-                 include 'connection.php';
-                 $u_id = $_SESSION['user_id'];
-                 $display_act = "SELECT * FROM user_sessions WHERE user_id='$u_id'";
-                 $m_q = mysqli_query($con, $display_act);
-                 while($row_act = mysqli_fetch_array($m_q)){
-                    ?>
-                    <div class="info">
-                        <li class="iii"><?php echo $row_act['device_info'] ?>, <?php echo $row_act['location'] ?>, <?php echo $row_act['log_time'] ?></li>
-                    </div>
                     <?php
-                 }
-                ?>
+                    include 'connection.php';
+                    $u_id = $_SESSION['user_id'];
+                    $display_act = "SELECT * FROM user_sessions WHERE user_id='$u_id'";
+                    $m_q = mysqli_query($con, $display_act);
+                    while ($row_act = mysqli_fetch_array($m_q)) {
+                        ?>
+                        <div class="info">
+                            <li class="iii"><?php echo $row_act['device_info'] ?>, <?php echo $row_act['location'] ?>,
+                                <?php echo $row_act['log_time'] ?>
+                            </li>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
 
@@ -606,6 +682,28 @@ if ($rd['q_status'] == 0) {
         <div class="status"></div>
     </div>
 
+
+    <!-- main story seen area -->
+     <div class="main_story_area">
+        <div class="cross_btn_story">
+             <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="stoy_area_seen">
+            <div class="story_progess">
+                <div class="progess"></div>
+            </div>
+            <div class="user_story">
+                <div class="user_img_s">
+                    <img src="pimg/2.png" alt="ddfd" width="100" class="sss_im">
+                </div>
+                <div class="user_name_s">debabrata</div>
+            </div>
+            <div class="story_area_img">
+                <img src="mainmedia/aarn-giri-IBhsB71R97k-unsplash.jpg" alt="" width="200" class="ssss_im">
+            </div>
+        </div>
+     </div>
+
     </div>
 
     <script src="darkmode.js"></script>
@@ -624,6 +722,9 @@ if ($rd['q_status'] == 0) {
     <script src="show_req.js"></script>
     <script src="accept.js"></script>
     <script src="log_div.js"></script>
+    <script src="slider.js"></script>
+    <script src="story.js"></script>
+    <script src="storySeen.js"></script>
     <script>
 
         // //disable context-menu
@@ -776,6 +877,34 @@ if ($rd['q_status'] == 0) {
         commentbox.addEventListener('click', (event) => {
             event.stopPropagation();
         });
+
+
+        //story box
+        const sbbtn = document.querySelector('.addsss');
+        const sbox = document.querySelector('.story_box');
+
+        // Function to toggle showactive class
+        const toggleShowActive11 = (event) => {
+            sbox.classList.toggle('active');
+            event.stopPropagation(); // Stop event from propagating to document
+        };
+
+        // Function to remove showactive class
+        const removeShowActive11 = () => {
+            sbox.classList.remove('active');
+        };
+
+        // Add click event listeners to specific comment buttons
+        sbbtn.addEventListener('click', toggleShowActive11);
+
+        // Add click event listener to the document
+        document.addEventListener('click', removeShowActive11);
+
+        // Prevent the comment box from being deactivated when it's clicked
+        sbox.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
+
 
 
 

@@ -79,6 +79,11 @@ const ud = document.querySelector('.ud');
 const activity_details = document.querySelector('.activity_details');
 const ac_text = document.querySelectorAll('.iii');
 
+//stroy 
+let story_u = document.querySelectorAll('.story_user');
+let story_box = document.querySelector('.story_box');
+let shh = document.querySelector('.ssh_h');
+
 
 
 
@@ -142,6 +147,11 @@ if (getmode && getmode === "dark") {
     a_box.classList.add('d_active');
     ud.classList.add('d_active');
     activity_details.classList.add('d_active');
+    story_box.classList.add('d_ac');
+    shh.classList.add('d_active');
+    story_u.forEach((item) => {
+        item.classList.add('d_active');
+    })
     ac_text.forEach((item) => {
         item.classList.add('d_active');
     })
@@ -294,6 +304,11 @@ dbtn.addEventListener('click', () => {
     a_box.classList.toggle('d_active');
     ud.classList.toggle('d_active');
     activity_details.classList.toggle('d_active');
+    story_box.classList.toggle('d_ac');
+    shh.classList.toggle('d_active');
+    story_u.forEach((item) => {
+        item.classList.toggle('d_active');
+    })
     ac_text.forEach((item) => {
         item.classList.toggle('d_active');
     })
