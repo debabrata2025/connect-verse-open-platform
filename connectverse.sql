@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2024 at 02:21 PM
+-- Generation Time: Jul 03, 2024 at 09:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -98,7 +98,8 @@ INSERT INTO `comments` (`id`, `post_id`, `user_name`, `user_img`, `comment`, `u_
 (103, 80, 'syam', 'pimg/6.png', 'congrats ..✌️✌️✌️', 's@gmail.com', 'ram@gmail.com'),
 (104, 79, 'syam', 'pimg/6.png', 'congrats ..✌️✌️✌️', 's@gmail.com', 'sophia@gmail.com'),
 (105, 80, 'foxypro', 'pimg/fox.jpg', 'congrats ❤️👍', 'f@gmail.com', 'ram@gmail.com'),
-(106, 79, 'foxypro', 'pimg/fox.jpg', 'congrats .', 'f@gmail.com', 'sophia@gmail.com');
+(106, 79, 'foxypro', 'pimg/fox.jpg', 'congrats .', 'f@gmail.com', 'sophia@gmail.com'),
+(107, 78, 'Mr. Ram', 'pimg/4.png', 'bba', 'ram@gmail.com', 'ram@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -267,7 +268,8 @@ INSERT INTO `likes` (`id`, `post_id`, `user_id`, `active_status`) VALUES
 (102, 79, 63, 1),
 (103, 78, 63, 1),
 (104, 80, 62, 1),
-(105, 80, 70, 1);
+(105, 80, 70, 1),
+(106, 81, 62, 0);
 
 -- --------------------------------------------------------
 
@@ -343,6 +345,35 @@ CREATE TABLE `question` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `story`
+--
+
+CREATE TABLE `story` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `userimg` varchar(255) NOT NULL,
+  `story_p` varchar(255) NOT NULL,
+  `created_at` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `story`
+--
+
+INSERT INTO `story` (`id`, `username`, `email`, `userimg`, `story_p`, `created_at`) VALUES
+(40, 'Mr. Ram', 'ram@gmail.com', 'pimg/4.png', 'story/debunew.jpg', 1719941094),
+(41, 'syam', 's@gmail.com', 'pimg/6.png', 'story/1000060164.png', 1719941573),
+(42, 'Mr. Ram', 'ram@gmail.com', 'pimg/4.png', 'story/PXL_20231226_131155644.jpg', 1719943858),
+(43, 'Mr. Ram', 'ram@gmail.com', 'pimg/4.png', 'story/PXL_20231227_042457414.jpg', 1719944034),
+(44, 'syam', 's@gmail.com', 'pimg/6.png', 'story/PXL_20240314_125135097.jpg', 1719946117),
+(45, 'Mr. Ram', 'ram@gmail.com', 'pimg/4.png', 'story/PXL_20231227_053208164.jpg', 1719946192),
+(46, 'syam', 's@gmail.com', 'pimg/6.png', 'story/PXL_20240314_135003671.jpg', 1719946224),
+(47, 'Mr. Ram', 'ram@gmail.com', 'pimg/4.png', 'story/PXL_20231227_034335645.jpg', 1719946321);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user_sessions`
 --
 
@@ -361,7 +392,12 @@ CREATE TABLE `user_sessions` (
 
 INSERT INTO `user_sessions` (`id`, `user_id`, `session_id`, `device_info`, `location`, `log_time`) VALUES
 (96, 70, '4d2bbaf1694d09fc7cfd9e28d7f31cc9', 'Android', '', '6/18/2024, 5:23:56 PM'),
-(105, 68, 'af8cd328dc700e8c90124f21a7836d22', 'Windows', '', '6/18/2024, 5:42:28 PM');
+(105, 68, 'af8cd328dc700e8c90124f21a7836d22', 'Windows', '', '6/18/2024, 5:42:28 PM'),
+(106, 62, 'cd9d0e0c6432f223b5642904ee95fcbc', 'Windows', 'Dum Dum', '6/21/2024, 1:29:48 PM'),
+(107, 64, 'd979fb685979215cb93b900174048959', 'Windows', 'Dum Dum', '6/21/2024, 1:33:47 PM'),
+(108, 62, '67cc6ac77fbcf8a9d6f9deab961a57ce', 'Windows', 'Nalhāti', '6/27/2024, 11:10:23 PM'),
+(110, 64, 'e1614d1ceb8de36a5512d7a50f59519c', 'Windows', 'Nalhāti', '6/29/2024, 10:12:31 PM'),
+(111, 66, '135f95d6ee4f6b2075397cf4996026a0', 'Windows', 'West Bengal', '7/2/2024, 11:01:33 PM');
 
 --
 -- Indexes for dumped tables
@@ -416,6 +452,12 @@ ALTER TABLE `question`
   ADD PRIMARY KEY (`qid`);
 
 --
+-- Indexes for table `story`
+--
+ALTER TABLE `story`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user_sessions`
 --
 ALTER TABLE `user_sessions`
@@ -435,7 +477,7 @@ ALTER TABLE `answer`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT for table `demodata`
@@ -453,7 +495,7 @@ ALTER TABLE `friend_req`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `mailtable`
@@ -465,7 +507,7 @@ ALTER TABLE `mailtable`
 -- AUTO_INCREMENT for table `main_content`
 --
 ALTER TABLE `main_content`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `question`
@@ -474,10 +516,16 @@ ALTER TABLE `question`
   MODIFY `qid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
+-- AUTO_INCREMENT for table `story`
+--
+ALTER TABLE `story`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
 -- AUTO_INCREMENT for table `user_sessions`
 --
 ALTER TABLE `user_sessions`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
