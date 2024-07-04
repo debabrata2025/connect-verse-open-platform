@@ -28,7 +28,7 @@ publishbtn[1].addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            location.reload();
+            window.location = "home.php";
         } else {
             alert('Image upload failed: ' + data.message);
         }

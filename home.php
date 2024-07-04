@@ -688,6 +688,8 @@ if ($rd['q_status'] == 0) {
         <div class="cross_btn_story">
              <i class="fa-solid fa-xmark"></i>
         </div>
+        <div class="for_back_btn l"><i class="fa-solid fa-angle-left"></i></div>
+        <div class="for_back_btn r"><i class="fa-solid fa-angle-right"></i></div>
         <div class="stoy_area_seen">
             <div class="story_progess">
                 <div class="progess"></div>
