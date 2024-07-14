@@ -366,7 +366,7 @@ if ($rd['q_status'] == 0) {
                     </label>
                     <div class="sb_btn">
                         <div class="add_btn">
-                            <i class="fa-solid fa-plus"></i>
+                            <i class="fa-solid fa-upload"></i>
                         </div>
                         <span class="c_con_text">
                             publish
@@ -989,5 +989,4 @@ if ($rd['q_status'] == 0) {
 
     </script>
 </body>
-
 </html>

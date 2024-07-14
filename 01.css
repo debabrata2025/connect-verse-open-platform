@@ -3025,7 +3025,7 @@
 }
 
 /* media query for tablet*/
-@media (max-width: 1260px) {
+@media (max-width: 1300px) {
 
   .main h1 {
     font-size: 35px;
