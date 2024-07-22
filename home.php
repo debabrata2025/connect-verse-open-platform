@@ -209,7 +209,7 @@ if ($rd['q_status'] == 0) {
                 </div>
                 <div class="items">
                     <ul>
-                        <li><a href="#"><i class="fa-solid fa-house dicon"></i><span class="iname">home</span></a></li>
+                        <li><a href="home.php"><i class="fa-solid fa-house dicon"></i><span class="iname">home</span></a></li>
                         <li class="add_media"><a id="upload"><i class="fa-sharp fa-solid fa-circle-plus dicon"></i><span
                                     class="iname">upload</span></a></li>
                         <li class="bell_noti"><a><i class="fa-solid fa-bell dicon"></i><span

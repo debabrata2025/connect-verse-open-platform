@@ -43,54 +43,77 @@ if (isset($_COOKIE['user_id']) && isset($_COOKIE['email']) && isset($_COOKIE['na
         <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
             <?php
             include 'connection.php';
+
+            function generatePlaceholderImage($name) {
+                $initial = strtoupper($name[0]);
+                $colors = ['#e74c3c', '#3498db', '#f39c12', '#2ecc71'];
+                $backgroundColor = $colors[array_rand($colors)];
+                $textColor = '#ffffff'; // White text
+            
+                // SVG content
+                $svg = <<<SVG
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="$backgroundColor"/>
+                <text x="50%" y="50%" fill="$textColor" font-size="100" font-family="Arial" text-anchor="middle" alignment-baseline="middle">$initial</text>
+            </svg>
+            SVG;
+            
+                // Define the filename and save the SVG content
+                $filename = 'pimg/' . uniqid() . '.svg';
+                file_put_contents($filename, $svg);
+            
+                return $filename;
+            }            
+            
             if (isset($_POST['submit'])) {
                 $name = mysqli_real_escape_string($con, $_POST['name']);
                 $email = mysqli_real_escape_string($con, $_POST['email']);
                 $phone = mysqli_real_escape_string($con, $_POST['phone']);
                 $password = mysqli_real_escape_string($con, $_POST['password']);
                 $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
-
+            
                 // for profile image
                 $file = $_FILES['pimage'];
                 $filename = $file['name'];
                 $filepath = $file['tmp_name'];
                 $fileerror = $file['error'];
-
+            
                 // password hashing
                 $hasspass = password_hash($password, PASSWORD_BCRYPT);
                 $conhasspass = password_hash($cpassword, PASSWORD_BCRYPT);
-
-                //email validation
-                $checkemail = "select * from demodata where email='$email'";
+            
+                // email validation
+                $checkemail = "SELECT * FROM demodata WHERE email='$email'";
                 $emailquery = mysqli_query($con, $checkemail);
                 $emailcount = mysqli_num_rows($emailquery);
-
+            
                 if ($emailcount > 0) {
-                    $_SESSION['main_alt'] = "email alreay used";
+                    $_SESSION['main_alt'] = "Email already used";
                 } else {
-                    //password validation
+                    // password validation
                     if ($password === $cpassword) {
                         if ($fileerror == 0) {
                             $destpath = 'pimg/' . $filename;
                             move_uploaded_file($filepath, $destpath);
-                            $insertquery = "insert into demodata(name,email,phone,password,cpassword,image, status) 
-                 values('$name','$email', '$phone', '$hasspass', '$conhasspass', '$destpath', 'public')";
-                            $query = mysqli_query($con, $insertquery);
-                            if ($query) {
-                                ?>
-                                <script>
-                                    alert("sent");
-                                    location.replace("login.php");
-                                </script>
-                                <?php
-                            } else {
-                                $_SESSION['main_alt'] = "not sent";
-                            }
                         } else {
-                            $_SESSION['main_alt'] = "upload profile image**";
+                            $destpath = generatePlaceholderImage($name);
+                        }
+                        $insertquery = "INSERT INTO demodata(name, email, phone, password, cpassword, image, status) 
+                                        VALUES('$name','$email', '$phone', '$hasspass', '$conhasspass', '$destpath', 'public')";
+                        $query = mysqli_query($con, $insertquery);
+                        if ($query) {
+                            ?>
+                            <script>
+                                alert("Registration Successful");
+                                location.replace("login.php");
+                            </script>
+                            <?php
+                        } else {
+                            $_SESSION['main_alt'] = "Registration Failed";
                         }
                     } else {
-                        $_SESSION['main_alt'] = "password not matched";
+                        $_SESSION['main_alt'] = "Passwords do not match";
                     }
                 }
             }

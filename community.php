@@ -66,9 +66,6 @@ if ($rd['q_status'] == 0) {
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="home.php" class="dtext">home</a></li>
-                    <li class="comments"><a href="#" class="dtext">Recents</a></li>
-                    <li><a href="activeuse.php" class="dtext">contacts</a></li>
                     <li>
                         <a href="#" class="dtext">
                             <i class="fa-solid fa-circle-half-stroke darkm"></i>
@@ -95,7 +92,7 @@ if ($rd['q_status'] == 0) {
             </div>
             <div class="items">
                 <ul>
-                    <li><a href="#"><i class="fa-solid fa-house dicon"></i><span class="iname">home</span></a></li>
+                    <li><a href="home.php"><i class="fa-solid fa-house dicon"></i><span class="iname">home</span></a></li>
                     <li class="add_media"><a id="upload"><i class="fa-sharp fa-solid fa-circle-plus dicon"></i><span
                                 class="iname">upload</span></a></li>
                     <li><a href="tel: +917319256047"><i class="fa-solid fa-phone-volume dicon"></i><span
@@ -291,10 +288,6 @@ if ($rd['q_status'] == 0) {
             </div>
 
 
-        </div>
-
-        <div class="display_popup">
-            <span class="alert">sent</span>
         </div>
 
         <div class="internet_status">
